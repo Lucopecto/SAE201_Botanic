@@ -81,6 +81,25 @@ namespace SAE201_Botanic
                 this.prixVente = value;
             }
         }
+
+        #endregion
+
+        #region Methode
+        public override bool Equals(object? obj)
+        {
+            return obj is Produit produit &&
+                   this.NumProduit == produit.NumProduit &&
+                   this.NomProduit == produit.NomProduit &&
+                   this.TailleProduit == produit.TailleProduit &&
+                   this.DescriptionProduit == produit.DescriptionProduit &&
+                   this.PrixVente == produit.PrixVente;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(this.NumProduit, this.NomProduit, this.TailleProduit, this.DescriptionProduit, this.PrixVente);
+        }
+
         #endregion
     }
 }
