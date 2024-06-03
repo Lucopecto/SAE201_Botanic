@@ -9,8 +9,8 @@ namespace SAE201_Botanic
     public class Magasin
     {
         #region Champs
-        private string numMagasin;
-        private int nomMagasin;
+        private int numMagasin;
+        private string nomMagasin;
         private string rueMagasin;
         private string CPMagasin;
         private string villeMagasin;

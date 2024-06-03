@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace SAE201_Botanic
 {
-    public class Utilisateur
+    public class Utilisateur /*: Magasin*/
     {
         #region Chammps
-        private string numUtilisateur;
-        private string nomUtilisateur;
+        private int numUtilisateur;
+        //private Magasin unMagazin;
         private string loginUtilisateur;
         private string mdpUtilisateur;
         #endregion
 
         #region Propriete
-        public string NumUtilisateur
+        public int NumUtilisateur
         {
             get
             {
@@ -29,18 +29,18 @@ namespace SAE201_Botanic
             }
         }
 
-        public string NomUtilisateur
-        {
-            get
-            {
-                return nomUtilisateur;
-            }
+        //public Magasin UnMagazin
+        //{
+        //    get
+        //    {
+        //        return unMagazin;
+        //    }
 
-            set
-            {
-                nomUtilisateur = value;
-            }
-        }
+        //    set
+        //    {
+        //        unMagazin = value;
+        //    }
+        //}
 
         public string LoginUtilisateur
         {
@@ -70,27 +70,32 @@ namespace SAE201_Botanic
         #endregion
 
         #region Constructeur
-        public Utilisateur(string numUtilisateur, string nomUtilisateur, string loginUtilisateur, string mdpUtilisateur)
+        public Utilisateur(int numUtilisateur, Magasin unMagazin, string loginUtilisateur, string mdpUtilisateur)
         {
             this.NumUtilisateur = numUtilisateur;
-            this.NomUtilisateur = nomUtilisateur;
+            //this.UnMagazin = unMagazin;
             this.LoginUtilisateur = loginUtilisateur;
             this.MdpUtilisateur = mdpUtilisateur;
         }
+
+        //public Utilisateur(string numMagasin, int nomMagasin, string rueMagasin, string cPMagasin1, string villeMagasin, DateTime horaire) : base(numMagasin, nomMagasin, rueMagasin, cPMagasin1, villeMagasin, horaire)
+        //{
+        //}
+
         #endregion
 
         #region Methode
         public override bool Equals(object? obj)
         {
             return obj is Utilisateur utilisateur &&
-                   this.NomUtilisateur == utilisateur.NomUtilisateur &&
+                   //this.NomUtilisateur == utilisateur.NomUtilisateur &&
                    this.LoginUtilisateur == utilisateur.LoginUtilisateur &&
                    this.MdpUtilisateur == utilisateur.MdpUtilisateur;
         }
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(this.NumUtilisateur, this.NomUtilisateur, this.LoginUtilisateur, this.MdpUtilisateur);
+            return HashCode.Combine(this.NumUtilisateur, /*this.NomUtilisateur,*/ this.LoginUtilisateur, this.MdpUtilisateur);
         }
 
         #endregion
