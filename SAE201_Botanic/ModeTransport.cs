@@ -46,6 +46,5 @@ namespace SAE201_Botanic
             return HashCode.Combine(this.ModeTransport);
         }
         #endregion
-
     }
 }
