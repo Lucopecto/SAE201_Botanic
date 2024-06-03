@@ -18,7 +18,7 @@ namespace SAE201_Botanic
         #endregion
 
         #region Propriete
-        public string NumMagasin
+        public int NumMagasin
         {
             get
             {
@@ -31,7 +31,7 @@ namespace SAE201_Botanic
             }
         }
 
-        public int NomMagasin
+        public string NomMagasin
         {
             get
             {
@@ -100,7 +100,7 @@ namespace SAE201_Botanic
         #endregion
 
         #region Constructeur
-        public Magasin(string numMagasin, int nomMagasin, string rueMagasin, string cPMagasin1, string villeMagasin, DateTime horaire)
+        public Magasin(int numMagasin, string nomMagasin, string rueMagasin, string cPMagasin1, string villeMagasin, DateTime horaire)
         {
             this.NumMagasin = numMagasin;
             this.NomMagasin = nomMagasin;
