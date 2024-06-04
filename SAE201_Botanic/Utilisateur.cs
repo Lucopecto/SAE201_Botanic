@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace SAE201_Botanic
 {
-    public class Utilisateur /*: Magasin*/
+    public class Utilisateur
     {
         #region Chammps
         private int numUtilisateur;
-        //private Magasin unMagazin;
+        private Magasin unMagasin;
         private string loginUtilisateur;
         private string mdpUtilisateur;
         #endregion
@@ -28,19 +28,6 @@ namespace SAE201_Botanic
                 numUtilisateur = value;
             }
         }
-
-        //public Magasin UnMagazin
-        //{
-        //    get
-        //    {
-        //        return unMagazin;
-        //    }
-
-        //    set
-        //    {
-        //        unMagazin = value;
-        //    }
-        //}
 
         public string LoginUtilisateur
         {
@@ -67,20 +54,33 @@ namespace SAE201_Botanic
                 this.mdpUtilisateur = value;
             }
         }
+
+        public Magasin UnMagasin
+        {
+            get
+            {
+                return this.unMagasin;
+            }
+
+            set
+            {
+                this.unMagasin = value;
+            }
+        }
         #endregion
 
         #region Constructeur
-        public Utilisateur(int numUtilisateur, Magasin unMagazin, string loginUtilisateur, string mdpUtilisateur)
+        public Utilisateur(int numUtilisateur, Magasin unMagasin)
         {
             this.NumUtilisateur = numUtilisateur;
-            //this.UnMagazin = unMagazin;
+            this.UnMagasin = unMagasin;
+        }
+
+        public Utilisateur(int numUtilisateur, Magasin unMagasin, string loginUtilisateur, string mdpUtilisateur) : this(numUtilisateur, unMagasin)
+        {
             this.LoginUtilisateur = loginUtilisateur;
             this.MdpUtilisateur = mdpUtilisateur;
         }
-
-        //public Utilisateur(string numMagasin, int nomMagasin, string rueMagasin, string cPMagasin1, string villeMagasin, DateTime horaire) : base(numMagasin, nomMagasin, rueMagasin, cPMagasin1, villeMagasin, horaire)
-        //{
-        //}
 
         #endregion
 
@@ -88,16 +88,16 @@ namespace SAE201_Botanic
         public override bool Equals(object? obj)
         {
             return obj is Utilisateur utilisateur &&
-                   //this.NomUtilisateur == utilisateur.NomUtilisateur &&
+                   this.NumUtilisateur == utilisateur.NumUtilisateur &&
+                   EqualityComparer<Magasin>.Default.Equals(this.UnMagasin, utilisateur.UnMagasin) &&
                    this.LoginUtilisateur == utilisateur.LoginUtilisateur &&
                    this.MdpUtilisateur == utilisateur.MdpUtilisateur;
         }
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(this.NumUtilisateur, /*this.NomUtilisateur,*/ this.LoginUtilisateur, this.MdpUtilisateur);
+            return HashCode.Combine(this.NumUtilisateur, this.UnMagasin, this.LoginUtilisateur, this.MdpUtilisateur);
         }
-
         #endregion
     }
 }
