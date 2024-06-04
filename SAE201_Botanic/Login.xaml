@@ -151,7 +151,7 @@
                     Foreground="White">
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
-                            <Setter Property="CornerRadius" Value="15" />
+                            <Setter Property="CornerRadius" Value="5" />
                         </Style>
                     </Button.Resources>
                 </Button>
@@ -201,6 +201,7 @@
                     BorderThickness="0,0,0,0" />
 
                 <Button
+                    x:Name="btnValiderMdpOublie"
                     Width="70"
                     Height="30"
                     Margin="0,20,0,0"
@@ -209,16 +210,16 @@
                     Background="#FF1C9E7F"
                     BorderThickness="0"
                     Content="OK"
-                    Foreground="White">
+                    Foreground="White" Click="Goto_DemandeEnvoye">
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
-                            <Setter Property="CornerRadius" Value="15" />
+                            <Setter Property="CornerRadius" Value="5" />
                         </Style>
                     </Button.Resources>
                 </Button>
 
                 <Button
-                    x:Name="btnRetourConnexion"
+                    x:Name="btnRetourConnexion1"
                     Margin="0,5,0,0"
                     HorizontalAlignment="Center"
                     Background="#00000000"
@@ -228,6 +229,52 @@
                     FontSize="10"
                     FontStyle="Italic"
                     Foreground="Gray" />
+
+
+
+            </StackPanel>
+
+
+
+            <StackPanel
+    x:Name="spDemandeEnvoyee"
+    Grid.Column="1"
+    Canvas.Left="600"
+    Canvas.Top="200"
+    Width="250"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Center"
+    Visibility="Hidden">
+
+                <Label
+        x:Name="lbDemandeEnvoyee"
+        HorizontalAlignment="Stretch"
+        VerticalAlignment="Top"
+        HorizontalContentAlignment="Center"
+        Content="DEMANDE ENVOYÉE"
+        FontFamily="Yu Gothic UI Semibold"
+        FontSize="16"
+        Foreground="#FF002D22" />
+
+                <TextBlock HorizontalAlignment="Stretch"
+VerticalAlignment="Top"
+TextAlignment="Center"
+Text="Une demande de réinitialisation de mot de passe à été envoyé à votre responsable RH. Veuillez-vous en rapprocher pour récupérer vos informations"
+FontFamily="Yu Gothic UI Light"
+FontSize="12"
+                           TextWrapping="Wrap"/>
+
+                <Button
+        x:Name="btnRetourConnexion2"
+        Margin="0,5,0,0"
+        HorizontalAlignment="Center"
+        Background="#00000000"
+        BorderThickness="0"
+        Click="Goto_Connexion"
+        Content="◄ Retour"
+        FontSize="10"
+        FontStyle="Italic"
+        Foreground="Gray" />
 
 
 

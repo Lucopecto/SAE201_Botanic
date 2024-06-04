@@ -33,7 +33,14 @@ namespace SAE201_Botanic
         private void Goto_Connexion(object sender, RoutedEventArgs e)
         {
             spMdpOublie.Visibility = Visibility.Hidden;
+            spDemandeEnvoyee.Visibility = Visibility.Hidden;
             spConnexion.Visibility = Visibility.Visible;
+        }
+
+        private void Goto_DemandeEnvoye(object sender, RoutedEventArgs e)
+        {
+            spMdpOublie.Visibility = Visibility.Hidden;
+            spDemandeEnvoyee.Visibility = Visibility.Visible;
         }
 
         private void ValiderConnexion(object sender, RoutedEventArgs e)
@@ -42,5 +49,6 @@ namespace SAE201_Botanic
             Close();
             mainWin.Show();
         }
+
     }
 }
