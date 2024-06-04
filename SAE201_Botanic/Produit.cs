@@ -141,7 +141,7 @@ namespace SAE201_Botanic
         #endregion
 
         #region Constructeur
-        public Produit(int numProduit, Couleur uneCouleur, Categorie uneCategorie, Fournisseur unFournisseur, string nomProduit, string tailleProduit, string descriptionProduit, double prixVente)
+        public Produit(int numProduit, Couleur uneCouleur, Categorie uneCategorie, Fournisseur unFournisseur, string nomProduit, string tailleProduit, string descriptionProduit, double prixVente, double prixAchat)
         {
             this.NumProduit = numProduit;
             this.UneCouleur = uneCouleur;
@@ -151,14 +151,8 @@ namespace SAE201_Botanic
             this.TailleProduit = tailleProduit;
             this.DescriptionProduit = descriptionProduit;
             this.PrixVente = prixVente;
-        }
-
-        public Produit(int numProduit, Couleur uneCouleur, Categorie uneCategorie, Fournisseur unFournisseur, string nomProduit, string tailleProduit, string descriptionProduit, double prixVente, double prixAchat) : this(numProduit, uneCouleur, uneCategorie, unFournisseur, nomProduit, tailleProduit, descriptionProduit, prixVente)
-        {
             this.PrixAchat = prixAchat;
         }
-
-
         #endregion
 
         #region Methode

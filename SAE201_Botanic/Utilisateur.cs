@@ -70,14 +70,10 @@ namespace SAE201_Botanic
         #endregion
 
         #region Constructeur
-        public Utilisateur(int numUtilisateur, Magasin unMagasin)
+        public Utilisateur(int numUtilisateur, Magasin unMagasin, string loginUtilisateur, string mdpUtilisateur)
         {
             this.NumUtilisateur = numUtilisateur;
             this.UnMagasin = unMagasin;
-        }
-
-        public Utilisateur(int numUtilisateur, Magasin unMagasin, string loginUtilisateur, string mdpUtilisateur) : this(numUtilisateur, unMagasin)
-        {
             this.LoginUtilisateur = loginUtilisateur;
             this.MdpUtilisateur = mdpUtilisateur;
         }
