@@ -6,8 +6,8 @@
     xmlns:local="clr-namespace:SAE201_Botanic"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="Authentification"
-    Width="1600"
-    Height="900"
+    Width="1200"
+    Height="700"
     Icon="rsc/icon_botanic.ico"
     mc:Ignorable="d">
 
@@ -19,81 +19,143 @@
         <Grid.Background>
             <ImageBrush ImageSource="rsc/fond_page_authentification.png" />
         </Grid.Background>
+
+
+
         <Canvas
-            Width="1200"
-            Height="700"
-            Background="WhiteSmoke">
+            Width="1000"
+            Height="500"
+            Background="White">
+
             <Label
-                Canvas.Left="589"
-                Canvas.Top="100"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Content="Identifiant"
-                FontStyle="Italic"
-                Foreground="Black" />
-            <Label
-                Canvas.Left="600"
-                Canvas.Top="151"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Content="Mot de passe"
-                FontStyle="Italic" />
-            <TextBox
-                Canvas.Left="600"
+                Canvas.Left="373"
                 Canvas.Top="131"
-                Width="173"
-                Height="23"
-                HorizontalAlignment="Left"
+                Width="627"
+                Height="57"
+                HorizontalAlignment="Center"
                 VerticalAlignment="Top"
-                Text=""
-                TextWrapping="Wrap" />
-            <TextBox
-                Canvas.Left="589"
-                Canvas.Top="182"
-                Width="173"
-                Height="23"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Text=""
-                TextWrapping="Wrap" />
-            <Button
-                Canvas.Left="591"
-                Canvas.Top="210"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Background="#00000000"
-                BorderBrush="#00000000"
-                Content="Mot de passe oublié ?"
-                FontSize="10"
-                FontStyle="Italic"
-                Foreground="Gray" />
-            <Button
-                Canvas.Left="641"
-                Canvas.Top="247"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Background="White"
-                BorderBrush="Black"
-                Content="Se connecter"
-                FontStyle="Italic" />
+                HorizontalContentAlignment="Center"
+                Content="CONNEXION"
+                FontFamily="Yu Gothic UI Semibold"
+                FontSize="32"
+                Foreground="#FF002D22" />
+
+
+
+            <StackPanel Canvas.Left="600" Canvas.Top="200">
+
+                <Label
+                    Canvas.Left="589"
+                    Canvas.Top="100"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Content="Identifiant"
+                    FontFamily="Segoe UI Light"
+                    FontStyle="Italic"
+                    Foreground="Black" />
+
+                <TextBox
+                    Width="173"
+                    Height="23"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Background="#FFEBF3F0"
+                    BorderThickness="0,0,0,0"
+                    Text=""
+                    TextWrapping="Wrap">
+                    <TextBox.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="5" />
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
+
+                <Label
+                    Canvas.Left="600"
+                    Canvas.Top="151"
+                    Margin="0,10,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Content="Mot de passe"
+                    FontFamily="Segoe UI Light"
+                    FontStyle="Italic" />
+
+
+                <TextBox
+                    Canvas.Left="589"
+                    Canvas.Top="182"
+                    Width="173"
+                    Height="23"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Background="#FFEBF3F0"
+                    BorderThickness="0,0,0,0"
+                    Text=""
+                    TextWrapping="Wrap">
+                    <TextBox.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="5" />
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
+
+                <Button
+                    Canvas.Left="591"
+                    Canvas.Top="210"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Background="#00000000"
+                    BorderBrush="#00000000"
+                    Content="Mot de passe oublié ?"
+                    FontSize="10"
+                    FontStyle="Italic"
+                    Foreground="Gray" />
+
+                <Button
+                    Width="70"
+                    Height="30"
+                    Margin="0,20,0,0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Background="#FF1C9E7F"
+                    BorderThickness="0"
+                    Content="OK"
+                    Foreground="White">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="15" />
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+            </StackPanel>
+
+
+
             <Canvas>
+
                 <Image
-                    Width="522"
-                    Height="700"
+                    Width="373"
+                    Height="500"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     Source="/rsc/image_page_authentification.png"
                     Stretch="Fill" />
+
                 <Image
-                    Canvas.Left="136"
-                    Canvas.Top="225"
-                    Width="250"
-                    Height="250"
+                    Canvas.Left="86"
+                    Canvas.Top="150"
+                    Width="200"
+                    Height="200"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    Source="/rsc/botanic_annecy.png"
+                    Source="/rsc/logos_botanic/annecy.png"
                     Stretch="Fill" />
+
             </Canvas>
+
+
+
         </Canvas>
 
 
