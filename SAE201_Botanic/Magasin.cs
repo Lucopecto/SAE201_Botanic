@@ -29,13 +29,13 @@ namespace SAE201_Botanic
 
             set
             {
-                if (numMagasin > 0)
+                if (numMagasin >= 0 && numMagasin <= 9)
                 {
                     numMagasin = value;
                 }
                 else
                 {
-                    throw new ArgumentOutOfRangeException("Le numéro du magasin doit être supérieur à 0.");
+                    throw new ArgumentOutOfRangeException("Le numéro du magasin doit être compris entre 0 et 9.");
                 }
             }
         }
@@ -135,7 +135,7 @@ namespace SAE201_Botanic
                 }
                 else
                 {
-                    throw new ArgumentException("L'horaire doit être au format hhHmm-hhHmm.");
+                    throw new ArgumentException("L'horaire doit être au format HH:mm.");
                 }
             }
         }

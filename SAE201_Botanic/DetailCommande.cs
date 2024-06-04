@@ -50,14 +50,7 @@ namespace SAE201_Botanic
 
             set
             {
-                if (quantite > 0)
-                {
-                    quantite = value;
-                }
-                else
-                {
-                    throw new ArgumentOutOfRangeException("La quantité doit être supérieur à 0.");
-                }
+                this.quantite = value;
             }
         }
 

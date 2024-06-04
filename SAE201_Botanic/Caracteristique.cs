@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace SAE201_Botanic
@@ -24,14 +23,7 @@ namespace SAE201_Botanic
 
             set
             {
-                if (numCaracteristique > 0)
-                {
-                    numCaracteristique = value;
-                }
-                else
-                {
-                    throw new ArgumentOutOfRangeException("Le numéro de la caractéristique doit être supérieur à 0.");
-                }
+                numCaracteristique = value;
             }
         }
 
@@ -44,14 +36,7 @@ namespace SAE201_Botanic
 
             set
             {
-                if (nomCaracteristique.Length <= 50 && Regex.IsMatch(nomCaracteristique, @"^[a-zA-Z]+$"))
-                {
-                    nomCaracteristique = value;
-                }
-                else
-                {
-                    throw new ArgumentException("Le nom de la caractéristique doit contenir uniquement des lettres et ne pas dépasser 50 caractères.");
-                }
+                this.nomCaracteristique = value;
             }
         }
         #endregion

@@ -31,13 +31,13 @@ namespace SAE201_Botanic
 
             set
             {
-                if (numProduit > 0 )
+                if (numProduit >= 0 && numProduit <= 9)
                 {
                     numProduit = value;
                 }
                 else
                 {
-                    throw new ArgumentOutOfRangeException("Le numéro du produit doit être supérieur à 0.");
+                    throw new ArgumentOutOfRangeException("Le numéro du produit doit être compris entre 0 et 9.");
                 }
             }
         }

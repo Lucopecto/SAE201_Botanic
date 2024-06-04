@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace SAE201_Botanic
@@ -23,14 +22,7 @@ namespace SAE201_Botanic
 
             set
             {
-                if (modedeTransport.Length <= 30 && Regex.IsMatch(modedeTransport, @"^[a-zA-Z]+$"))
-                {
-                    modedeTransport = value;
-                }
-                else
-                {
-                    throw new ArgumentException("Le mode de transport doit contenir uniquement des lettres et ne pas dépasser 30 caractères.");
-                }
+                this.modedeTransport = value;
             }
         }
         #endregion

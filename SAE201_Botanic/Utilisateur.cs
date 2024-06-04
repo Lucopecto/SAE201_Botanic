@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace SAE201_Botanic
@@ -26,14 +25,7 @@ namespace SAE201_Botanic
 
             set
             {
-                if (numUtilisateur > 0 )
-                {
-                    numUtilisateur = value;
-                }
-                else
-                {
-                    throw new ArgumentOutOfRangeException("Le numéro de l'utilisateur doit être supérieur à 0.");
-                }
+                numUtilisateur = value;
             }
         }
 
@@ -46,14 +38,7 @@ namespace SAE201_Botanic
 
             set
             {
-                if (loginUtilisateur.Length <= 6 && Regex.IsMatch(loginUtilisateur, @"^[a-zA-Z]+$"))
-                {
-                    loginUtilisateur = value;
-                }
-                else
-                {
-                    throw new ArgumentException("Le login de l'utilisateur doit contenir uniquement des lettres et ne pas dépasser 6 caractères.");
-                }
+                loginUtilisateur = value;
             }
         }
 
