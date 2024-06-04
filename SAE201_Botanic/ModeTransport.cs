@@ -9,20 +9,20 @@ namespace SAE201_Botanic
     public class ModeTransport
     {
         #region Champs
-        private string modeTransport;
+        private string modedeTransport;
         #endregion
 
         #region Propriete
-        public string ModeTransport
+        public string ModedeTransport
         {
             get
             {
-                return this.modeTransport;
+                return this.modedeTransport;
             }
 
             set
             {
-                this.modeTransport = value;
+                this.modedeTransport = value;
             }
         }
         #endregion
@@ -30,7 +30,7 @@ namespace SAE201_Botanic
         #region Constructeur
         public ModeTransport(string modeTransport)
         {
-            this.ModeTransport = modeTransport;
+            this.ModedeTransport = modeTransport;
         }
         #endregion
 
@@ -38,12 +38,12 @@ namespace SAE201_Botanic
         public override bool Equals(object? obj)
         {
             return obj is ModeTransport transport &&
-                   this.ModeTransport == transport.ModeTransport;
+                   this.ModedeTransport == transport.ModedeTransport;
         }
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(this.ModeTransport);
+            return HashCode.Combine(this.ModedeTransport);
         }
         #endregion
     }
