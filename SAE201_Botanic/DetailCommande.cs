@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace SAE201_Botanic
 {
-    internal class DetailCommande
+    public class DetailCommande
     {
+        private Comm
     }
 }
