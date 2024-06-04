@@ -149,7 +149,7 @@
                     Height="200"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    Source="/rsc/botanic_annecy.png"
+                    Source="/rsc/logos_botanic/annecy.png"
                     Stretch="Fill" />
 
             </Canvas>
