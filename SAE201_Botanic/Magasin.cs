@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace SAE201_Botanic
@@ -14,7 +16,7 @@ namespace SAE201_Botanic
         private string rueMagasin;
         private string CPMagasin;
         private string villeMagasin;
-        private DateTime horaire;
+        private string horaire;
         #endregion
 
         #region Propriete
@@ -27,7 +29,14 @@ namespace SAE201_Botanic
 
             set
             {
-                numMagasin = value;
+                if (numMagasin >= 0 && numMagasin <= 9)
+                {
+                    numMagasin = value;
+                }
+                else
+                {
+                    throw new ArgumentOutOfRangeException("Le numéro du magasin doit être compris entre 0 et 9.");
+                }
             }
         }
 
@@ -40,7 +49,14 @@ namespace SAE201_Botanic
 
             set
             {
-                nomMagasin = value;
+                if (nomMagasin.Length <= 50 && Regex.IsMatch(nomMagasin, @"^[a-zA-Z]+$"))
+                {
+                    nomMagasin = value;
+                }
+                else
+                {
+                    throw new ArgumentException("Le nom du magasin doit contenir uniquement des lettres et ne pas dépasser 50 caractères.");
+                }
             }
         }
 
@@ -53,7 +69,14 @@ namespace SAE201_Botanic
 
             set
             {
-                rueMagasin = value;
+                if (rueMagasin.Length <= 50 && Regex.IsMatch(rueMagasin, @"^[a-zA-Z]+$"))
+                {
+                    rueMagasin = value;
+                }
+                else
+                {
+                    throw new ArgumentException("La rue du magasin doit contenir uniquement des lettres et ne pas dépasser 50 caractères.");
+                }
             }
         }
 
@@ -65,8 +88,15 @@ namespace SAE201_Botanic
             }
 
             set
-            {
-                CPMagasin = value;
+            { 
+                if(CPMagasin.Length <=5 && Regex.IsMatch(CPMagasin, @"^[0-9]+$"))
+                {
+                    CPMagasin = value;
+                }
+                else
+                {
+                    throw new ArgumentException("Le code postal du magasin doit contenir uniquement des chiffres et ne pas dépasser 5 caractères.");
+                }
             }
         }
 
@@ -79,11 +109,18 @@ namespace SAE201_Botanic
 
             set
             {
-                villeMagasin = value;
+                if (villeMagasin.Length <= 50 && Regex.IsMatch(villeMagasin, @"^[a-zA-Z]+$"))
+                {
+                    villeMagasin = value;
+                }
+                else
+                {
+                    throw new ArgumentException("La ville du magasin doit contenir uniquement des lettres et ne pas dépasser 50 caractères.");
+                }
             }
         }
 
-        public DateTime Horaire
+        public string Horaire
         {
             get
             {
@@ -92,7 +129,14 @@ namespace SAE201_Botanic
 
             set
             {
-                this.horaire = value;
+                if (Regex.IsMatch(horaire, @"^([01]\d|2[0-3])H([0-5]\d)-([01]\d|2[0-3])H([0-5]\d)$"))
+                {
+                    horaire = value;
+                }
+                else
+                {
+                    throw new ArgumentException("L'horaire doit être au format HH:mm.");
+                }
             }
         }
 
@@ -100,7 +144,7 @@ namespace SAE201_Botanic
         #endregion
 
         #region Constructeur
-        public Magasin(int numMagasin, string nomMagasin, string rueMagasin, string cPMagasin1, string villeMagasin, DateTime horaire)
+        public Magasin(int numMagasin, string nomMagasin, string rueMagasin, string cPMagasin1, string villeMagasin, string horaire)
         {
             this.NumMagasin = numMagasin;
             this.NomMagasin = nomMagasin;
