@@ -141,8 +141,6 @@ namespace SAE201_Botanic
         #endregion
 
         #region Constructeur
-        int x;
-
         public Produit(int numProduit, Couleur uneCouleur, Categorie uneCategorie, Fournisseur unFournisseur, string nomProduit, string tailleProduit, string descriptionProduit, double prixVente)
         {
             this.NumProduit = numProduit;
