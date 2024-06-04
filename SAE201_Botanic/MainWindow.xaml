@@ -6,66 +6,18 @@
     xmlns:local="clr-namespace:SAE201_Botanic"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="Botanic"
-    Width="800"
-    Height="450"
     Icon="rsc/icon_botanic.ico"
+    WindowState="Maximized"
     mc:Ignorable="d">
-    <Grid Background="#FFE1FFC5">
-        <Label
-            Margin="0,84,0,0"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Top"
-            Content="Botanic"
-            FontFamily="Bodoni MT"
-            FontSize="80"
-            FontWeight="Bold" />
-        <Label
-            Margin="308,197,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Content="Identifiant"
-            FontStyle="Italic"
-            Foreground="Black" />
-        <Label
-            Margin="308,255,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Content="Mot de passe"
-            FontStyle="Italic" />
-        <TextBox
-            Width="173"
-            Height="23"
-            Margin="0,227,0,0"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Top"
-            Text=""
-            TextWrapping="Wrap" />
-        <TextBox
-            Width="173"
-            Height="23"
-            Margin="0,281,0,0"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Top"
-            Text=""
-            TextWrapping="Wrap" />
-        <Button
-            Margin="0,309,0,0"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Top"
-            Background="#00000000"
-            BorderBrush="#00000000"
-            Content="Mot de passe oublié ?"
-            FontSize="10"
-            FontStyle="Italic"
-            Foreground="Gray" />
-        <Button
-            Margin="0,351,0,0"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Top"
-            Background="White"
-            BorderBrush="Black"
-            Content="Se connecter"
-            FontStyle="Italic" />
 
-    </Grid>
+
+
+
+
+    <Grid />
+
+
+
+
+
 </Window>
