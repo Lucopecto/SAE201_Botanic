@@ -1,0 +1,153 @@
+﻿using Npgsql;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+
+namespace SAE201_Botanic
+{
+    public class ApplicationData
+    {
+        private ObservableCollection<Produit> lesProduits;
+        private NpgsqlConnection connexion;
+
+        public ObservableCollection<Produit> LesProduits
+        {
+            get
+            {
+                return this.lesProduits;
+            }
+
+            set
+            {
+                this.lesProduits = value;
+            }
+        }
+
+        public NpgsqlConnection Connexion
+        {
+            get
+            {
+                return this.connexion;
+            }
+
+            set
+            {
+                this.connexion = value;
+            }
+        }
+
+        public ApplicationData()
+        {
+            LesProduits = new ObservableCollection<Produit>();
+            ConnexionBD();
+            //Read();
+        }
+
+        public void ConnexionBD()
+        {
+            try
+            {
+                Connexion = new NpgsqlConnection
+                {
+                    ConnectionString = "Server=srv-peda-new;" +
+                    "port=5433;" +
+                    "Database=sae_botanic;" +
+                    "Search Path = sae_botanic_s;" +
+                    "uid=tasdemis;" +
+                    "password=r9H2lI;"
+                };
+                Connexion.Open();
+                Console.WriteLine("Connexion réussie !");
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Problème de connexion : " + e.Message, "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        public void DeconnexionBD()
+        {
+            try
+            {
+                Connexion.Close();
+            }
+            catch (Exception e)
+            { Console.WriteLine("Problème à la déconnexion : " + e); }
+        }
+
+        //public int Read()
+        //{
+        //    String sql = "SELECT id, nom,prenom,email,genre,telephone, dateNaissance FROM Produit";
+        //    try
+        //    {
+        //        NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter(sql, Connexion);
+        //        DataTable dataTable = new DataTable();
+        //        dataAdapter.Fill(dataTable);
+        //        foreach (DataRow res in dataTable.Rows)
+        //        {
+        //            Produit nouveau = new Produit(int.Parse(res["id"].ToString()),
+        //            res["nom"].ToString(), res["prenom"].ToString(),
+        //            res["email"].ToString(), DateTime.Parse(res["dateNaissance"].ToString()),
+        //            res["telephone"].ToString(),
+        //            (GenreProduit)char.Parse(res["genre"].ToString()));
+        //            LesProduits.Add(nouveau);
+        //        }
+        //        return dataTable.Rows.Count;
+        //    }
+        //    catch (NpgsqlException e)
+        //    { Console.WriteLine("pb de requete : " + e); return 0; }
+        //}
+
+        private int MethodeGenerique(string sql)
+        {
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(sql, Connexion);
+                int nb = cmd.ExecuteNonQuery();
+                return nb; // nb permet de connaître le nb de lignes affectées par un insert, update, delete
+            }
+            catch (Exception sqlE)
+            {
+                MessageBox.Show("Problème de requête : " + sqlE.Message, "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+                return 0;
+            }
+        }
+
+        public int Create(Produit c)
+        {
+            //string sql = $"INSERT INTO wpfProduits.Produit (nom, prenom, email, genre, telephone, dateNaissance) " +
+            //             $"VALUES ('{c.Nom}', '{c.Prenom}', '{c.Email}', '{(char)c.Genre}', '{c.Telephone}', " +
+            //             $"'{c.DateNaissance:yyyy-MM-dd}');";
+            string sql = $"";
+            MethodeGenerique(sql);
+
+            return 0;
+        }
+
+        public int Update(Produit c)
+        {
+            //string sql = $"UPDATE wpfProduits.Produit SET nom = '{c.Nom}', prenom = '{c.Prenom}', email = '{c.Email}', " +
+            //             $"genre = '{(char)c.Genre}', telephone = '{c.Telephone}', dateNaissance = '{c.DateNaissance:yyyy-MM-dd}' " +
+            //             $"WHERE id = {c.Id};";
+            string sql = $"";
+            MethodeGenerique(sql);
+
+            return 0;
+
+        }
+
+        public int Delete(Produit c)
+        {
+            //string sql = $"DELETE FROM wpfProduits.Produit WHERE id = {c.Id};";
+            string sql = $"";
+            MethodeGenerique(sql);
+
+            return 0;
+        }
+    }
+}
