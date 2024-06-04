@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace SAE201_Botanic
@@ -22,7 +23,14 @@ namespace SAE201_Botanic
 
             set
             {
-                this.nomCouleur = value;
+                if (nomCouleur.Length <= 20 && Regex.IsMatch(nomCouleur, @"^[a-zA-Z]+$"))
+                {
+                    nomCouleur = value;
+                }
+                else
+                {
+                    throw new ArgumentException("La couleur doit contenir uniquement des lettres et ne pas dépasser 20 caractères.");
+                }
             }
         }
         #endregion

@@ -27,7 +27,14 @@ namespace SAE201_Botanic
 
             set
             {
-                numCommande = value;
+                if (numCommande >= 0)
+                {
+                    numCommande = value;
+                }
+                else
+                {
+                    throw new ArgumentOutOfRangeException("Le numéro de la commande doit être supérieur à 0.");
+                }
             }
         }
 

@@ -24,13 +24,13 @@ namespace SAE201_Botanic
 
             set
             {
-                if (numType >= 0 && numType <= 9)
+                if (numType >= 0 )
                 {
                     numType = value;
                 }
                 else
                 {
-                    throw new ArgumentOutOfRangeException("Le numéro du type doit être compris entre 0 et 9.");
+                    throw new ArgumentOutOfRangeException("Le numéro du type doit être supérieur à 0.");
                 }
             }
         }

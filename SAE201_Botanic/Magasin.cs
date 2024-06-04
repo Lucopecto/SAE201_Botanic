@@ -29,13 +29,13 @@ namespace SAE201_Botanic
 
             set
             {
-                if (numMagasin >= 0 && numMagasin <= 9)
+                if (numMagasin >= 0)
                 {
                     numMagasin = value;
                 }
                 else
                 {
-                    throw new ArgumentOutOfRangeException("Le numéro du magasin doit être compris entre 0 et 9.");
+                    throw new ArgumentOutOfRangeException("Le numéro du magasin doit être supérieur à 0.");
                 }
             }
         }

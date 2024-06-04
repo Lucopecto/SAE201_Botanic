@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace SAE201_Botanic
@@ -24,7 +25,14 @@ namespace SAE201_Botanic
 
             set
             {
-                numFournisseur = value;
+                if (numFournisseur >= 0 )
+                {
+                    numFournisseur = value;
+                }
+                else
+                {
+                    throw new ArgumentOutOfRangeException("Le numéro du fournisseur doit être supérieur à 0.");
+                }
             }
         }
 
@@ -37,7 +45,14 @@ namespace SAE201_Botanic
 
             set
             {
-                nomFournisseur = value;
+                if (nomFournisseur.Length <= 100 && Regex.IsMatch(nomFournisseur, @"^[a-zA-Z]+$"))
+                {
+                    nomFournisseur = value;
+                }
+                else
+                {
+                    throw new ArgumentException("Le libelle catégorie doit contenir uniquement des lettres et ne pas dépasser 100 caractères.");
+                }
             }
         }
 
