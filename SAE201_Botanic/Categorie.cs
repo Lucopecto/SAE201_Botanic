@@ -25,7 +25,7 @@ namespace SAE201_Botanic
 
             set
             {
-                if (numCategorie >= 0)
+                if (numCategorie > 0)
                 {
                     numCategorie = value;
                 }

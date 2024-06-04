@@ -31,7 +31,7 @@ namespace SAE201_Botanic
 
             set
             {
-                if (numProduit >= 0 )
+                if (numProduit > 0 )
                 {
                     numProduit = value;
                 }

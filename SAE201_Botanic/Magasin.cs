@@ -29,7 +29,7 @@ namespace SAE201_Botanic
 
             set
             {
-                if (numMagasin >= 0)
+                if (numMagasin > 0)
                 {
                     numMagasin = value;
                 }
@@ -135,7 +135,7 @@ namespace SAE201_Botanic
                 }
                 else
                 {
-                    throw new ArgumentException("L'horaire doit être au format HH:mm.");
+                    throw new ArgumentException("L'horaire doit être au format hhHmm-hhHmm.");
                 }
             }
         }

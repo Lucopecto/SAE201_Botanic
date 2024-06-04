@@ -24,7 +24,7 @@ namespace SAE201_Botanic
 
             set
             {
-                if (numCaracteristique >= 0)
+                if (numCaracteristique > 0)
                 {
                     numCaracteristique = value;
                 }

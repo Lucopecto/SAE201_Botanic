@@ -24,7 +24,7 @@ namespace SAE201_Botanic
 
             set
             {
-                if (numType >= 0 )
+                if (numType > 0 )
                 {
                     numType = value;
                 }

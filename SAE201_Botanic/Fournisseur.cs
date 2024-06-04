@@ -25,7 +25,7 @@ namespace SAE201_Botanic
 
             set
             {
-                if (numFournisseur >= 0 )
+                if (numFournisseur > 0 )
                 {
                     numFournisseur = value;
                 }
@@ -51,7 +51,7 @@ namespace SAE201_Botanic
                 }
                 else
                 {
-                    throw new ArgumentException("Le libelle catégorie doit contenir uniquement des lettres et ne pas dépasser 100 caractères.");
+                    throw new ArgumentException("Le nom du fournisseur doit contenir uniquement des lettres et ne pas dépasser 100 caractères.");
                 }
             }
         }
