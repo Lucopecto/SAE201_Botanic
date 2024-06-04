@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace SAE201_Botanic
@@ -30,7 +31,14 @@ namespace SAE201_Botanic
 
             set
             {
-                numProduit = value;
+                if (numProduit >= 0 && numProduit <= 9)
+                {
+                    numProduit = value;
+                }
+                else
+                {
+                    throw new ArgumentOutOfRangeException("Le numéro du produit doit être compris entre 0 et 9.");
+                }
             }
         }
 
@@ -82,7 +90,14 @@ namespace SAE201_Botanic
 
             set
             {
-                nomProduit = value;
+                if (nomProduit.Length <= 50 && Regex.IsMatch(nomProduit, @"^[a-zA-Z]+$"))
+                {
+                    nomProduit = value;
+                }
+                else
+                {
+                    throw new ArgumentException("Le nom du produit doit contenir uniquement des lettres et ne pas dépasser 50 caractères.");
+                }
             }
         }
 
@@ -95,7 +110,14 @@ namespace SAE201_Botanic
 
             set
             {
-                tailleProduit = value;
+                if (tailleProduit.Length <= 50 && Regex.IsMatch(tailleProduit, @"^[a-zA-Z]+$"))
+                {
+                    tailleProduit = value;
+                }
+                else
+                {
+                    throw new ArgumentException("La taille du produit doit contenir uniquement des lettres et ne pas dépasser 50 caractères.");
+                }
             }
         }
 
@@ -108,7 +130,14 @@ namespace SAE201_Botanic
 
             set
             {
-                descriptionProduit = value;
+                if (descriptionProduit.Length <= 200 && Regex.IsMatch(descriptionProduit, @"^[a-zA-Z]+$"))
+                {
+                    descriptionProduit = value;
+                }
+                else
+                {
+                    throw new ArgumentException("La description du produit doit contenir uniquement des lettres et ne pas dépasser 200 caractères.");
+                }
             }
         }
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace SAE201_Botanic
@@ -24,7 +25,14 @@ namespace SAE201_Botanic
 
             set
             {
-                numCategorie = value;
+                if (numCategorie >= 0 && numCategorie <= 9)
+                {
+                    numCategorie = value;
+                }
+                else
+                {
+                    throw new ArgumentOutOfRangeException("Le numéro de la catégorie doit être compris entre 0 et 9.");
+                }
             }
         }
 
@@ -50,7 +58,14 @@ namespace SAE201_Botanic
 
             set
             {
-                this.libelleCategorie = value;
+                if (libelleCategorie.Length <= 100 && Regex.IsMatch(libelleCategorie, @"^[a-zA-Z]+$"))
+                {
+                    libelleCategorie = value;
+                }
+                else
+                {
+                    throw new ArgumentException("Le libelle catégorie doit contenir uniquement des lettres et ne pas dépasser 100 caractères.");
+                }
             }
         }
         #endregion
