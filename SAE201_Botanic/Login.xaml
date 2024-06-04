@@ -22,27 +22,59 @@
 
 
 
-        <Canvas
+        <Grid
             Width="1000"
             Height="500"
             Background="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="373" />
+                <ColumnDefinition Width="627" />
+            </Grid.ColumnDefinitions>
 
-            <Label
-                Canvas.Left="373"
-                Canvas.Top="131"
-                Width="627"
-                Height="57"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Top"
-                HorizontalContentAlignment="Center"
-                Content="CONNEXION"
-                FontFamily="Yu Gothic UI Semibold"
-                FontSize="32"
-                Foreground="#FF002D22" />
+
+
+            <Canvas Grid.Column="0">
+
+                <Image
+                    Width="373"
+                    Height="500"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Source="/rsc/image_page_authentification.png"
+                    Stretch="Fill" />
+
+                <Image
+                    Canvas.Left="86"
+                    Canvas.Top="150"
+                    Width="200"
+                    Height="200"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Source="/rsc/logos_botanic/annecy.png"
+                    Stretch="Fill" />
+
+            </Canvas>
+
+
+
+
 
 
 
             <StackPanel Canvas.Left="600" Canvas.Top="200">
+
+                <Label
+                    Canvas.Left="373"
+                    Canvas.Top="131"
+                    Width="627"
+                    Height="57"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    HorizontalContentAlignment="Center"
+                    Content="CONNEXION"
+                    FontFamily="Yu Gothic UI Semibold"
+                    FontSize="32"
+                    Foreground="#FF002D22" />
 
                 <Label
                     Canvas.Left="589"
@@ -132,31 +164,10 @@
 
 
 
-            <Canvas>
-
-                <Image
-                    Width="373"
-                    Height="500"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Source="/rsc/image_page_authentification.png"
-                    Stretch="Fill" />
-
-                <Image
-                    Canvas.Left="86"
-                    Canvas.Top="150"
-                    Width="200"
-                    Height="200"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Source="/rsc/logos_botanic/annecy.png"
-                    Stretch="Fill" />
-
-            </Canvas>
 
 
 
-        </Canvas>
+        </Grid>
 
 
 
