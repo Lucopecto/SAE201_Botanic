@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace SAE201_Botanic
@@ -23,7 +24,14 @@ namespace SAE201_Botanic
 
             set
             {
-                numType = value;
+                if (numType >= 0 && numType <= 9)
+                {
+                    numType = value;
+                }
+                else
+                {
+                    throw new ArgumentOutOfRangeException("Le numéro du type doit être compris entre 0 et 9.");
+                }
             }
         }
 
@@ -36,7 +44,14 @@ namespace SAE201_Botanic
 
             set
             {
-                this.nomType = value;
+                if (nomType.Length <= 100 && Regex.IsMatch(nomType, @"^[a-zA-Z]+$"))
+                {
+                    nomType = value;
+                }
+                else
+                {
+                    throw new ArgumentException("Le type du produit doit contenir uniquement des lettres et ne pas dépasser 100 caractères.");
+                }
             }
         }
 
