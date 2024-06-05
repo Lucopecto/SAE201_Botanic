@@ -33,6 +33,11 @@ namespace SAE201_Botanic
 
         private void Goto_Connexion(object sender, RoutedEventArgs e)
         {
+            tbIdentifiant.Text = "";
+            pbMdp.Password = "";
+            tbIdentifiant_mdpo.Text = "";
+            lbIdentifiantIncorrecte.Visibility = Visibility.Hidden;
+            lbIncorrecte.Visibility = Visibility.Hidden;
             spMdpOublie.Visibility = Visibility.Hidden;
             spDemandeEnvoyee.Visibility = Visibility.Hidden;
             spConnexion.Visibility = Visibility.Visible;
@@ -40,8 +45,12 @@ namespace SAE201_Botanic
 
         private void Goto_DemandeEnvoye(object sender, RoutedEventArgs e)
         {
-            spMdpOublie.Visibility = Visibility.Hidden;
-            spDemandeEnvoyee.Visibility = Visibility.Visible;
+            if (tbIdentifiant_mdpo.Text.Length >= 2)
+            {
+                spMdpOublie.Visibility = Visibility.Hidden;
+                spDemandeEnvoyee.Visibility = Visibility.Visible;
+            }
+            else lbIdentifiantIncorrecte.Visibility = Visibility.Visible;
         }
 
         private void Login(object sender, RoutedEventArgs e)
@@ -57,19 +66,14 @@ namespace SAE201_Botanic
                     $"uid={tbIdentifiant.Text};" + 
                     $"password={pbMdp.Password};";
                 connexion.Open();
-                //DialogResult = true;
                 ValiderConnexion();
 
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Problème lors de la connexion" + ex);
                 lbIncorrecte.Visibility = Visibility.Visible;
-
+                pbMdp.Password = "";
             }
-
-            //string identifiant = tbIdentifiant.Text;
-            //string mdp = pbMdp.Password;
         }
 
         private void ValiderConnexion()
