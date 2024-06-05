@@ -38,8 +38,7 @@ namespace SAE201_Botanic
 
         private void OuvrirFiltres(object sender, RoutedEventArgs e)
         {
-            Filtre filtreWin = new Filtre();
-            filtreWin.ShowDialog();
+            
         }
         
 

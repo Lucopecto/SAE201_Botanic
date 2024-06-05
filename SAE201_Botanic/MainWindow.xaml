@@ -89,7 +89,10 @@
 
             <TabItem Header=" Nouvelle commande ">
 
-                <StackPanel Height="694" Margin="25" VerticalAlignment="Top">
+                <StackPanel
+                    Height="694"
+                    Margin="25"
+                    VerticalAlignment="Top">
 
                     <StackPanel Orientation="Horizontal">
 
@@ -118,17 +121,40 @@
                             Stretch="Fill" />
 
                         <Button
-                            Width="70"
                             Height="30"
-                            Margin="25,0,0,0"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Top"
-                            Background="#FF1C9E7F"
-                            BorderThickness="0"
-                            Click="OuvrirFiltres"
-                            Content="Filtres"
-                            Cursor="Hand"
-                            Foreground="White">
+                            Margin="20,0,0,0"
+                            Background="White"
+                            BorderBrush="#FFABADB3"
+                            Content="    Catégorie    "
+                            Foreground="#FF828282">
+                            <Button.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="5" />
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+
+                        <Button
+                            Height="30"
+                            Margin="20,0,0,0"
+                            Background="White"
+                            BorderBrush="#FFABADB3"
+                            Content="    Prix    "
+                            Foreground="#FF828282">
+                            <Button.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="5" />
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+
+                        <Button
+                            Height="30"
+                            Margin="20,0,0,0"
+                            Background="White"
+                            BorderBrush="#FFABADB3"
+                            Content="    Couleur    "
+                            Foreground="#FF828282">
                             <Button.Resources>
                                 <Style TargetType="{x:Type Border}">
                                     <Setter Property="CornerRadius" Value="5" />
@@ -144,7 +170,7 @@
                         Width="147"
                         Height="48"
                         Margin="0,500,0,0"
-                        HorizontalAlignment="Right"/>
+                        HorizontalAlignment="Right" />
 
                 </StackPanel>
 
