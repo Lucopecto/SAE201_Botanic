@@ -11,53 +11,109 @@
     Icon="rsc/icon_botanic.ico"
     mc:Ignorable="d">
 
-    <Grid>
-        <StackPanel Margin="0,0,1200,0">
-            <StackPanel
-                Width="401"
-                Height="168"
-                HorizontalAlignment="Center"
-                Orientation="Horizontal">
-                <TextBox
-                    Width="300"
-                    Height="50"
-                    Margin="0,0,0,0"
-                    VerticalContentAlignment="Center"
-                    FontSize="20"
-                    FontStyle="Italic"
-                    Foreground="#FF777777"
-                    Text="Rechercher..."
-                    TextWrapping="Wrap" />
-                <Button
-                    Width="50"
-                    Height="50"
-                    Margin="0,0,0,0"
-                    Content="OK"
-                    FontSize="20" />
-
-            </StackPanel>
-            <StackPanel Height="209">
-                <Label
-                    Width="90"
-                    HorizontalAlignment="Left"
-                    HorizontalContentAlignment="Center"
-                    Content="Type"
-                    FontSize="20" />
-                <ComboBox
-                    Width="140"
-                    Height="40"
-                    HorizontalAlignment="Left">
-                    <CheckBox Content="Jardin" />
-                    <CheckBox Content="Mobilier" />
-                    <CheckBox Content="Potager et verger" />
-                    <CheckBox Content="Balcon" />
-                    <CheckBox Content="Terrasse" />
-                    <CheckBox Content="Animalerie" />
-                </ComboBox>
-
-            </StackPanel>
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition  Height="68*"/>
+            <RowDefinition  Height="157*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Background="White" Orientation="Horizontal" Height="32" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,104,0,0">
+            <Button x:Name="jardin" Content="Jardin" HorizontalAlignment="Left" Width="91" Height="28" Background="WhiteSmoke" Panel.ZIndex="0" FontStyle="Italic" FontFamily="Caladea" FontSize="20" Cursor="IBeam" RenderTransformOrigin="0.5,0.5" Click="jardin_Click">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleX="-20" AngleY="0"/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="Mobilier" Content="Mobilier" Width="91" Height="28" Background="WhiteSmoke" Panel.ZIndex="0" FontStyle="Italic" FontFamily="Caladea" FontSize="20" Cursor="IBeam" RenderTransformOrigin="0.5,0.5" Click="Mobilier_Click">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleX="-20" AngleY="0"/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+            </Button>
+            <Button Content="Potager et Verger" Width="163" Height="28" Background="WhiteSmoke" Panel.ZIndex="0" FontStyle="Italic" FontFamily="Caladea" FontSize="20" Cursor="IBeam" RenderTransformOrigin="0.5,0.5">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleX="-20" AngleY="0"/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+            </Button>
+            <Button Content="Balcon" Width="91" Height="28" Background="WhiteSmoke" Panel.ZIndex="0" FontStyle="Italic" FontFamily="Caladea" FontSize="20" Cursor="IBeam" RenderTransformOrigin="0.5,0.5">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleX="-20" AngleY="0"/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+            </Button>
+            <Button Content="Terrasse" Width="91" Height="28" Background="WhiteSmoke" Panel.ZIndex="0" FontStyle="Italic" FontFamily="Caladea" FontSize="20" Cursor="IBeam" RenderTransformOrigin="0.5,0.5">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleX="-20" AngleY="0"/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+            </Button>
+            <Button Content="Animalerie" Width="110" Height="28" Background="WhiteSmoke" Panel.ZIndex="0" FontStyle="Italic" FontFamily="Caladea" FontSize="20" Cursor="IBeam" RenderTransformOrigin="0.5,0.5">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleX="-20" AngleY="0"/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+            </Button>
 
         </StackPanel>
+        <StackPanel x:Name="jardinAfficheProduit" Grid.Row="1">
+            <StackPanel Height="99" Width="224" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <ComboBox Width="120" >
+                    <CheckBox Content="Plantes"/>
+                </ComboBox>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel
+          Orientation="Horizontal" Margin="0,0,462,200">
+            <TextBox
+              Width="300"
+              Height="50"
+              VerticalContentAlignment="Center"
+              FontSize="20"
+              FontStyle="Italic"
+              Foreground="#FF777777"
+              Text="Rechercher..."
+              TextWrapping="Wrap" />
+            <Button
+              Width="50"
+              Height="50"
+              Margin="0,0,0,0"
+              Content="OK"
+              FontSize="20" />
+
+        </StackPanel>
+        <StackPanel x:Name="MobilierAfficheProduit" Margin="0,267,0,0" Grid.RowSpan="2">
+            <StackPanel Height="99" Width="224" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <ComboBox Width="120" >
+                    <CheckBox Content="Bois"/>
+                </ComboBox>
+            </StackPanel>
+            <Label Content="Label"/>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1290,15,0,0"/>
     </Grid>
 
 </Window>
