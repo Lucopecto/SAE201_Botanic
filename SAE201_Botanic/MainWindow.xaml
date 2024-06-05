@@ -13,44 +13,36 @@
 
     <Grid Background="White">
         <Grid.RowDefinitions>
-            <RowDefinition  Height="68*"/>
-            <RowDefinition  Height="157*"/>
+            <RowDefinition Height="68*" />
+            <RowDefinition Height="157*" />
         </Grid.RowDefinitions>
-        <StackPanel x:Name="jardinAfficheProduit" Grid.Row="1">
-            <StackPanel Height="99" Width="224" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <ComboBox Width="120" >
-                    <CheckBox Content="Plantes"/>
-                </ComboBox>
-            </StackPanel>
-        </StackPanel>
-        <StackPanel
-          Orientation="Horizontal" Margin="0,0,462,200">
+
+        <StackPanel Margin="0,0,462,200" Orientation="Horizontal">
             <TextBox
-              Width="300"
-              Height="50"
-              VerticalContentAlignment="Center"
-              FontSize="20"
-              FontStyle="Italic"
-              Foreground="#FF777777"
-              Text="Rechercher..."
-              TextWrapping="Wrap" />
+                Width="300"
+                Height="50"
+                VerticalContentAlignment="Center"
+                FontSize="20"
+                FontStyle="Italic"
+                Foreground="#FF777777"
+                Text="Rechercher..."
+                TextWrapping="Wrap" />
             <Button
-              Width="50"
-              Height="50"
-              Margin="0,0,0,0"
-              Content="OK"
-              FontSize="20" />
+                Width="50"
+                Height="50"
+                Margin="0,0,0,0"
+                Content="OK"
+                FontSize="20" />
 
         </StackPanel>
-        <StackPanel x:Name="MobilierAfficheProduit" Margin="0,267,0,0" Grid.RowSpan="2">
-            <StackPanel Height="99" Width="224" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <ComboBox Width="120" >
-                    <CheckBox Content="Bois"/>
-                </ComboBox>
-            </StackPanel>
-            <Label Content="Label"/>
-        </StackPanel>
-        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1290,15,0,0"/>
+        <StackPanel
+            x:Name="MobilierAfficheProduit"
+            Grid.RowSpan="2"
+            Margin="0,267,0,0" />
+        <StackPanel
+            Margin="1290,15,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top" />
     </Grid>
 
 </Window>

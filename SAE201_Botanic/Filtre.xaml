@@ -1,20 +1,110 @@
-﻿<Window x:Class="SAE201_Botanic.Filtre"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:SAE201_Botanic"
-        mc:Ignorable="d"
-        Title="Filtre" Height="405" Width="200">
+﻿<Window
+    x:Class="SAE201_Botanic.Filtre"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:SAE201_Botanic"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Filtre"
+    Width="200"
+    Height="405"
+    mc:Ignorable="d">
     <Grid>
-        <StackPanel Background="White" Orientation="Vertical" Height="400" VerticalAlignment="Top" HorizontalAlignment="Center" Width="200">
-            <Button x:Name="jardin" Content="Jardin" HorizontalAlignment="Center" Width="200" Height="65" Background="WhiteSmoke" Panel.ZIndex="0" FontStyle="Italic" FontFamily="Caladea" FontSize="24" Cursor="IBeam" RenderTransformOrigin="0.5,0.5"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
-            <Button x:Name="Mobilier" Content="Mobilier" Width="200" Height="65" Background="WhiteSmoke"  FontStyle="Italic" FontFamily="Caladea" FontSize="24" Cursor="IBeam" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <Button Content="Potager et Verger" Width="200" Height="65" Background="WhiteSmoke" FontStyle="Italic" FontFamily="Caladea" FontSize="24" Cursor="IBeam" HorizontalAlignment="Center" VerticalAlignment="Center" />
-            <Button Content="Balcon" Width="200" Height="65" Background="WhiteSmoke" Panel.ZIndex="0" FontStyle="Italic" FontFamily="Caladea" FontSize="24" Cursor="IBeam" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <Button Content="Terrasse" Width="200" Height="65" Background="WhiteSmoke" Panel.ZIndex="0" FontStyle="Italic" FontFamily="Caladea" FontSize="24" Cursor="IBeam" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <Button Content="Animalerie" Width="200" Height="65" Background="WhiteSmoke" Panel.ZIndex="0" FontStyle="Italic" FontFamily="Caladea" FontSize="24" Cursor="IBeam" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        </StackPanel>
+        <StackPanel
+            x:Name="FiltreType"
+            Width="200"
+            Height="400"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Background="White"
+            Orientation="Vertical">
+            <Button
+                x:Name="jardin"
+                Width="200"
+                Height="65"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Panel.ZIndex="0"
+                Background="WhiteSmoke"
+                Click="jardin_Click"
+                Content="Jardin"
+                Cursor="IBeam"
+                FontFamily="Caladea"
+                FontSize="24"
+                FontStyle="Italic"
+                RenderTransformOrigin="0.5,0.5" />
+            <Button
+                x:Name="Mobilier"
+                Width="200"
+                Height="65"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Background="WhiteSmoke"
+                Content="Mobilier"
+                Cursor="IBeam"
+                FontFamily="Caladea"
+                FontSize="24"
+                FontStyle="Italic" />
+            <Button
+                Width="200"
+                Height="65"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Background="WhiteSmoke"
+                Content="Potager et Verger"
+                Cursor="IBeam"
+                FontFamily="Caladea"
+                FontSize="24"
+                FontStyle="Italic" />
+            <Button
+                Width="200"
+                Height="65"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Panel.ZIndex="0"
+                Background="WhiteSmoke"
+                Content="Balcon"
+                Cursor="IBeam"
+                FontFamily="Caladea"
+                FontSize="24"
+                FontStyle="Italic"
+                RenderTransformOrigin="0.5,0.5" />
+            <Button
+                Width="200"
+                Height="65"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Panel.ZIndex="0"
+                Background="WhiteSmoke"
+                Content="Terrasse"
+                Cursor="IBeam"
+                FontFamily="Caladea"
+                FontSize="24"
+                FontStyle="Italic"
+                RenderTransformOrigin="0.5,0.5" />
+            <Button
+                Width="200"
+                Height="65"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Panel.ZIndex="0"
+                Background="WhiteSmoke"
+                Content="Animalerie"
+                Cursor="IBeam"
+                FontFamily="Caladea"
+                FontSize="24"
+                FontStyle="Italic"
+                RenderTransformOrigin="0.5,0.5" />
 
+        </StackPanel>
+        <StackPanel
+            x:Name="FiltreCategorie"
+            Width="200"
+            Height="405">
+            <Button Content="Plante" />
+            <Button Content="Semence" />
+        </StackPanel>
     </Grid>
 </Window>
