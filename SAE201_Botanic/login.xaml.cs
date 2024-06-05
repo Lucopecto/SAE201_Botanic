@@ -57,7 +57,7 @@ namespace SAE201_Botanic
                     $"uid={tbIdentifiant.Text};" + 
                     $"password={pbMdp.Password};";
                 connexion.Open();
-                DialogResult = true;
+                //DialogResult = true;
                 ValiderConnexion();
 
             }
