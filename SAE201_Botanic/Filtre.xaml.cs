@@ -28,6 +28,12 @@ namespace SAE201_Botanic
         {
             FiltreType.Visibility = Visibility.Collapsed;
             FiltreCategorie.Visibility = Visibility.Visible;
+            ComboBox plante = new ComboBox
+            {
+                Text = "Plznte",
+                FontSize = 24
+            };
+            FiltreCategorie.Children.Add(plante);
         }
     }
 }
