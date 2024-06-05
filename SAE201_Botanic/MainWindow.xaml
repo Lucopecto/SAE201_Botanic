@@ -120,47 +120,60 @@
                             Source="/rsc/icone_recherche.png"
                             Stretch="Fill" />
 
-                        <Button
-                            Height="30"
-                            Margin="20,0,0,0"
-                            Background="White"
-                            BorderBrush="#FFABADB3"
-                            Content="    Catégorie    "
-                            Foreground="#FF828282">
-                            <Button.Resources>
-                                <Style TargetType="{x:Type Border}">
-                                    <Setter Property="CornerRadius" Value="5" />
-                                </Style>
-                            </Button.Resources>
-                        </Button>
+                        <StackPanel Margin="20,0,0,0">
+                            <Button
+                                x:Name="btnFiltreCategorie"
+                                Height="30"
+                                Background="White"
+                                BorderBrush="#FFABADB3"
+                                Click="OuvrirFiltre"
+                                Content="    Catégorie    "
+                                Foreground="#FF828282">
+                                <Button.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="5" />
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                            <StackPanel x:Name="spFiltresCategorie" Margin="0,5,0,0" />
+                        </StackPanel>
 
-                        <Button
-                            Height="30"
-                            Margin="20,0,0,0"
-                            Background="White"
-                            BorderBrush="#FFABADB3"
-                            Content="    Prix    "
-                            Foreground="#FF828282">
-                            <Button.Resources>
-                                <Style TargetType="{x:Type Border}">
-                                    <Setter Property="CornerRadius" Value="5" />
-                                </Style>
-                            </Button.Resources>
-                        </Button>
+                        <StackPanel Margin="20,0,0,0">
+                            <Button
+                                x:Name="btnFiltrePrix"
+                                Height="30"
+                                Background="White"
+                                BorderBrush="#FFABADB3"
+                                Click="OuvrirFiltre"
+                                Content="    Prix    "
+                                Foreground="#FF828282">
+                                <Button.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="5" />
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                            <StackPanel x:Name="spFiltresPrix" Margin="0,5,0,0" />
+                        </StackPanel>
 
-                        <Button
-                            Height="30"
-                            Margin="20,0,0,0"
-                            Background="White"
-                            BorderBrush="#FFABADB3"
-                            Content="    Couleur    "
-                            Foreground="#FF828282">
-                            <Button.Resources>
-                                <Style TargetType="{x:Type Border}">
-                                    <Setter Property="CornerRadius" Value="5" />
-                                </Style>
-                            </Button.Resources>
-                        </Button>
+
+                        <StackPanel Margin="20,0,0,0">
+                            <Button
+                                x:Name="btnFiltreCouleur"
+                                Height="30"
+                                Background="White"
+                                BorderBrush="#FFABADB3"
+                                Click="OuvrirFiltre"
+                                Content="    Couleur    "
+                                Foreground="#FF828282">
+                                <Button.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="5" />
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                            <StackPanel x:Name="spFiltresCouleur" Margin="0,5,0,0" />
+                        </StackPanel>
 
                     </StackPanel>
 

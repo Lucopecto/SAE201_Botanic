@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,9 +37,28 @@ namespace SAE201_Botanic
             }
         }
 
-        private void OuvrirFiltres(object sender, RoutedEventArgs e)
+        private void OuvrirFiltre(object sender, RoutedEventArgs e)
         {
-            
+            Button btn;
+            if (sender is Button)
+            {
+                btn = (Button)sender;
+                switch (btn.Name)
+                {
+                    case "btnFiltreCategorie":
+                        spFiltresCategorie.Visibility = Visibility.Visible;
+                        break;
+
+                    case "btnFiltrePrix":
+                        spFiltresPrix.Visibility = Visibility.Visible;
+                        break;
+
+                    case "btnFiltreCouleur":
+                        spFiltresCouleur.Visibility = Visibility.Visible;
+                        break;
+                }
+            }
+
         }
         
 

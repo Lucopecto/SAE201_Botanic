@@ -80,18 +80,21 @@ namespace SAE201_Botanic
             { Console.WriteLine("Problème à la déconnexion : " + e); }
         }
 
-        //public DataRowCollection Read(string commandeSql)
-        //{
-        //    try
-        //    {
-        //        NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter(commandeSql, Connexion);
-        //        DataTable dataTable = new DataTable();
-        //        dataAdapter.Fill(dataTable);
-        //        return dataTable.Rows;
-        //    }
-        //    catch (NpgsqlException e)
-        //    {MessageBox.Show("Promblème" + e, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error); }
-        //}
+        public DataRowCollection Read(string commandeSql)
+        {
+            try
+            {
+                NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter(commandeSql, Connexion);
+                DataTable dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+                return dataTable.Rows;
+            }
+            catch (NpgsqlException e)
+            {
+                MessageBox.Show("Erreur : " + e, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+                return new DataTable().Rows;
+            }
+        }  
 
         private int MethodeGenerique(string sql)
         {
