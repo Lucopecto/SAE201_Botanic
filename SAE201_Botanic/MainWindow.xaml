@@ -6,18 +6,58 @@
     xmlns:local="clr-namespace:SAE201_Botanic"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="Botanic"
+    Width="1600"
+    Height="900"
     Icon="rsc/icon_botanic.ico"
-    WindowState="Maximized"
     mc:Ignorable="d">
 
+    <Grid>
+        <StackPanel Margin="0,0,1200,0">
+            <StackPanel
+                Width="401"
+                Height="168"
+                HorizontalAlignment="Center"
+                Orientation="Horizontal">
+                <TextBox
+                    Width="300"
+                    Height="50"
+                    Margin="0,0,0,0"
+                    VerticalContentAlignment="Center"
+                    FontSize="20"
+                    FontStyle="Italic"
+                    Foreground="#FF777777"
+                    Text="Rechercher..."
+                    TextWrapping="Wrap" />
+                <Button
+                    Width="50"
+                    Height="50"
+                    Margin="0,0,0,0"
+                    Content="OK"
+                    FontSize="20" />
 
+            </StackPanel>
+            <StackPanel Height="209">
+                <Label
+                    Width="90"
+                    HorizontalAlignment="Left"
+                    HorizontalContentAlignment="Center"
+                    Content="Type"
+                    FontSize="20" />
+                <ComboBox
+                    Width="140"
+                    Height="40"
+                    HorizontalAlignment="Left">
+                    <CheckBox Content="Jardin" />
+                    <CheckBox Content="Mobilier" />
+                    <CheckBox Content="Potager et verger" />
+                    <CheckBox Content="Balcon" />
+                    <CheckBox Content="Terrasse" />
+                    <CheckBox Content="Animalerie" />
+                </ComboBox>
 
+            </StackPanel>
 
-
-    <Grid />
-
-
-
-
+        </StackPanel>
+    </Grid>
 
 </Window>
