@@ -43,7 +43,14 @@ namespace SAE201_Botanic
             spDemandeEnvoyee.Visibility = Visibility.Visible;
         }
 
-        private void ValiderConnexion(object sender, RoutedEventArgs e)
+        private void Login(object sender, RoutedEventArgs e)
+        {
+            string identifiant = tbIdentifiant.Text;
+            string mdp = pbMdp.Password;
+            ValiderConnexion();
+        }
+
+        private void ValiderConnexion()
         {
             var mainWin = new MainWindow();
             Close();
