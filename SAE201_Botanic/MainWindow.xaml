@@ -89,7 +89,7 @@
 
             <TabItem Header=" Nouvelle commande ">
 
-                <StackPanel Height="694" Margin="30,-50,30,0">
+                <StackPanel Height="694" Margin="25" VerticalAlignment="Top">
 
                     <StackPanel Orientation="Horizontal">
 
@@ -144,38 +144,7 @@
                         Width="147"
                         Height="48"
                         Margin="0,500,0,0"
-                        HorizontalAlignment="Right">
-                        <Button
-                            x:Name="AjouterCommande"
-                            Width="114"
-                            Height="45"
-                            Margin="0,0,0,0"
-                            HorizontalAlignment="Center"
-                            HorizontalContentAlignment="Center"
-                            VerticalContentAlignment="Center"
-                            BorderBrush="#FF868686"
-                            Content="Valider">
-                            <Button.Background>
-                                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                                    <GradientStop Color="White" />
-                                    <GradientStop Offset="1" Color="#FF8EFD70" />
-                                    <GradientStop Offset="0.09" Color="White" />
-                                    <GradientStop Offset="0.483" Color="#FF9DFF83" />
-                                </LinearGradientBrush>
-                            </Button.Background>
-                            <Button.Template>
-                                <ControlTemplate TargetType="Button">
-                                    <Border
-                                        Background="{TemplateBinding Background}"
-                                        BorderBrush="{TemplateBinding BorderBrush}"
-                                        BorderThickness="{TemplateBinding BorderThickness}"
-                                        CornerRadius="20">
-                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                    </Border>
-                                </ControlTemplate>
-                            </Button.Template>
-                        </Button>
-                    </StackPanel>
+                        HorizontalAlignment="Right"/>
 
                 </StackPanel>
 

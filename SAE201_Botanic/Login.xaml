@@ -99,7 +99,8 @@
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Top"
                     Background="#FFEBF3F0"
-                    BorderThickness="0,0,0,0" />
+                    BorderThickness="0,0,0,0"
+                    Text="hatetl" />
 
                 <Label
                     x:Name="lbMdp"
@@ -121,7 +122,8 @@
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Top"
                     Background="#FFEBF3F0"
-                    BorderThickness="0,0,0,0" />
+                    BorderThickness="0,0,0,0"
+                    Password="qoTsIT" />
 
                 <Button
                     x:Name="btnMdpOublie"
