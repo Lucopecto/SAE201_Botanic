@@ -8,6 +8,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
@@ -40,5 +41,20 @@ namespace SAE201_Botanic
             Filtre filtreWin = new Filtre();
             filtreWin.ShowDialog();
         }
+        
+
+        //private void AjouterCommande_Click(object sender, RoutedEventArgs e)
+        //{
+        //    CommandeAchat nouvelleCommande = new CommandeAchat();
+        //    FicheClient fiche = new FicheClient(Mode.Creation);
+        //    fiche.UCPanelClient.DataContext = nouvelleCommande;
+        //    fiche.ShowDialog();
+        //    if (fiche.DialogResult == true)
+        //    {
+        //        data.LesClients.Add(nouvelleCommande);
+        //        dgClients.SelectedItem = nouvelleCommande;
+        //        data.Create(nouvelleCommande);
+        //    }
+        //}
     }
 }
