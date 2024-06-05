@@ -65,6 +65,7 @@ namespace SAE201_Botanic
             {
                 Console.WriteLine("Problème lors de la connexion" + ex);
                 lbIncorrecte.Visibility = Visibility.Visible;
+
             }
 
             //string identifiant = tbIdentifiant.Text;

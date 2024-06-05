@@ -165,7 +165,7 @@
                     FontFamily="Segoe UI Light"
                     FontSize="10"
                     Foreground="Red"
-                    Visibility="Visible" />
+                    Visibility="Hidden" />
 
 
             </StackPanel>
