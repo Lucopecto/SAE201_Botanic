@@ -28,7 +28,7 @@
         <DockPanel>
             <ToolBarTray DockPanel.Dock="Top">
                 <ToolBar>
-                    <Button Content="Déconnexion" Click="Deconnexion" />
+                    <Button Click="Deconnexion" Content="Déconnexion" />
                 </ToolBar>
             </ToolBarTray>
             <TextBox AcceptsReturn="True" />
@@ -40,8 +40,48 @@
 
 
 
-            <TabItem Header=" Visualiser commandes " />
-
+            <TabItem Header=" Visualiser commandes ">
+                <DataGrid
+                    Name="dgClients"
+                    Grid.Column="1"
+                    Width="1600"
+                    Height="300"
+                    MinHeight="150"
+                    Margin="0,50,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    AutoGenerateColumns="False"
+                    IsReadOnly="True"
+                    ItemsSource="{Binding LesClients}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn
+                            Width="200"
+                            Binding="{Binding Nom}"
+                            Header="Numero Commande" />
+                        <DataGridTextColumn
+                            Width="200"
+                            Binding="{Binding Prenom}"
+                            Header="Numero Magasin" />
+                        <DataGridTextColumn
+                            Width="200"
+                            Binding="{Binding Telephone}"
+                            Header="Mode de Transport" />
+                        <DataGridTextColumn
+                            Width="200"
+                            Binding="{Binding Telephone}"
+                            Header="Date de Commande" />
+                        <DataGridTextColumn
+                            Width="200"
+                            Binding="{Binding Telephone}"
+                            Header="Date de Livraison" />
+                        <DataGridTextColumn
+                            Width="200"
+                            Binding="{Binding Telephone}"
+                            Header="Mode de Livraison" />
+                    </DataGrid.Columns>
+                </DataGrid>
+          
+            </TabItem>
 
 
             <TabItem Header=" Nouvelle commande ">
@@ -57,16 +97,16 @@
                         Background="#FFEBF3F0"
                         BorderThickness="0,0,0,0" />
                     <Button
-                    Width="70"
-                    Height="30"
-                    Margin="0,20,0,0"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Top"
-                    Background="#FF1C9E7F"
-                    BorderThickness="0"
-                    Click="OuvrirFiltres"
-                    Content="Filtres"
-                    Foreground="White">
+                        Width="70"
+                        Height="30"
+                        Margin="0,20,0,0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        Background="#FF1C9E7F"
+                        BorderThickness="0"
+                        Click="OuvrirFiltres"
+                        Content="Filtres"
+                        Foreground="White">
                         <Button.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="5" />
@@ -76,6 +116,8 @@
                 </StackPanel>
 
             </TabItem>
+
+
 
 
 
