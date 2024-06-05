@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Npgsql;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -45,9 +46,29 @@ namespace SAE201_Botanic
 
         private void Login(object sender, RoutedEventArgs e)
         {
-            string identifiant = tbIdentifiant.Text;
-            string mdp = pbMdp.Password;
-            ValiderConnexion();
+            NpgsqlConnection connexion = new NpgsqlConnection();
+            try
+            {
+                connexion = new NpgsqlConnection();
+                connexion.ConnectionString = $"Server=srv-peda-new;" + 
+                    $"port=5433;" + 
+                    $"Database=sae_botanic;" + 
+                    $"Search Path=sae_botanic_s;" +
+                    $"uid={tbIdentifiant.Text};" + 
+                    $"password={pbMdp.Password};";
+                connexion.Open();
+                //DialogResult = true;
+                ValiderConnexion();
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Problème lors de la connexion" + ex);
+                MessageBox.Show("Identifiant ou mot de passe incorrect. Veuillez réesayer", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error); ;
+            }
+
+            //string identifiant = tbIdentifiant.Text;
+            //string mdp = pbMdp.Password;
         }
 
         private void ValiderConnexion()
