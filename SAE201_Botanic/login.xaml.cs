@@ -64,7 +64,7 @@ namespace SAE201_Botanic
             catch (Exception ex)
             {
                 Console.WriteLine("Problème lors de la connexion" + ex);
-                MessageBox.Show("Identifiant ou mot de passe incorrect. Veuillez réesayer", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error); ;
+                lbIncorrecte.Visibility = Visibility.Visible;
             }
 
             //string identifiant = tbIdentifiant.Text;
@@ -73,6 +73,7 @@ namespace SAE201_Botanic
 
         private void ValiderConnexion()
         {
+            lbIncorrecte.Visibility = Visibility.Hidden;
             var mainWin = new MainWindow();
             Close();
             mainWin.Show();

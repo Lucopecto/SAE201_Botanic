@@ -90,7 +90,6 @@
                     VerticalAlignment="Top"
                     Content="Identifiant"
                     FontFamily="Segoe UI Light"
-                    FontStyle="Italic"
                     Foreground="Black" />
 
                 <TextBox
@@ -110,8 +109,7 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     Content="Mot de passe"
-                    FontFamily="Segoe UI Light"
-                    FontStyle="Italic" />
+                    FontFamily="Segoe UI Light" />
 
 
                 <PasswordBox
@@ -148,13 +146,27 @@
                     BorderThickness="0"
                     Click="Login"
                     Content="OK"
-                    Foreground="White" IsDefault="True">
+                    Foreground="White"
+                    IsDefault="True">
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="5" />
                         </Style>
                     </Button.Resources>
                 </Button>
+
+                <Label
+                    x:Name="lbIncorrecte"
+                    Margin="0,5,0,0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    BorderThickness="0"
+                    Content=" Identifiant ou mot de passe incorrecte "
+                    FontFamily="Segoe UI Light"
+                    FontSize="10"
+                    Foreground="Red"
+                    Visibility="Visible" />
+
 
             </StackPanel>
 
@@ -211,7 +223,8 @@
                     BorderThickness="0"
                     Click="Goto_DemandeEnvoye"
                     Content="OK"
-                    Foreground="White" IsDefault="True">
+                    Foreground="White"
+                    IsDefault="True">
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="5" />
