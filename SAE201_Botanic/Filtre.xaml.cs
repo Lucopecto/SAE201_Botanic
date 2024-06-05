@@ -23,6 +23,11 @@ namespace SAE201_Botanic
         {
             InitializeComponent();
         }
-     
+
+        private void jardin_Click(object sender, RoutedEventArgs e)
+        {
+            FiltreType.Visibility = Visibility.Collapsed;
+            FiltreCategorie.Visibility = Visibility.Visible;
+        }
     }
 }
