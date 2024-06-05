@@ -102,9 +102,6 @@
         <StackPanel
             x:Name="FiltreCategorie"
             Width="200"
-            Height="405">
-            <Button Content="Plante" />
-            <Button Content="Semence" />
-        </StackPanel>
+            Height="405"/>
     </Grid>
 </Window>
