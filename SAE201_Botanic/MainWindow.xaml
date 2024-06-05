@@ -28,7 +28,10 @@
         <DockPanel>
             <ToolBarTray DockPanel.Dock="Top">
                 <ToolBar>
-                    <Button Click="Deconnexion" Content="Déconnexion" />
+                    <Button
+                        Click="Deconnexion"
+                        Content="Déconnexion"
+                        Cursor="Hand" />
                 </ToolBar>
             </ToolBarTray>
             <TextBox AcceptsReturn="True" />
@@ -86,34 +89,57 @@
 
             <TabItem Header=" Nouvelle commande ">
 
-                <StackPanel Height="694" Margin="50,0,50,0">
+                <StackPanel Height="694" Margin="30,-50,30,0">
 
-                    <TextBox
-                        x:Name="tbIdentifiant"
-                        Width="300"
-                        Height="32"
-                        Padding="10,4,0,4"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Top"
-                        Background="#FFEBF3F0"
-                        BorderThickness="0,0,0,0" />
-                    <Button
-                        Width="70"
-                        Height="30"
-                        Margin="0,20,0,0"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Top"
-                        Background="#FF1C9E7F"
-                        BorderThickness="0"
-                        Click="OuvrirFiltres"
-                        Content="Filtres"
-                        Foreground="White">
-                        <Button.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="5" />
-                            </Style>
-                        </Button.Resources>
-                    </Button>
+                    <StackPanel Orientation="Horizontal">
+
+                        <TextBox
+                            x:Name="tbRecherche"
+                            Width="300"
+                            Height="30"
+                            Padding="12,4,30,4"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            BorderThickness="1">
+                            <TextBox.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="15" />
+                                </Style>
+                            </TextBox.Resources>
+                            <TextBox.Effect>
+                                <DropShadowEffect ShadowDepth="1" Color="Gray" />
+                            </TextBox.Effect>
+                        </TextBox>
+                        <Image
+                            Width="16"
+                            Height="16"
+                            Margin="-40,0,0,0"
+                            Source="/rsc/icone_recherche.png"
+                            Stretch="Fill" />
+
+                        <Button
+                            Width="70"
+                            Height="30"
+                            Margin="25,0,0,0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Top"
+                            Background="#FF1C9E7F"
+                            BorderThickness="0"
+                            Click="OuvrirFiltres"
+                            Content="Filtres"
+                            Cursor="Hand"
+                            Foreground="White">
+                            <Button.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="5" />
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+
+                    </StackPanel>
+
+
+
                     <StackPanel
                         Width="147"
                         Height="48"

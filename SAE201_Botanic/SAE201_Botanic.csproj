@@ -10,11 +10,15 @@
   <ItemGroup>
     <None Remove="rsc\botanic_annecy.png" />
     <None Remove="rsc\fond_page_authentification.png" />
+    <None Remove="rsc\icone_recherche.png" />
     <None Remove="rsc\icon_botanic.ico" />
     <None Remove="rsc\image_page_authentification.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="rsc\icone_recherche.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="rsc\logos_botanic\annecy.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

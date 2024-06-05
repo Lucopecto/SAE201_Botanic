@@ -132,6 +132,7 @@
                     BorderThickness="0"
                     Click="Goto_MdpOublie"
                     Content="Mot de passe oublié ?"
+                    Cursor="Hand"
                     FontSize="10"
                     FontStyle="Italic"
                     Foreground="Gray" />
@@ -146,6 +147,7 @@
                     BorderThickness="0"
                     Click="Login"
                     Content="OK"
+                    Cursor="Hand"
                     Foreground="White"
                     IsDefault="True">
                     <Button.Resources>
@@ -223,6 +225,7 @@
                     BorderThickness="0"
                     Click="Goto_DemandeEnvoye"
                     Content="OK"
+                    Cursor="Hand"
                     Foreground="White"
                     IsDefault="True">
                     <Button.Resources>
@@ -240,6 +243,7 @@
                     BorderThickness="0"
                     Click="Goto_Connexion"
                     Content="◄ Retour"
+                    Cursor="Hand"
                     FontSize="10"
                     FontStyle="Italic"
                     Foreground="Gray" />
@@ -299,6 +303,7 @@
                     BorderThickness="0"
                     Click="Goto_Connexion"
                     Content="◄ Retour"
+                    Cursor="Hand"
                     FontSize="10"
                     FontStyle="Italic"
                     Foreground="Gray" />
