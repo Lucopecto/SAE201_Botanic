@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,11 +23,12 @@ namespace SAE201_Botanic
         public Filtre()
         {
             InitializeComponent();
+            AfficherCategories();
         }
 
         private void jardin_Click(object sender, RoutedEventArgs e)
         {
-            FiltreType.Visibility = Visibility.Collapsed;
+            spType.Visibility = Visibility.Collapsed;
             FiltreCategorie.Visibility = Visibility.Visible;
             Button plante = new Button();
             plante.Content = "Plante";
@@ -44,6 +46,11 @@ namespace SAE201_Botanic
             FiltreCategorie.Children.Add(plante1);
             FiltreCategorie.Children.Add(plante2);
             FiltreCategorie.Children.Add(plante3);
+        }
+
+        private void AfficherCategories()
+        {
+            
         }
     }
 }

@@ -80,28 +80,18 @@ namespace SAE201_Botanic
             { Console.WriteLine("Problème à la déconnexion : " + e); }
         }
 
-        //public int Read()
-        //{
-        //    String sql = "SELECT id, nom,prenom,email,genre,telephone, dateNaissance FROM Produit";
-        //    try
-        //    {
-        //        NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter(sql, Connexion);
-        //        DataTable dataTable = new DataTable();
-        //        dataAdapter.Fill(dataTable);
-        //        foreach (DataRow res in dataTable.Rows)
-        //        {
-        //            Produit nouveau = new Produit(int.Parse(res["id"].ToString()),
-        //            res["nom"].ToString(), res["prenom"].ToString(),
-        //            res["email"].ToString(), DateTime.Parse(res["dateNaissance"].ToString()),
-        //            res["telephone"].ToString(),
-        //            (GenreProduit)char.Parse(res["genre"].ToString()));
-        //            LesProduits.Add(nouveau);
-        //        }
-        //        return dataTable.Rows.Count;
-        //    }
-        //    catch (NpgsqlException e)
-        //    { Console.WriteLine("pb de requete : " + e); return 0; }
-        //}
+        public DataRowCollection Read(string commandeSql)
+        {
+            try
+            {
+                NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter(commandeSql, Connexion);
+                DataTable dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+                return dataTable.Rows;
+            }
+            catch (NpgsqlException e)
+            { MessageBox.Show("e", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error); }
+        }
 
         private int MethodeGenerique(string sql)
         {

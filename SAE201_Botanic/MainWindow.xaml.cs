@@ -32,7 +32,6 @@ namespace SAE201_Botanic
                 login loginWin = new login();
                 Close();
                 loginWin.ShowDialog();
-
             }
         }
 

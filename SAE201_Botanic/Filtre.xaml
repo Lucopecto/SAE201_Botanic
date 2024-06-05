@@ -6,12 +6,14 @@
     xmlns:local="clr-namespace:SAE201_Botanic"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="Filtre"
-    Width="200"
-    Height="405"
+    Width="400"
+    Height="800"
+    Icon="rsc/icon_botanic.ico"
+    ResizeMode="NoResize"
     mc:Ignorable="d">
     <Grid>
         <StackPanel
-            x:Name="FiltreType"
+            x:Name="spType"
             Width="200"
             Height="400"
             HorizontalAlignment="Center"
@@ -33,8 +35,7 @@
                 Cursor="IBeam"
                 FontFamily="Caladea"
                 FontSize="24"
-                FontStyle="Italic"
-                RenderTransformOrigin="0.5,0.5" />
+                FontStyle="Italic"/>
             <Button
                 x:Name="Mobilier"
                 Width="200"
@@ -102,6 +103,6 @@
         <StackPanel
             x:Name="FiltreCategorie"
             Width="200"
-            Height="405"/>
+            Height="405" />
     </Grid>
 </Window>
