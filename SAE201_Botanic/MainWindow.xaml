@@ -128,7 +128,6 @@
                             HorizontalContentAlignment="Center"
                             VerticalContentAlignment="Center"
                             BorderBrush="#FF868686"
-                            Click="AjouterCommande_Click"
                             Content="Valider">
                             <Button.Background>
                                 <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
