@@ -5,69 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SAE201_Botanic"
         mc:Ignorable="d"
-        Title="Filtre" Height="600" Width="400">
+        Title="Filtre" Height="400" Width="200">
     <Grid>
-        <StackPanel Background="White" Orientation="Vertical" Height="271" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,104,0,0" Width="176">
-            <Button x:Name="jardin" Content="Jardin" HorizontalAlignment="Left" Width="91" Height="28" Background="WhiteSmoke" Panel.ZIndex="0" FontStyle="Italic" FontFamily="Caladea" FontSize="20" Cursor="IBeam" RenderTransformOrigin="0.5,0.5" Click="jardin_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" VerticalAlignment="Top">
-                <Button.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform AngleX="-20" AngleY="0"/>
-                        <RotateTransform/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Button.RenderTransform>
+        <StackPanel Background="White" Orientation="Vertical" Height="375" VerticalAlignment="Top" HorizontalAlignment="Center" Width="200">
+            <Button x:Name="jardin" Content="Jardin" HorizontalAlignment="Center" Width="201" Height="48" Background="WhiteSmoke" Panel.ZIndex="0" FontStyle="Italic" FontFamily="Caladea" FontSize="20" Cursor="IBeam" RenderTransformOrigin="0.5,0.5" Click="jardin_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" VerticalAlignment="Center">
+
             </Button>
-            <Button x:Name="Mobilier" Content="Mobilier" Width="91" Height="28" Background="WhiteSmoke"  FontStyle="Italic" FontFamily="Caladea" FontSize="20" Cursor="IBeam" Click="Mobilier_Click" HorizontalAlignment="Left" VerticalAlignment="Top">
-                <Button.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform AngleX="-20" AngleY="0"/>
-                        <RotateTransform/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Button.RenderTransform>
+            <Button x:Name="Mobilier" Content="Mobilier" Width="201" Height="47" Background="WhiteSmoke"  FontStyle="Italic" FontFamily="Caladea" FontSize="20" Cursor="IBeam" Click="Mobilier_Click" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button Content="Potager et Verger" Width="202" Height="55" Background="WhiteSmoke" FontStyle="Italic" FontFamily="Caladea" FontSize="20" Cursor="IBeam" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Button Content="Balcon" Width="199" Height="65" Background="WhiteSmoke" Panel.ZIndex="0" FontStyle="Italic" FontFamily="Caladea" FontSize="20" Cursor="IBeam" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Center">
+
             </Button>
-            <Button Content="Potager et Verger" Width="163" Height="28" Background="WhiteSmoke" FontStyle="Italic" FontFamily="Caladea" FontSize="20" Cursor="IBeam" HorizontalAlignment="Left" VerticalAlignment="Top" >
-                <Button.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform AngleX="-20" AngleY="0"/>
-                        <RotateTransform/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Button.RenderTransform>
-            </Button>
-            <Button Content="Balcon" Width="172" Height="28" Background="WhiteSmoke" Panel.ZIndex="0" FontStyle="Italic" FontFamily="Caladea" FontSize="20" Cursor="IBeam" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left">
-                <Button.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform AngleX="-20" AngleY="0"/>
-                        <RotateTransform/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Button.RenderTransform>
-            </Button>
-            <Button Content="Terrasse" Width="91" Height="28" Background="WhiteSmoke" Panel.ZIndex="0" FontStyle="Italic" FontFamily="Caladea" FontSize="20" Cursor="IBeam" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top">
-                <Button.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform AngleX="-20" AngleY="0"/>
-                        <RotateTransform/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Button.RenderTransform>
-            </Button>
-            <Button Content="Animalerie" Width="110" Height="28" Background="WhiteSmoke" Panel.ZIndex="0" FontStyle="Italic" FontFamily="Caladea" FontSize="20" Cursor="IBeam" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top">
-                <Button.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform AngleX="-20" AngleY="0"/>
-                        <RotateTransform/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Button.RenderTransform>
-            </Button>
+            <Button Content="Terrasse" Width="202" Height="63" Background="WhiteSmoke" Panel.ZIndex="0" FontStyle="Italic" FontFamily="Caladea" FontSize="20" Cursor="IBeam" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button Content="Animalerie" Width="201" Height="63" Background="WhiteSmoke" Panel.ZIndex="0" FontStyle="Italic" FontFamily="Caladea" FontSize="20" Cursor="IBeam" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
         </StackPanel>
 
