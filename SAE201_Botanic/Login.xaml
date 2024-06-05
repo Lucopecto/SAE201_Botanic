@@ -148,7 +148,7 @@
                     BorderThickness="0"
                     Click="Login"
                     Content="OK"
-                    Foreground="White">
+                    Foreground="White" IsDefault="True">
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="5" />
@@ -211,7 +211,7 @@
                     BorderThickness="0"
                     Click="Goto_DemandeEnvoye"
                     Content="OK"
-                    Foreground="White">
+                    Foreground="White" IsDefault="True">
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="5" />
