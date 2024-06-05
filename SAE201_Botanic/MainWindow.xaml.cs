@@ -27,7 +27,13 @@ namespace SAE201_Botanic
 
         private void Deconnexion(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Vous allez être déconnecté");
+            if(MessageBox.Show("Vous allez être déconnecté", "Déconnexion", MessageBoxButton.OKCancel, MessageBoxImage.Information) is MessageBoxResult.OK)
+            {
+                login loginWin = new login();
+                Close();
+                loginWin.ShowDialog();
+
+            }
         }
 
         private void OuvrirFiltres(object sender, RoutedEventArgs e)
