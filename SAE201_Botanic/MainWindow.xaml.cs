@@ -24,6 +24,16 @@ namespace SAE201_Botanic
         {
             InitializeComponent();
         }
-        
+
+        private void Deconnexion(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Vous allez être déconnecté");
+        }
+
+        private void OuvrirFiltres(object sender, RoutedEventArgs e)
+        {
+            Filtre filtreWin = new Filtre();
+            filtreWin.ShowDialog();
+        }
     }
 }

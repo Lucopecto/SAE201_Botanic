@@ -10,47 +10,83 @@
     Height="900"
     Icon="rsc/icon_botanic.ico"
     mc:Ignorable="d">
+    <Window.Resources>
+        <Style TargetType="TabItem">
+            <Setter Property="Height" Value="50" />
+            <Setter Property="FontSize" Value="20" />
+        </Style>
+    </Window.Resources>
+
+
+
+
 
     <Grid Background="White">
-        <Grid.RowDefinitions>
-            <RowDefinition  Height="68*"/>
-            <RowDefinition  Height="157*"/>
-        </Grid.RowDefinitions>
-        <StackPanel x:Name="jardinAfficheProduit" Grid.Row="1">
-            <StackPanel Height="99" Width="224" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <ComboBox Width="120" >
-                    <CheckBox Content="Plantes"/>
-                </ComboBox>
-            </StackPanel>
-        </StackPanel>
-        <StackPanel
-          Orientation="Horizontal" Margin="0,0,462,200">
-            <TextBox
-              Width="300"
-              Height="50"
-              VerticalContentAlignment="Center"
-              FontSize="20"
-              FontStyle="Italic"
-              Foreground="#FF777777"
-              Text="Rechercher..."
-              TextWrapping="Wrap" />
-            <Button
-              Width="50"
-              Height="50"
-              Margin="0,0,0,0"
-              Content="OK"
-              FontSize="20" />
 
-        </StackPanel>
-        <StackPanel x:Name="MobilierAfficheProduit" Margin="0,267,0,0" Grid.RowSpan="2">
-            <StackPanel Height="99" Width="224" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <ComboBox Width="120" >
-                    <CheckBox Content="Bois"/>
-                </ComboBox>
-            </StackPanel>
-            <Label Content="Label"/>
-        </StackPanel>
-        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1290,15,0,0"/>
+
+
+        <DockPanel>
+            <ToolBarTray DockPanel.Dock="Top">
+                <ToolBar>
+                    <Button Content="Déconnexion" Click="Deconnexion" />
+                </ToolBar>
+            </ToolBarTray>
+            <TextBox AcceptsReturn="True" />
+        </DockPanel>
+
+
+
+        <TabControl Margin="0,32,0,0">
+
+
+
+            <TabItem Header=" Visualiser commandes " />
+
+
+
+            <TabItem Header=" Nouvelle commande ">
+
+                <StackPanel Margin="50,40,50,40">
+                    <TextBox
+                        x:Name="tbIdentifiant"
+                        Width="300"
+                        Height="32"
+                        Padding="10,4,0,4"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Background="#FFEBF3F0"
+                        BorderThickness="0,0,0,0" />
+                    <Button
+                    Width="70"
+                    Height="30"
+                    Margin="0,20,0,0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Background="#FF1C9E7F"
+                    BorderThickness="0"
+                    Click="OuvrirFiltres"
+                    Content="Filtres"
+                    Foreground="White">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="5" />
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </StackPanel>
+
+            </TabItem>
+
+
+
+        </TabControl>
+
+
+
     </Grid>
+
+
+
+
 
 </Window>
