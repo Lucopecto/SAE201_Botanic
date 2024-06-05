@@ -80,8 +80,8 @@
                             Header="Mode de Livraison" />
                     </DataGrid.Columns>
                 </DataGrid>
+          
             </TabItem>
-
 
 
             <TabItem Header=" Nouvelle commande ">
