@@ -23,5 +23,32 @@ namespace SAE201_Botanic
         {
             InitializeComponent();
         }
+
+        private void Goto_MdpOublie(object sender, RoutedEventArgs e)
+        {
+            spConnexion.Visibility = Visibility.Hidden;
+            spMdpOublie.Visibility = Visibility.Visible;
+        }
+
+        private void Goto_Connexion(object sender, RoutedEventArgs e)
+        {
+            spMdpOublie.Visibility = Visibility.Hidden;
+            spDemandeEnvoyee.Visibility = Visibility.Hidden;
+            spConnexion.Visibility = Visibility.Visible;
+        }
+
+        private void Goto_DemandeEnvoye(object sender, RoutedEventArgs e)
+        {
+            spMdpOublie.Visibility = Visibility.Hidden;
+            spDemandeEnvoyee.Visibility = Visibility.Visible;
+        }
+
+        private void ValiderConnexion(object sender, RoutedEventArgs e)
+        {
+            var mainWin = new MainWindow();
+            Close();
+            mainWin.Show();
+        }
+
     }
 }

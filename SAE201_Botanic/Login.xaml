@@ -31,11 +31,6 @@
                 <ColumnDefinition Width="373" />
                 <ColumnDefinition Width="627" />
             </Grid.ColumnDefinitions>
-            <Grid.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="50" />
-                </Style>
-            </Grid.Resources>
 
 
 
@@ -74,7 +69,8 @@
                 Canvas.Top="200"
                 Width="250"
                 HorizontalAlignment="Center"
-                VerticalAlignment="Center">
+                VerticalAlignment="Center"
+                Visibility="Visible">
 
                 <Label
                     x:Name="lbConnexion"
@@ -100,18 +96,11 @@
                 <TextBox
                     x:Name="tbIdentifiant"
                     Height="24"
+                    Padding="10,4,0,4"
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Top"
                     Background="#FFEBF3F0"
-                    BorderThickness="0,0,0,0"
-                    Text=""
-                    TextWrapping="Wrap">
-                    <TextBox.Resources>
-                        <Style TargetType="{x:Type Border}">
-                            <Setter Property="CornerRadius" Value="12" />
-                        </Style>
-                    </TextBox.Resources>
-                </TextBox>
+                    BorderThickness="0,0,0,0" />
 
                 <Label
                     x:Name="lbMdp"
@@ -125,31 +114,25 @@
                     FontStyle="Italic" />
 
 
-                <TextBox
-                    x:Name="tbMdp"
+                <PasswordBox
+                    x:Name="pbMdp"
                     Canvas.Left="589"
                     Canvas.Top="182"
                     Height="24"
+                    Padding="10,4,0,4"
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Top"
                     Background="#FFEBF3F0"
-                    BorderThickness="0,0,0,0"
-                    Text=""
-                    TextWrapping="Wrap">
-                    <TextBox.Resources>
-                        <Style TargetType="{x:Type Border}">
-                            <Setter Property="CornerRadius" Value="12" />
-                        </Style>
-                    </TextBox.Resources>
-                </TextBox>
+                    BorderThickness="0,0,0,0" />
 
                 <Button
-                    Canvas.Left="591"
-                    Canvas.Top="210"
+                    x:Name="btnMdpOublie"
+                    Margin="0,5,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     Background="#00000000"
-                    BorderBrush="#00000000"
+                    BorderThickness="0"
+                    Click="Goto_MdpOublie"
                     Content="Mot de passe oublié ?"
                     FontSize="10"
                     FontStyle="Italic"
@@ -162,16 +145,138 @@
                     HorizontalAlignment="Center"
                     VerticalAlignment="Top"
                     Background="#FF1C9E7F"
-                    BorderBrush="#FF01634C"
                     BorderThickness="0"
+                    Click="ValiderConnexion"
                     Content="OK"
                     Foreground="White">
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
-                            <Setter Property="CornerRadius" Value="15" />
+                            <Setter Property="CornerRadius" Value="5" />
                         </Style>
                     </Button.Resources>
                 </Button>
+
+            </StackPanel>
+
+
+
+            <StackPanel
+                x:Name="spMdpOublie"
+                Grid.Column="1"
+                Canvas.Left="600"
+                Canvas.Top="200"
+                Width="250"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Visibility="Hidden">
+
+                <Label
+                    x:Name="lbMdpOublie"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Top"
+                    HorizontalContentAlignment="Center"
+                    Content="MOT DE PASSE OUBLIÉ"
+                    FontFamily="Yu Gothic UI Semibold"
+                    FontSize="16"
+                    Foreground="#FF002D22" />
+
+                <Label
+                    x:Name="lbIdentifiant_mdpo"
+                    Canvas.Left="589"
+                    Canvas.Top="100"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Content="Identifiant"
+                    FontFamily="Segoe UI Light"
+                    FontStyle="Italic"
+                    Foreground="Black" />
+
+                <TextBox
+                    x:Name="tbIdentifiant_mdpo"
+                    Height="24"
+                    Padding="10,4,0,4"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Top"
+                    Background="#FFEBF3F0"
+                    BorderThickness="0,0,0,0" />
+
+                <Button
+                    x:Name="btnValiderMdpOublie"
+                    Width="70"
+                    Height="30"
+                    Margin="0,20,0,0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Background="#FF1C9E7F"
+                    BorderThickness="0"
+                    Content="OK"
+                    Foreground="White" Click="Goto_DemandeEnvoye">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="5" />
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <Button
+                    x:Name="btnRetourConnexion1"
+                    Margin="0,5,0,0"
+                    HorizontalAlignment="Center"
+                    Background="#00000000"
+                    BorderThickness="0"
+                    Click="Goto_Connexion"
+                    Content="◄ Retour"
+                    FontSize="10"
+                    FontStyle="Italic"
+                    Foreground="Gray" />
+
+
+
+            </StackPanel>
+
+
+
+            <StackPanel
+    x:Name="spDemandeEnvoyee"
+    Grid.Column="1"
+    Canvas.Left="600"
+    Canvas.Top="200"
+    Width="250"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Center"
+    Visibility="Hidden">
+
+                <Label
+        x:Name="lbDemandeEnvoyee"
+        HorizontalAlignment="Stretch"
+        VerticalAlignment="Top"
+        HorizontalContentAlignment="Center"
+        Content="DEMANDE ENVOYÉE"
+        FontFamily="Yu Gothic UI Semibold"
+        FontSize="16"
+        Foreground="#FF002D22" />
+
+                <TextBlock HorizontalAlignment="Stretch"
+VerticalAlignment="Top"
+TextAlignment="Center"
+Text="Une demande de réinitialisation de mot de passe à été envoyé à votre responsable RH. Veuillez-vous en rapprocher pour récupérer vos informations"
+FontFamily="Yu Gothic UI Light"
+FontSize="12"
+                           TextWrapping="Wrap"/>
+
+                <Button
+        x:Name="btnRetourConnexion2"
+        Margin="0,5,0,0"
+        HorizontalAlignment="Center"
+        Background="#00000000"
+        BorderThickness="0"
+        Click="Goto_Connexion"
+        Content="◄ Retour"
+        FontSize="10"
+        FontStyle="Italic"
+        Foreground="Gray" />
+
+
 
             </StackPanel>
 
