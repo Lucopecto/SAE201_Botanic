@@ -29,11 +29,21 @@ namespace SAE201_Botanic
             FiltreType.Visibility = Visibility.Collapsed;
             FiltreCategorie.Visibility = Visibility.Visible;
             Button plante = new Button();
-            {
-                Content = "Plante";
-                FontSize = 24;
-            };
+            plante.Content = "Plante";
+            plante.FontSize = 24;
+            Button plante1 = new Button();
+            plante1.Content = "Plante";
+            plante1.FontSize = 24;
+            Button plante2 = new Button();
+            plante2.Content = "Plante";
+            plante2.FontSize = 24;
+            Button plante3 = new Button();
+            plante3.Content = "Plante";
+            plante3.FontSize = 24;
             FiltreCategorie.Children.Add(plante);
+            FiltreCategorie.Children.Add(plante1);
+            FiltreCategorie.Children.Add(plante2);
+            FiltreCategorie.Children.Add(plante3);
         }
     }
 }
