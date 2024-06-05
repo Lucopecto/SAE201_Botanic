@@ -5,8 +5,71 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SAE201_Botanic"
         mc:Ignorable="d"
-        Title="Filtre" Height="450" Width="800">
+        Title="Filtre" Height="600" Width="400">
     <Grid>
-        
+        <StackPanel Background="White" Orientation="Vertical" Height="271" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,104,0,0" Width="176">
+            <Button x:Name="jardin" Content="Jardin" HorizontalAlignment="Left" Width="91" Height="28" Background="WhiteSmoke" Panel.ZIndex="0" FontStyle="Italic" FontFamily="Caladea" FontSize="20" Cursor="IBeam" RenderTransformOrigin="0.5,0.5" Click="jardin_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" VerticalAlignment="Top">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleX="-20" AngleY="0"/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="Mobilier" Content="Mobilier" Width="91" Height="28" Background="WhiteSmoke"  FontStyle="Italic" FontFamily="Caladea" FontSize="20" Cursor="IBeam" Click="Mobilier_Click" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleX="-20" AngleY="0"/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+            </Button>
+            <Button Content="Potager et Verger" Width="163" Height="28" Background="WhiteSmoke" FontStyle="Italic" FontFamily="Caladea" FontSize="20" Cursor="IBeam" HorizontalAlignment="Left" VerticalAlignment="Top" >
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleX="-20" AngleY="0"/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+            </Button>
+            <Button Content="Balcon" Width="172" Height="28" Background="WhiteSmoke" Panel.ZIndex="0" FontStyle="Italic" FontFamily="Caladea" FontSize="20" Cursor="IBeam" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleX="-20" AngleY="0"/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+            </Button>
+            <Button Content="Terrasse" Width="91" Height="28" Background="WhiteSmoke" Panel.ZIndex="0" FontStyle="Italic" FontFamily="Caladea" FontSize="20" Cursor="IBeam" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleX="-20" AngleY="0"/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+            </Button>
+            <Button Content="Animalerie" Width="110" Height="28" Background="WhiteSmoke" Panel.ZIndex="0" FontStyle="Italic" FontFamily="Caladea" FontSize="20" Cursor="IBeam" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleX="-20" AngleY="0"/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+            </Button>
+
+        </StackPanel>
+
     </Grid>
 </Window>

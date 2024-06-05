@@ -16,69 +16,6 @@
             <RowDefinition  Height="68*"/>
             <RowDefinition  Height="157*"/>
         </Grid.RowDefinitions>
-        <StackPanel Background="White" Orientation="Horizontal" Height="32" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,104,0,0">
-            <Button x:Name="jardin" Content="Jardin" HorizontalAlignment="Left" Width="91" Height="28" Background="WhiteSmoke" Panel.ZIndex="0" FontStyle="Italic" FontFamily="Caladea" FontSize="20" Cursor="IBeam" RenderTransformOrigin="0.5,0.5" Click="jardin_Click">
-                <Button.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform AngleX="-20" AngleY="0"/>
-                        <RotateTransform/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Button.RenderTransform>
-            </Button>
-            <Button x:Name="Mobilier" Content="Mobilier" Width="91" Height="28" Background="WhiteSmoke" Panel.ZIndex="0" FontStyle="Italic" FontFamily="Caladea" FontSize="20" Cursor="IBeam" RenderTransformOrigin="0.5,0.5" Click="Mobilier_Click">
-                <Button.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform AngleX="-20" AngleY="0"/>
-                        <RotateTransform/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Button.RenderTransform>
-            </Button>
-            <Button Content="Potager et Verger" Width="163" Height="28" Background="WhiteSmoke" Panel.ZIndex="0" FontStyle="Italic" FontFamily="Caladea" FontSize="20" Cursor="IBeam" RenderTransformOrigin="0.5,0.5">
-                <Button.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform AngleX="-20" AngleY="0"/>
-                        <RotateTransform/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Button.RenderTransform>
-            </Button>
-            <Button Content="Balcon" Width="91" Height="28" Background="WhiteSmoke" Panel.ZIndex="0" FontStyle="Italic" FontFamily="Caladea" FontSize="20" Cursor="IBeam" RenderTransformOrigin="0.5,0.5">
-                <Button.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform AngleX="-20" AngleY="0"/>
-                        <RotateTransform/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Button.RenderTransform>
-            </Button>
-            <Button Content="Terrasse" Width="91" Height="28" Background="WhiteSmoke" Panel.ZIndex="0" FontStyle="Italic" FontFamily="Caladea" FontSize="20" Cursor="IBeam" RenderTransformOrigin="0.5,0.5">
-                <Button.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform AngleX="-20" AngleY="0"/>
-                        <RotateTransform/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Button.RenderTransform>
-            </Button>
-            <Button Content="Animalerie" Width="110" Height="28" Background="WhiteSmoke" Panel.ZIndex="0" FontStyle="Italic" FontFamily="Caladea" FontSize="20" Cursor="IBeam" RenderTransformOrigin="0.5,0.5">
-                <Button.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform AngleX="-20" AngleY="0"/>
-                        <RotateTransform/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Button.RenderTransform>
-            </Button>
-
-        </StackPanel>
         <StackPanel x:Name="jardinAfficheProduit" Grid.Row="1">
             <StackPanel Height="99" Width="224" HorizontalAlignment="Left" VerticalAlignment="Center">
                 <ComboBox Width="120" >
