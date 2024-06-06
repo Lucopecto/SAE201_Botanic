@@ -37,30 +37,11 @@ namespace SAE201_Botanic
             }
         }
 
-        private void OuvrirFiltre(object sender, RoutedEventArgs e)
+        private void RechercheGotFocus(object sender, RoutedEventArgs e)
         {
-            Button btn;
-            if (sender is Button)
-            {
-                btn = (Button)sender;
-                switch (btn.Name)
-                {
-                    case "btnFiltreCategorie":
-                        spFiltresCategorie.Visibility = Visibility.Visible;
-                        break;
-
-                    case "btnFiltrePrix":
-                        spFiltresPrix.Visibility = Visibility.Visible;
-                        break;
-
-                    case "btnFiltreCouleur":
-                        spFiltresCouleur.Visibility = Visibility.Visible;
-                        break;
-                }
-            }
 
         }
-        
+
 
         //private void AjouterCommande_Click(object sender, RoutedEventArgs e)
         //{
