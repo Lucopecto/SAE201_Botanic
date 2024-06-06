@@ -16,7 +16,7 @@
             <Setter Property="FontSize" Value="14" />
         </Style>
     </Window.Resources>
-  
+
     <Grid Background="White">
         <DockPanel>
             <ToolBarTray DockPanel.Dock="Top">
@@ -27,7 +27,6 @@
                         Cursor="Hand" />
                 </ToolBar>
             </ToolBarTray>
-            <TextBox AcceptsReturn="True" />
         </DockPanel>
 
         <TabControl Margin="0,32,0,0">
