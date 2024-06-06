@@ -25,7 +25,14 @@ namespace SAE201_Botanic
 
             set
             {
-                numUtilisateur = value;
+                if (numUtilisateur > 0)
+                {
+                    numUtilisateur = value;
+                }
+                else
+                {
+                    throw new ArgumentOutOfRangeException("Le numéro de l'utilisateur doit être supérieur à 0.");
+                }
             }
         }
 

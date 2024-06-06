@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace SAE201_Botanic
 {
@@ -12,8 +10,8 @@ namespace SAE201_Botanic
         private int numCommande;
         private Magasin unMagasin;
         private ModeTransport unModeTransport;
-        private DateOnly dateComande;
-        private DateOnly dateLivraison;
+        private DateTime dateComande;
+        private DateTime dateLivraison;
         private string modeLivraison;
         #endregion
 
@@ -27,7 +25,14 @@ namespace SAE201_Botanic
 
             set
             {
-                numCommande = value;
+                if (numCommande > 0)
+                {
+                    numCommande = value;
+                }
+                else
+                {
+                    throw new ArgumentOutOfRangeException("Le numéro de la commande doit être supérieur à 0.");
+                }
             }
         }
 
@@ -57,7 +62,7 @@ namespace SAE201_Botanic
             }
         }
 
-        public DateOnly DateComande
+        public DateTime DateComande
         {
             get
             {
@@ -70,7 +75,7 @@ namespace SAE201_Botanic
             }
         }
 
-        public DateOnly DateLivraison
+        public DateTime DateLivraison
         {
             get
             {
@@ -92,14 +97,21 @@ namespace SAE201_Botanic
 
             set
             {
-                this.modeLivraison = value;
+                if (modeLivraison.Length <= 50 && Regex.IsMatch(modeLivraison, @"^[a-zA-Z]+$"))
+                {
+                    modeLivraison = value;
+                }
+                else
+                {
+                    throw new ArgumentException("Le mode de livraison doit contenir uniquement des lettres et ne doit pas dépasser 50 caractères.");
+                }
             }
         }
 
         #endregion
 
         #region Constructeur
-        public CommandeAchat(int numCommande, Magasin unMagasin, ModeTransport unModeTransport, DateOnly dateComande, DateOnly dateLivraison, string modeLivraison)
+        public CommandeAchat(int numCommande, Magasin unMagasin, ModeTransport unModeTransport, DateTime dateComande, DateTime dateLivraison, string modeLivraison)
         {
             this.NumCommande = numCommande;
             this.UnMagasin = unMagasin;

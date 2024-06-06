@@ -25,13 +25,13 @@ namespace SAE201_Botanic
 
             set
             {
-                if (numCategorie >= 0 && numCategorie <= 9)
+                if (numCategorie > 0)
                 {
                     numCategorie = value;
                 }
                 else
                 {
-                    throw new ArgumentOutOfRangeException("Le numéro de la catégorie doit être compris entre 0 et 9.");
+                    throw new ArgumentOutOfRangeException("Le numéro de la catégorie doit être supérieur à 0.");
                 }
             }
         }
