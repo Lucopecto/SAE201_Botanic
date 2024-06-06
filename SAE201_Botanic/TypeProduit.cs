@@ -44,14 +44,14 @@ namespace SAE201_Botanic
 
             set
             {
-                if (nomType.Length <= 100 && Regex.IsMatch(nomType, @"^[a-zA-Z]+$"))
-                {
+                //if (nomType.Length <= 100 && Regex.IsMatch(nomType, @"^[a-zA-Z]+$"))
+                //{
                     nomType = value;
-                }
-                else
-                {
-                    throw new ArgumentException("Le type du produit doit contenir uniquement des lettres et ne pas dépasser 100 caractères.");
-                }
+                //}
+                //else
+                //{
+                //    throw new ArgumentException("Le type du produit doit contenir uniquement des lettres et ne pas dépasser 100 caractères.");
+                //}
             }
         }
 
