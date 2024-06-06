@@ -125,8 +125,9 @@
                     HorizontalContentAlignment="Left"
                     Background="White"
                     BorderThickness="0"
+                    Click="AfficherCouleur"
                     Content="Tout"
-                    Foreground="Gray" Click="AfficherCouleur" />
+                    Foreground="Gray" />
 
             </StackPanel>
 
@@ -194,6 +195,42 @@
                 Content="Tout"
                 Foreground="Gray" />
         </StackPanel>
+
+
+
+        <StackPanel
+            x:Name="pageSousCategorie"
+            Margin="20"
+            Visibility="Hidden">
+            <StackPanel Orientation="Horizontal">
+                <Button
+                    Width="20"
+                    Height="20"
+                    Margin="0,3,0,0"
+                    BorderThickness="0"
+                    Click="AfficherCategories">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/rsc/icone-retour.png" />
+                    </Button.Background>
+                </Button>
+                <Label
+                    x:Name="lbPageSousCategorie"
+                    Content=""
+                    FontFamily="Segoe UI Light"
+                    FontSize="16"
+                    Foreground="Black" />
+            </StackPanel>
+            <Button
+                Height="30"
+                Padding="10,0,0,0"
+                HorizontalAlignment="Stretch"
+                HorizontalContentAlignment="Left"
+                Background="White"
+                BorderThickness="0"
+                Content="Tout"
+                Foreground="Gray" />
+        </StackPanel>
+
 
 
         <StackPanel
