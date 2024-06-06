@@ -23,12 +23,12 @@ namespace SAE201_Botanic
         public Filtres()
         {
             InitializeComponent();
-            ApplicationData appData = new ApplicationData();
-            DataRowCollection lesCategories = appData.Read("SELECT nomtype FROM type_produit");
-            foreach (DataRow uneCategorie in lesCategories)
-            {
-                pageCategorie.Children.Add(pageCategorie);
-            }
+            //ApplicationData appData = new ApplicationData();
+            //DataRowCollection lesCategories = appData.Read("SELECT nomtype FROM type_produit");
+            //foreach (DataRow uneCategorie in lesCategories)
+            //{
+            //    pageCategorie.Children.Add(pageCategorie);
+            //}
         }
 
         private void ValiderFiltres(object sender, RoutedEventArgs e)
