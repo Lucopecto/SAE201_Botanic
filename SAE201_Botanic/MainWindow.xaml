@@ -199,8 +199,9 @@
 
 
             <TabItem Header=" Visualiser commandes ">
+
                 <DataGrid
-                    Name="dgClients"
+                    Name="dgCommandes"
                     Grid.Column="1"
                     Width="1600"
                     Height="300"
@@ -238,6 +239,33 @@
                             Header="Mode de Livraison" />
                     </DataGrid.Columns>
                 </DataGrid>
+                <StackPanel Orientation="Horizontal">
+
+                    <TextBox
+                        x:Name="tbRecherche"
+                        Width="300"
+                        Height="30"
+                        Padding="12,4,30,4"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        BorderThickness="1"
+                        GotFocus="RechercheGotFocus">
+                        <TextBox.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="15" />
+                            </Style>
+                        </TextBox.Resources>
+                        <TextBox.Effect>
+                            <DropShadowEffect ShadowDepth="1" Color="Gray" />
+                        </TextBox.Effect>
+                    </TextBox>
+                    <Image
+                        Width="16"
+                        Height="16"
+                        Margin="-40,0,0,0"
+                        Source="/rsc/icone_recherche.png"
+                        Stretch="Fill" />
+                </StackPanel>
 
             </TabItem>
 
