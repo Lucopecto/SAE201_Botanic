@@ -37,9 +37,10 @@ namespace SAE201_Botanic
             }
         }
 
-        private void RechercheGotFocus(object sender, RoutedEventArgs e)
+        private void OuvrirFiltre(object sender, RoutedEventArgs e)
         {
-
+            Filtres filtreWin = new Filtres();
+            filtreWin.ShowDialog();
         }
 
 
