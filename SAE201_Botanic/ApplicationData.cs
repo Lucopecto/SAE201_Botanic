@@ -82,11 +82,21 @@ namespace SAE201_Botanic
 
         public DataRowCollection Read(string commandeSql)
         {
+            string sql = "SELECT numcommande, nummagasin, modetransport, datecommande, datelivraison, modelivraison FROM commande_achat";
             try
             {
                 NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter(commandeSql, Connexion);
                 DataTable dataTable = new DataTable();
                 dataAdapter.Fill(dataTable);
+                //foreach (DataRow res in dataTable.Rows)
+                //{
+                //    CommandeAchat nouveau = new CommandeAchat(int.Parse(res["numCommande"].ToString()),
+                //    res["nom"].ToString(), res["prenom"].ToString(),
+                //    res["email"].ToString(), DateTime.Parse(res["dateNaissance"].ToString()),
+                //    res["telephone"].ToString(),
+                //    (GenreClient)char.Parse(res["genre"].ToString()));
+                //    LesClients.Add(nouveau);
+                //}
                 return dataTable.Rows;
             }
             catch (NpgsqlException e)
