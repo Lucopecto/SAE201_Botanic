@@ -22,9 +22,11 @@ namespace SAE201_Botanic
     /// </summary>
     public partial class MainWindow : Window
     {
+        public ApplicationData data;
         public MainWindow()
         {
             InitializeComponent();
+
             //dgCommandes.Items.Filter = ContientMotClef;
         }
 
