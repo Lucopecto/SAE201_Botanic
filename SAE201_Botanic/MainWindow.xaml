@@ -16,15 +16,7 @@
             <Setter Property="FontSize" Value="14" />
         </Style>
     </Window.Resources>
-
-
-
-
-
     <Grid Background="White">
-
-
-
         <DockPanel>
             <ToolBarTray DockPanel.Dock="Top">
                 <ToolBar>
@@ -37,15 +29,11 @@
             <TextBox AcceptsReturn="True" />
         </DockPanel>
 
-
-
         <TabControl Margin="0,32,0,0">
-
-
 
             <TabItem Header=" Visualiser commandes ">
                 <DataGrid
-                    Name="dgClients"
+                    Name="dgCommandes"
                     Grid.Column="1"
                     Width="1600"
                     Height="300"
@@ -55,31 +43,31 @@
                     VerticalAlignment="Top"
                     AutoGenerateColumns="False"
                     IsReadOnly="True"
-                    ItemsSource="{Binding LesClients}">
+                    ItemsSource="{Binding LesCommandes}">
                     <DataGrid.Columns>
                         <DataGridTextColumn
                             Width="200"
-                            Binding="{Binding Nom}"
+                            Binding="{Binding numCommande}"
                             Header="Numero Commande" />
                         <DataGridTextColumn
                             Width="200"
-                            Binding="{Binding Prenom}"
+                            Binding="{Binding numMagasin}"
                             Header="Numero Magasin" />
                         <DataGridTextColumn
                             Width="200"
-                            Binding="{Binding Telephone}"
+                            Binding="{Binding modeDeTransport}"
                             Header="Mode de Transport" />
                         <DataGridTextColumn
                             Width="200"
-                            Binding="{Binding Telephone}"
+                            Binding="{Binding dateCommande}"
                             Header="Date de Commande" />
                         <DataGridTextColumn
                             Width="200"
-                            Binding="{Binding Telephone}"
+                            Binding="{Binding dateLivraison}"
                             Header="Date de Livraison" />
                         <DataGridTextColumn
                             Width="200"
-                            Binding="{Binding Telephone}"
+                            Binding="{Binding modeLivraison}"
                             Header="Mode de Livraison" />
                     </DataGrid.Columns>
                 </DataGrid>
@@ -142,19 +130,6 @@
                 </StackPanel>
 
             </TabItem>
-
-
-
-
-
         </TabControl>
-
-
-
     </Grid>
-
-
-
-
-
 </Window>
