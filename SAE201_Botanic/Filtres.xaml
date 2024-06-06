@@ -8,6 +8,7 @@
     Title="Filtres"
     Width="300"
     Height="400"
+    Icon="rsc/icon_botanic.ico"
     mc:Ignorable="d">
 
 
@@ -15,12 +16,15 @@
 
 
     <Grid>
-        <StackPanel Margin="20">
+        <StackPanel
+            x:Name="pageFiltres"
+            Margin="20"
+            Visibility="Visible">
+
 
             <StackPanel x:Name="spCategorie">
-
                 <Label
-                    x:Name="lbIdentifiant"
+                    x:Name="lbCategorie"
                     Content="Catégorie"
                     FontFamily="Segoe UI Light"
                     FontSize="16"
@@ -31,13 +35,23 @@
                     HorizontalAlignment="Stretch"
                     HorizontalContentAlignment="Left"
                     Background="White"
-                    BorderThickness="0,0,0,1"
+                    BorderThickness="0"
+                    Click="AfficherCategories"
                     Content="Tout"
                     Foreground="Gray" />
 
             </StackPanel>
 
-            <StackPanel x:Name="spPrix" Margin="0,20,0,0">
+
+
+            <Border
+                Margin="0,5,0,0"
+                BorderBrush="Gray"
+                BorderThickness="0.2" />
+
+
+
+            <StackPanel x:Name="spPrix" Margin="0,10,0,0">
 
                 <Label
                     x:Name="lbPrix"
@@ -45,8 +59,174 @@
                     FontFamily="Segoe UI Light"
                     FontSize="16"
                     Foreground="Black" />
+                <StackPanel Orientation="Horizontal">
+                    <Label
+                        Width="40"
+                        Margin="0,0,10,0"
+                        Content="Min"
+                        Foreground="Gray" />
+                    <TextBox
+                        x:Name="tbPrixMin"
+                        Width="100"
+                        Height="30"
+                        Padding="12,6,0,0"
+                        BorderThickness="1">
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="15" />
+                            </Style>
+                        </TextBox.Resources>
+                        <TextBox.Effect>
+                            <DropShadowEffect ShadowDepth="1" Color="Gray" />
+                        </TextBox.Effect>
+                    </TextBox>
+                </StackPanel>
+                <StackPanel Margin="0,5,0,0" Orientation="Horizontal">
+                    <Label
+                        Width="40"
+                        Margin="0,0,10,0"
+                        Content="Max"
+                        Foreground="Gray" />
+                    <TextBox
+                        x:Name="tbPrixMin1"
+                        Width="100"
+                        Height="30"
+                        Padding="12,6,0,0"
+                        BorderThickness="1">
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="15" />
+                            </Style>
+                        </TextBox.Resources>
+                        <TextBox.Effect>
+                            <DropShadowEffect ShadowDepth="1" Color="Gray" />
+                        </TextBox.Effect>
+                    </TextBox>
+                </StackPanel>
 
             </StackPanel>
+            <Border
+                Margin="0,15,0,0"
+                BorderBrush="Gray"
+                BorderThickness="0.2" />
+
+
+            <StackPanel x:Name="spCouleur" Margin="0,10,0,0">
+                <Label
+                    x:Name="lbCouleur"
+                    Content="Couleur"
+                    FontFamily="Segoe UI Light"
+                    FontSize="16"
+                    Foreground="Black" />
+                <Button
+                    Height="30"
+                    Padding="10,0,0,0"
+                    HorizontalAlignment="Stretch"
+                    HorizontalContentAlignment="Left"
+                    Background="White"
+                    BorderThickness="0"
+                    Content="Tout"
+                    Foreground="Gray" Click="AfficherCouleur" />
+
+            </StackPanel>
+
+
+            <Border
+                Margin="0,5,0,0"
+                BorderBrush="Gray"
+                BorderThickness="0.2" />
+
+
+            <Button
+                Width="70"
+                Height="30"
+                Margin="20"
+                Background="#FF1C9E7F"
+                BorderThickness="0"
+                Click="ValiderFiltres"
+                Content="OK"
+                Cursor="Hand"
+                Foreground="White"
+                IsDefault="True">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="5" />
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+
+
+        </StackPanel>
+
+
+
+
+        <StackPanel
+            x:Name="pageCategorie"
+            Margin="20"
+            Visibility="Hidden">
+            <StackPanel Orientation="Horizontal">
+                <Button
+                    Width="20"
+                    Height="20"
+                    Margin="0,3,0,0"
+                    BorderThickness="0"
+                    Click="RetourFiltre">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/rsc/icone-retour.png" />
+                    </Button.Background>
+                </Button>
+                <Label
+                    x:Name="lbPageCategorie"
+                    Content="Catégorie"
+                    FontFamily="Segoe UI Light"
+                    FontSize="16"
+                    Foreground="Black" />
+            </StackPanel>
+            <Button
+                Height="30"
+                Padding="10,0,0,0"
+                HorizontalAlignment="Stretch"
+                HorizontalContentAlignment="Left"
+                Background="White"
+                BorderThickness="0"
+                Content="Tout"
+                Foreground="Gray" />
+        </StackPanel>
+
+
+        <StackPanel
+            x:Name="pageCouleur"
+            Margin="20"
+            Visibility="Hidden">
+            <StackPanel Orientation="Horizontal">
+                <Button
+                    Width="20"
+                    Height="20"
+                    Margin="0,3,0,0"
+                    BorderThickness="0"
+                    Click="RetourFiltre">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/rsc/icone-retour.png" />
+                    </Button.Background>
+                </Button>
+                <Label
+                    x:Name="lbPageCouleur"
+                    Content="Couleur"
+                    FontFamily="Segoe UI Light"
+                    FontSize="16"
+                    Foreground="Black" />
+            </StackPanel>
+            <Button
+                Height="30"
+                Padding="10,0,0,0"
+                HorizontalAlignment="Stretch"
+                HorizontalContentAlignment="Left"
+                Background="White"
+                BorderThickness="0"
+                Content="Tout"
+                Foreground="Gray" />
         </StackPanel>
 
 
