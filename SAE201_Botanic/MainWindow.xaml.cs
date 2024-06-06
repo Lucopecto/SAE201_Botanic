@@ -26,7 +26,7 @@ namespace SAE201_Botanic
         public MainWindow()
         {
             InitializeComponent();
-            //data = new ApplicationData();
+
             //dgCommandes.Items.Filter = ContientMotClef;
         }
 
