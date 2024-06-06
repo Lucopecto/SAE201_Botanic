@@ -171,15 +171,7 @@
             </Setter>
         </Style>
     </Window.Resources>
-
-
-
-
-
     <Grid Background="White">
-
-
-
         <DockPanel>
             <ToolBarTray DockPanel.Dock="Top">
                 <ToolBar>
@@ -192,14 +184,9 @@
             <TextBox AcceptsReturn="True" />
         </DockPanel>
 
-
-
         <TabControl Margin="0,32,0,0">
 
-
-
             <TabItem Header=" Visualiser commandes ">
-
                 <DataGrid
                     Name="dgCommandes"
                     Grid.Column="1"
@@ -211,61 +198,34 @@
                     VerticalAlignment="Top"
                     AutoGenerateColumns="False"
                     IsReadOnly="True"
-                    ItemsSource="{Binding LesClients}">
+                    ItemsSource="{Binding LesCommandes}">
                     <DataGrid.Columns>
                         <DataGridTextColumn
                             Width="200"
-                            Binding="{Binding Nom}"
+                            Binding="{Binding numCommande}"
                             Header="Numero Commande" />
                         <DataGridTextColumn
                             Width="200"
-                            Binding="{Binding Prenom}"
+                            Binding="{Binding numMagasin}"
                             Header="Numero Magasin" />
                         <DataGridTextColumn
                             Width="200"
-                            Binding="{Binding Telephone}"
+                            Binding="{Binding modeDeTransport}"
                             Header="Mode de Transport" />
                         <DataGridTextColumn
                             Width="200"
-                            Binding="{Binding Telephone}"
+                            Binding="{Binding dateCommande}"
                             Header="Date de Commande" />
                         <DataGridTextColumn
                             Width="200"
-                            Binding="{Binding Telephone}"
+                            Binding="{Binding dateLivraison}"
                             Header="Date de Livraison" />
                         <DataGridTextColumn
                             Width="200"
-                            Binding="{Binding Telephone}"
+                            Binding="{Binding modeLivraison}"
                             Header="Mode de Livraison" />
                     </DataGrid.Columns>
                 </DataGrid>
-                <StackPanel Orientation="Horizontal">
-
-                    <TextBox
-                        x:Name="tbRecherche"
-                        Width="300"
-                        Height="30"
-                        Padding="12,4,30,4"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Top"
-                        BorderThickness="1"
-                        GotFocus="RechercheGotFocus">
-                        <TextBox.Resources>
-                            <Style TargetType="Border">
-                                <Setter Property="CornerRadius" Value="15" />
-                            </Style>
-                        </TextBox.Resources>
-                        <TextBox.Effect>
-                            <DropShadowEffect ShadowDepth="1" Color="Gray" />
-                        </TextBox.Effect>
-                    </TextBox>
-                    <Image
-                        Width="16"
-                        Height="16"
-                        Margin="-40,0,0,0"
-                        Source="/rsc/icone_recherche.png"
-                        Stretch="Fill" />
-                </StackPanel>
 
             </TabItem>
 
@@ -320,19 +280,6 @@
                 </StackPanel>
 
             </TabItem>
-
-
-
-
-
         </TabControl>
-
-
-
     </Grid>
-
-
-
-
-
 </Window>
