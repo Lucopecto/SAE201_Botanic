@@ -153,5 +153,13 @@ namespace SAE201_Botanic
 
             return 0;
         }
+        public int UpdateProduit(Produit p)
+        {
+            string sql = $"UPDATE sae_botanic_s.produit SET numProduit= '{p.NumProduit}', nomCouleur = '{p.UneCouleur}', numCategorie = '{p.UneCategorie}', numFournisseur = '{p.UnFournisseur}', nomProduit= '{p.NomProduit}', tailleProduit= '{p.TailleProduit}', descriptionProduit= '{p.DescriptionProduit}', prixVente= '{p.PrixVente}', prixAchat= '{p.PrixAchat}'" +
+                         $"WHERE id = {p.NumProduit};";
+            MethodeGenerique(sql);
+
+            return 0;
+        }
     }
 }
