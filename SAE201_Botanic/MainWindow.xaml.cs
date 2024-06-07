@@ -88,7 +88,7 @@ namespace SAE201_Botanic
                     Fournisseur fournisseur = new Fournisseur(int.Parse(unProduit["numFournisseur"].ToString()), unProduit["nomFournisseur"].ToString(), codeLocal);
 ;                   Produit produit = new Produit(
                         int.Parse(unProduit["numProduit"].ToString()),couleur, categorie, fournisseur,unProduit["nomProduit"].ToString(), unProduit["tailleProduit"].ToString(), unProduit["descriptionProduit"].ToString(), double.Parse(unProduit["prixVente"].ToString()), double.Parse(unProduit["prixAchat"].ToString()));
-               
+               LesProduits.Add(produit);
                 }
                 catch (Exception ex)
                 {
@@ -100,8 +100,9 @@ namespace SAE201_Botanic
         private void textMotClef_TextChanged(object sender, TextChangedEventArgs e)
         {
             CollectionViewSource.GetDefaultView(dgCommandes.ItemsSource).Refresh();
-        }
 
+            CollectionViewSource.GetDefaultView(dgrechercherproduit.ItemsSource).Refresh();
+        }
         private void Deconnexion(object sender, RoutedEventArgs e)
         {
             if (MessageBox.Show("Vous allez être déconnecté", "Déconnexion", MessageBoxButton.OKCancel, MessageBoxImage.Information) is MessageBoxResult.OK)
@@ -145,6 +146,7 @@ namespace SAE201_Botanic
             }
             else MessageBox.Show(this, "Veuillez selectionner un client");
         }
+
 
         //private void AjouterCommande_Click(object sender, RoutedEventArgs e)
         //{

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SAE201_Botanic
 {
-    public class Produit
+    public class Produit : ICloneable
     {
         #region Champs
         private int numProduit;
@@ -201,6 +201,10 @@ namespace SAE201_Botanic
         public override int GetHashCode()
         {
             return HashCode.Combine(this.NumProduit, this.UneCouleur, this.UneCategorie, this.UnFournisseur, this.NomProduit, this.TailleProduit, this.DescriptionProduit, this.PrixVente);
+        }
+        public object Clone()
+        {
+            return new Produit(this.NumProduit, this.UneCouleur, this.UneCategorie, this.UnFournisseur, this.NomProduit, this.TailleProduit, this.DescriptionProduit, this.PrixVente, this.PrixAchat);
         }
 
         #endregion
