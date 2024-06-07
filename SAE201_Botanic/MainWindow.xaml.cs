@@ -27,7 +27,7 @@ namespace SAE201_Botanic
         {
             InitializeComponent();
             ApplicationData appData = new ApplicationData();
-            DataTable lesCommandes = appData.Read("SELECT * FROM commande_achat");
+            DataTable lesCommandes = appData.Read("SELECT * FROM commande_achat JOIN ");
             foreach (DataRow uneCommande in lesCommandes.Rows)
             {
                 try
