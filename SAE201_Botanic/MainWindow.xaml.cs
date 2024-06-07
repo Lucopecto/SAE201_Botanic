@@ -14,12 +14,12 @@ namespace SAE201_Botanic
     {
         public ApplicationData data;
         public ObservableCollection<CommandeAchat> LesCommandes { get; set; }
-
+        public ObservableCollection<Produit> LesProduits { get; set; }
         public MainWindow()
         {
             InitializeComponent();
             LesCommandes = new ObservableCollection<CommandeAchat>();
-            DataContext = this; // Setting DataContext for data binding
+            DataContext = this; 
 
             ApplicationData appData = new ApplicationData();
             DataTable lesCommandes = appData.Read(
@@ -51,19 +51,22 @@ namespace SAE201_Botanic
                         DateTime.Parse(uneCommande["datelivraison"].ToString()),
                         uneCommande["modelivraison"].ToString());
 
-                    LesCommandes.Add(commande); // Add the commande to the collection
+                    LesCommandes.Add(commande); 
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Erreur : " + ex, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
-            DataTable lesProduits = appData.Read("SELECT p.numProduit,c.nomCouleur, cat.numCategorie, f.numFournisseur, p.nomProduit, p.tailleProduit, p.descriptionProduit, p.prixVente, p.prixAchat "+
+            LesProduits = new ObservableCollection<Produit>();
+            String sql = "SELECT p.numProduit,c.nomCouleur, cat.numCategorie, f.numFournisseur, p.nomProduit, p.tailleProduit, p.descriptionProduit, p.prixVente, p.prixAchat " +
                 "FROM produit p " +
-                "JOIN couleur c ON p.numProduit = c.numCouleur " +
-                "JOIN categorie cat ON p.numµProduit = cat.numCategorie" +
-                "JOIN fournisseur f ON p.numProduit = f.numFournisseur" +
-                "JOIN type_produit tp ON cat.numCategorie = tp.numType");
+                "JOIN couleur c ON p.numProduit = c.nomCouleur " +
+                "JOIN categorie cat ON p.numµProduit = cat.numCategorie " +
+                "JOIN fournisseur f ON p.numProduit = f.numFournisseur " +
+                "JOIN type_produit tp ON cat.numCategorie = tp.numType";
+            Console.WriteLine(sql);
+            DataTable lesProduits = appData.Read(sql);
             foreach (DataRow unProduit in lesProduits.Rows)
             {
                 try
@@ -83,7 +86,7 @@ namespace SAE201_Botanic
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erreur : " + ex, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Erreur : " + ex  +" "+ sql, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }
