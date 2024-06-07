@@ -48,6 +48,7 @@ namespace SAE201_Botanic
 
 
 
+
         public Filtres()
         {
 
@@ -146,15 +147,48 @@ namespace SAE201_Botanic
 
         private void ValiderFiltres(object sender, RoutedEventArgs e)
         {
-            //string filtreCategorie = btnSelectionCategorie.Content.ToString();
-            //double filtrePrixMin = double.Parse(tbPrixMin.Text.ToString());
-            //double filtrePrixMax = double.Parse(tbPrixMax.Text.ToString());
-            //string filtreCouleur = btnSelectionCouleur.Content.ToString();
+            string categorieSelect = btnSelectionCategorie.Content.ToString();
+            string couleurSelect = btnSelectionCouleur.Content.ToString();
 
-            //foreach (Categorie uneCategorie in listeCategorie)
-            //{
-            //    if (uneCategorie.LibelleCategorie == filtreCategorie) { }
-            //}
+
+            Categorie filtreCategorie;
+            TypeProduit filtreType;
+            bool estType = false;
+            double filtrePrixMin, filtrePrixMax;
+            Couleur filtreCouleur;
+
+            foreach (TypeProduit unType in listeType)
+            {
+                if (unType.NomType == categorieSelect)
+                {
+                    filtreType = unType;
+                    estType = true;
+                    break;
+                }
+            }
+            if (!(estType))
+            {
+                foreach (Categorie uneCategorie in listeCategorie)
+                {
+                    if (uneCategorie.LibelleCategorie == categorieSelect)
+                    {
+                        filtreCategorie = uneCategorie;
+                        break;
+                    }
+                }
+            }
+
+            if (!double.TryParse(tbPrixMin.Text, out filtrePrixMin)) filtrePrixMin = -1;
+            if (!double.TryParse(tbPrixMax.Text, out filtrePrixMax)) filtrePrixMax = -1;
+
+            foreach (Couleur uneCouleur in listeCouleur)
+            {
+                if (uneCouleur.NomCouleur == categorieSelect)
+                {
+                    filtreCouleur = uneCouleur;
+                    break;
+                }
+            }
 
             Close();
         }
