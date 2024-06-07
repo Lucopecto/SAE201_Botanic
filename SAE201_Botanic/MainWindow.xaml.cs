@@ -115,6 +115,19 @@ namespace SAE201_Botanic
             filtreWin.ShowDialog();
         }
 
+        private void butModifier_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgCommandes.SelectedItem != null)
+            {
+                CommandeAchat commandeSelectionne = (CommandeAchat)dgCommandes.SelectedItem;
+                FicheCommande fiche = new FicheCommande(Mode.Modification);
+                fiche.UCPannelCommande.DataContext = (CommandeAchat)dgCommandes.SelectedItem;
+                fiche.ShowDialog();
+                data.UpdateCommande(commandeSelectionne);
+            }
+            else MessageBox.Show(this, "Veuillez selectionner un client");
+        }
+
         //private void AjouterCommande_Click(object sender, RoutedEventArgs e)
         //{
         //    CommandeAchat nouvelleCommande = new CommandeAchat();

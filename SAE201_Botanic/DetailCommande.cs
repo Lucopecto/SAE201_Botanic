@@ -71,6 +71,11 @@ namespace SAE201_Botanic
             this.Quantite = quantite;
         }
 
+        public DetailCommande(int quantite)
+        {
+            Quantite = quantite;
+        }
+
 
         #endregion
 

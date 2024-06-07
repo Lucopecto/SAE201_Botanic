@@ -124,12 +124,11 @@ namespace SAE201_Botanic
             return 0;
         }
 
-        public int Update(Produit c)
+        public int UpdateCommande(CommandeAchat c)
         {
-            //string sql = $"UPDATE wpfProduits.Produit SET nom = '{c.Nom}', prenom = '{c.Prenom}', email = '{c.Email}', " +
-            //             $"genre = '{(char)c.Genre}', telephone = '{c.Telephone}', dateNaissance = '{c.DateNaissance:yyyy-MM-dd}' " +
-            //             $"WHERE id = {c.Id};";
-            string sql = $"";
+            string sql = $"UPDATE sae_botanic_s.commandeachat SET numcommande = '{c.NumCommande}', nummagasin = '{c.UnMagasin}', modetransport = '{c.UnModeTransport}', " +
+                         $"datecommande = '{c.DateComande:dd-MM-yyyy}', datelivraison= '{c.DateLivraison:dd-MM-yyyy}', modelivraison= '{c.ModeLivraison}' " +
+                         $"WHERE id = {c.NumCommande};";
             MethodeGenerique(sql);
 
             return 0;

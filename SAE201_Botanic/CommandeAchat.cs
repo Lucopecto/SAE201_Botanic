@@ -123,7 +123,7 @@ namespace SAE201_Botanic
         }
 
         #endregion
-
+        
         #region Constructeur
         public CommandeAchat(int numCommande, Magasin unMagasin, ModeTransport unModeTransport, DateTime dateComande, DateTime dateLivraison, string modeLivraison)
         {
