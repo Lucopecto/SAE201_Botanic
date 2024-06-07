@@ -25,7 +25,7 @@ namespace SAE201_Botanic
 
             set
             {
-                if (numFournisseur > 0)
+                if (value > 0)
                 {
                     numFournisseur = value;
                 }
@@ -45,7 +45,7 @@ namespace SAE201_Botanic
 
             set
             {
-                if (nomFournisseur.Length <= 100 && Regex.IsMatch(nomFournisseur, @"^[a-zA-Z]+$"))
+                if (value.Length <= 100 && Regex.IsMatch(value, @"^[a-zA-Z]+$"))
                 {
                     nomFournisseur = value;
                 }

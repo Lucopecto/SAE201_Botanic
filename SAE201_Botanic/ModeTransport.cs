@@ -23,14 +23,14 @@ namespace SAE201_Botanic
 
             set
             {
-                if (modedeTransport.Length <= 30 && Regex.IsMatch(modedeTransport, @"^[a-zA-Z]+$"))
-                {
+                //if (value.Length <= 30 && Regex.IsMatch(modedeTransport, @"^[a-zA-Z]+$"))
+                //{
                     modedeTransport = value;
-                }
-                else
-                {
-                    throw new ArgumentException("Le mode de transport doit contenir uniquement des lettres et ne pas dépasser 30 caractères.");
-                }
+                //}
+                //else
+                //{
+                //    throw new ArgumentException("Le mode de transport doit contenir uniquement des lettres et ne pas dépasser 30 caractères.");
+                //}
             }
         }
         #endregion

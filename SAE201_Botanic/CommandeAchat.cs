@@ -25,7 +25,7 @@ namespace SAE201_Botanic
 
             set
             {
-                if (numCommande > 0)
+                if (value > 0)
                 {
                     numCommande = value;
                 }
@@ -71,14 +71,14 @@ namespace SAE201_Botanic
 
             set
             {
-                if(dateComande == DateTime.Today)
-                {
+                //if(value == DateTime.Today)
+                //{
                     dateComande = value;
-                }
-                else
-                {
-                    throw new ArgumentOutOfRangeException("La date de commande doit être la date d'aujourd'hui");
-                }
+                //}
+                //else
+                //{
+                //    throw new ArgumentOutOfRangeException("La date de commande doit être la date d'aujourd'hui");
+                //}
             }
         }
 
@@ -91,7 +91,7 @@ namespace SAE201_Botanic
 
             set
             {
-                if (dateLivraison > DateTime.Today)
+                if (value > DateTime.Today)
                 {
                     dateLivraison = value;
                 }
@@ -111,7 +111,7 @@ namespace SAE201_Botanic
 
             set
             {
-                if (modeLivraison.Length <= 50 && Regex.IsMatch(modeLivraison, @"^[a-zA-Z]+$"))
+                if (value.Length <= 50 && Regex.IsMatch(value, @"^[a-zA-Z]+$"))
                 {
                     modeLivraison = value;
                 }

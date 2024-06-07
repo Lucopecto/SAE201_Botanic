@@ -51,7 +51,7 @@ namespace SAE201_Botanic
 
             set
             {
-                if (valeurCaracteristique.Length <= 20 && Regex.IsMatch(valeurCaracteristique, @"^[a-zA-Z]+$"))
+                if (value.Length <= 20 && Regex.IsMatch(value, @"^[a-zA-Z]+$"))
                 {
                     valeurCaracteristique = value;
                 }

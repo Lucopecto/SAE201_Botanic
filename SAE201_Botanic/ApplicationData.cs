@@ -43,7 +43,7 @@ namespace SAE201_Botanic
 
         public ApplicationData()
         {
-            LesProduits = new ObservableCollection<Produit>();
+            //LesProduits = new ObservableCollection<Produit>();
             ConnexionBD();
             //Read();
         }
@@ -87,15 +87,6 @@ namespace SAE201_Botanic
                 NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter(commandeSql, Connexion);
                 DataTable dataTable = new DataTable();
                 dataAdapter.Fill(dataTable);
-                //foreach (DataRow res in dataTable.Rows)
-                //{
-                //    CommandeAchat nouveau = new CommandeAchat(int.Parse(res["numCommande"].ToString()),
-                //    res["nom"].ToString(), res["prenom"].ToString(),
-                //    res["email"].ToString(), DateTime.Parse(res["dateNaissance"].ToString()),
-                //    res["telephone"].ToString(),
-                //    (GenreClient)char.Parse(res["genre"].ToString()));
-                //    LesClients.Add(nouveau);
-                //}
                 return dataTable;
             }
             catch (NpgsqlException e)

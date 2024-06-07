@@ -25,7 +25,7 @@ namespace SAE201_Botanic
 
             set
             {
-                if (numUtilisateur > 0)
+                if (value > 0)
                 {
                     numUtilisateur = value;
                 }

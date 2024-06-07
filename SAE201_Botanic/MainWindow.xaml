@@ -9,6 +9,7 @@
     Width="1600"
     Height="900"
     Icon="rsc/icon_botanic.ico"
+    WindowStartupLocation="CenterOwner"
     mc:Ignorable="d">
     <Window.Resources>
         <Style TargetType="TabItem">
@@ -51,15 +52,15 @@
                             Header="Numero Commande" />
                         <DataGridTextColumn
                             Width="200"
-                            Binding="{Binding NumMagasin}"
+                            Binding="{Binding UnMagasin.NumMagasin}"
                             Header="Numero Magasin" />
                         <DataGridTextColumn
                             Width="200"
-                            Binding="{Binding ModeDeTransport}"
+                            Binding="{Binding UnModeTransport.ModedeTransport}"
                             Header="Mode de Transport" />
                         <DataGridTextColumn
                             Width="200"
-                            Binding="{Binding DateCommande}"
+                            Binding="{Binding DateComande}"
                             Header="Date de Commande" />
                         <DataGridTextColumn
                             Width="200"
@@ -128,7 +129,7 @@
 
                     </StackPanel>
                     <DataGrid
-                        x:Name="dh_rchr_produit"
+                        x:Name="dgrechercherproduit"
                         Grid.Column="1"
                         Width="1600"
                         Height="300"
@@ -136,7 +137,6 @@
                         Margin="0,50,0,0"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top"
-                        d:ItemsSource="{d:SampleData ItemCount=5}"
                         AutoGenerateColumns="False"
                         IsReadOnly="True"
                         ItemsSource="{Binding LesProduits}">

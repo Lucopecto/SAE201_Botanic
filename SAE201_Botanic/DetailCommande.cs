@@ -50,7 +50,7 @@ namespace SAE201_Botanic
 
             set
             {
-                if (quantite > 0)
+                if (value > 0)
                 {
                     quantite = value;
                 }

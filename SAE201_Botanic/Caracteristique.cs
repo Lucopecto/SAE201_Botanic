@@ -24,7 +24,7 @@ namespace SAE201_Botanic
 
             set
             {
-                if (numCaracteristique > 0)
+                if (value > 0)
                 {
                     numCaracteristique = value;
                 }
@@ -44,7 +44,7 @@ namespace SAE201_Botanic
 
             set
             {
-                if (nomCaracteristique.Length <= 50 && Regex.IsMatch(nomCaracteristique, @"^[a-zA-Z]+$"))
+                if (value.Length <= 50 && Regex.IsMatch(nomCaracteristique, @"^[a-zA-Z]+$"))
                 {
                     nomCaracteristique = value;
                 }
