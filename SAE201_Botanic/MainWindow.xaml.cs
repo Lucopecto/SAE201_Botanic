@@ -14,12 +14,12 @@ namespace SAE201_Botanic
     {
         public ApplicationData data;
         public ObservableCollection<CommandeAchat> LesCommandes { get; set; }
-
+        public ObservableCollection<Produit> LesProduits { get; set; }
         public MainWindow()
         {
             InitializeComponent();
             LesCommandes = new ObservableCollection<CommandeAchat>();
-            DataContext = this; // Setting DataContext for data binding
+            DataContext = this;
 
             ApplicationData appData = new ApplicationData();
             DataTable lesCommandes = appData.Read(
@@ -51,11 +51,42 @@ namespace SAE201_Botanic
                         DateTime.Parse(uneCommande["datelivraison"].ToString()),
                         uneCommande["modelivraison"].ToString());
 
-                    LesCommandes.Add(commande); // Add the commande to the collection
+                    LesCommandes.Add(commande); 
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Erreur : " + ex, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            LesProduits = new ObservableCollection<Produit>();
+            String sql = "SELECT p.numProduit,c.nomCouleur, cat.numCategorie, f.numFournisseur, p.nomProduit, p.tailleProduit, p.descriptionProduit, p.prixVente, p.prixAchat " +
+                "FROM produit p " +
+                "JOIN couleur c ON p.numProduit = c.nomCouleur " +
+                "JOIN categorie cat ON p.numµProduit = cat.numCategorie " +
+                "JOIN fournisseur f ON p.numProduit = f.numFournisseur " +
+                "JOIN type_produit tp ON cat.numCategorie = tp.numType";
+            Console.WriteLine(sql);
+            DataTable lesProduits = appData.Read(sql);
+            foreach (DataRow unProduit in lesProduits.Rows)
+            {
+                try
+                {
+                    bool codeLocal;
+                    Couleur couleur = new Couleur(unProduit["nomCouleur"].ToString());
+                    TypeProduit typeProduit = new TypeProduit(int.Parse(unProduit["numType"].ToString()), unProduit["nomType"].ToString());
+                    Categorie categorie = new Categorie(int.Parse(unProduit["numCategorie"].ToString()), typeProduit, unProduit["libelleCategorie"].ToString());
+                    if (unProduit["codelocal"].ToString() == "True")
+                         codeLocal = true;
+                    else
+                        codeLocal = false;
+                    Fournisseur fournisseur = new Fournisseur(int.Parse(unProduit["numFournisseur"].ToString()), unProduit["nomFournisseur"].ToString(), codeLocal);
+;                   Produit produit = new Produit(
+                        int.Parse(unProduit["numProduit"].ToString()),couleur, categorie, fournisseur,unProduit["nomProduit"].ToString(), unProduit["tailleProduit"].ToString(), unProduit["descriptionProduit"].ToString(), double.Parse(unProduit["prixVente"].ToString()), double.Parse(unProduit["prixAchat"].ToString()));
+               
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erreur : " + ex  +" "+ sql, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }

@@ -33,46 +33,51 @@
         <TabControl Margin="0,32,0,0">
 
             <TabItem Header=" Visualiser commandes ">
-                <DataGrid
-                    Name="dgCommandes"
-                    Grid.Column="1"
-                    Width="1600"
-                    Height="300"
-                    MinHeight="150"
-                    Margin="0,50,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    AutoGenerateColumns="False"
-                    IsReadOnly="True"
-                    ItemsSource="{Binding LesCommandes}">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn
-                            Width="200"
-                            Binding="{Binding NumCommande}"
-                            Header="Numero Commande" />
-                        <DataGridTextColumn
-                            Width="200"
-                            Binding="{Binding UnMagasin.NumMagasin}"
-                            Header="Numero Magasin" />
-                        <DataGridTextColumn
-                            Width="200"
-                            Binding="{Binding UnModeTransport.ModedeTransport}"
-                            Header="Mode de Transport" />
-                        <DataGridTextColumn
-                            Width="200"
-                            Binding="{Binding DateComande}"
-                            Header="Date de Commande" />
-                        <DataGridTextColumn
-                            Width="200"
-                            Binding="{Binding DateLivraison}"
-                            Header="Date de Livraison" />
-                        <DataGridTextColumn
-                            Width="200"
-                            Binding="{Binding ModeLivraison}"
-                            Header="Mode de Livraison" />
-                    </DataGrid.Columns>
-                </DataGrid>
-
+                <Grid Background="White">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="935*" />
+                        <ColumnDefinition Width="650*" />
+                    </Grid.ColumnDefinitions>
+                    <DataGrid
+                        Name="dgCommandes"
+                        Width="898"
+                        Height="784"
+                        MinHeight="150"
+                        Margin="0,20,0,0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        AutoGenerateColumns="False"
+                        IsReadOnly="True"
+                        ItemsSource="{Binding LesCommandes}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn
+                                Width="150"
+                                Binding="{Binding NumCommande}"
+                                Header="Numero Commande" />
+                            <DataGridTextColumn
+                                Width="150"
+                                Binding="{Binding UnMagasin.NumMagasin}"
+                                Header="Numero Magasin" />
+                            <DataGridTextColumn
+                                Width="150"
+                                Binding="{Binding UnModeTransport.ModedeTransport}"
+                                Header="Mode de Transport" />
+                            <DataGridTextColumn
+                                Width="150"
+                                Binding="{Binding DateComande, StringFormat={}{0:dd/MM/yyyy}}"
+                                Header="Date de Commande" />
+                            <DataGridTextColumn
+                                Width="150"
+                                Binding="{Binding DateLivraison, StringFormat={}{0:dd/MM/yyyy}}"
+                                Header="Date de Livraison" />
+                            <DataGridTextColumn
+                                Width="150"
+                                Binding="{Binding ModeLivraison}"
+                                Header="Mode de Livraison" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <StackPanel Grid.Column="1" />
+                </Grid>
             </TabItem>
 
 
