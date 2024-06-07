@@ -19,7 +19,7 @@ namespace SAE201_Botanic
         {
             InitializeComponent();
             LesCommandes = new ObservableCollection<CommandeAchat>();
-            DataContext = this; // Setting DataContext for data binding
+            DataContext = this;
 
             ApplicationData appData = new ApplicationData();
             DataTable lesCommandes = appData.Read(
