@@ -75,7 +75,7 @@
             </TabItem>
 
 
-            <TabItem Header=" Nouvelle commande ">
+            <TabItem Header=" Rechercher produit ">
 
                 <StackPanel
                     Height="694"

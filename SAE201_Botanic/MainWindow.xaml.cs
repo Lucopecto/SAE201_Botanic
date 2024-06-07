@@ -28,18 +28,27 @@ namespace SAE201_Botanic
             InitializeComponent();
             ApplicationData appData = new ApplicationData();
             DataTable lesCommandes = appData.Read("SELECT * FROM commande_achat");
-            //foreach (DataRow uneCommande in lesCommandes.Rows)
-            //{
-            //    try
-            //    {
-            //        CommandeAchat commande = new CommandeAchat(int.Parse(uneCommande["numcommande"].ToString()), uneCommande["nummagasin"].ToString(),
-            //            uneCommande["modetransport"].ToString(), DateTime.Parse(uneCommande["datecommande"].ToString()), DateTime.Parse(uneCommande["datelivraison"].ToString()), uneCommande["modelivraison"].ToString());
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        MessageBox.Show("Erreur : " + ex, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
-            //    }
-            //}
+            foreach (DataRow uneCommande in lesCommandes.Rows)
+            {
+                try
+                {
+                    Magasin magasin = new Magasin(int.Parse(uneCommande["nummagasin"].ToString()),
+                    uneCommande["nommagasin"].ToString(),
+                    uneCommande["ruemagasin"].ToString(),
+                    uneCommande["cpmagasin"].ToString(),
+                    uneCommande["villemagasin"].ToString(),
+                    uneCommande["horaire"].ToString());
+
+                    ModeTransport modeTransport = new ModeTransport(uneCommande["modetransport"].ToString());
+
+                    CommandeAchat commande = new CommandeAchat(int.Parse(uneCommande["numcommande"].ToString()), magasin,
+                        modeTransport, DateTime.Parse(uneCommande["datecommande"].ToString()), DateTime.Parse(uneCommande["datelivraison"].ToString()), uneCommande["modelivraison"].ToString());
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erreur : " + ex, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
 
 
             //dgCommandes.Items.Filter = ContientMotClef;
