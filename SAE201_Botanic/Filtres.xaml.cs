@@ -43,7 +43,7 @@ namespace SAE201_Botanic
         List<Categorie> listeCategorie = new List<Categorie>();
         List<TypeProduit> listeType = new List<TypeProduit>();
         List<Couleur> listeCouleur = new List<Couleur>();
-
+        ApplicationData appData = new ApplicationData();
 
 
 
@@ -54,7 +54,6 @@ namespace SAE201_Botanic
 
 
             InitializeComponent();
-            ApplicationData appData = new ApplicationData();
 
 
 
@@ -147,6 +146,16 @@ namespace SAE201_Botanic
 
         private void ValiderFiltres(object sender, RoutedEventArgs e)
         {
+            //string filtreCategorie = btnSelectionCategorie.Content.ToString();
+            //double filtrePrixMin = double.Parse(tbPrixMin.Text.ToString());
+            //double filtrePrixMax = double.Parse(tbPrixMax.Text.ToString());
+            //string filtreCouleur = btnSelectionCouleur.Content.ToString();
+
+            //foreach (Categorie uneCategorie in listeCategorie)
+            //{
+            //    if (uneCategorie.LibelleCategorie == filtreCategorie) { }
+            //}
+
             Close();
         }
 
@@ -230,8 +239,8 @@ namespace SAE201_Botanic
                 if (btn.Parent is StackPanel)
                 {
                     sp = (StackPanel)btn.Parent;
-                    if (sp.Name == "pageCategorie") btnSelectionCategorie.Content = "Tout";
-                    else if (sp.Name == "pageCouleur") btnSelectionCouleur.Content = "Tout";
+                    if (sp.Name == "pageCategorie" || btn.Name == "btnSupprimerCategorie") btnSelectionCategorie.Content = "Tout";
+                    else if (sp.Name == "pageCouleur" || btn.Name == "btnSupprimerCouleur") btnSelectionCouleur.Content = "Tout";
                 }
             }
             AfficherFiltre();
@@ -266,8 +275,11 @@ namespace SAE201_Botanic
 
 
 
-
-
+        private void SupprimerFiltrePrix(object sender, RoutedEventArgs e)
+        {
+            tbPrixMin.Text = string.Empty;
+            tbPrixMax.Text = string.Empty;
+        }
     }
 
 
