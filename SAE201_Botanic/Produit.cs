@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SAE201_Botanic
 {
-    public class Produit : ICloneable
+    public class Produit 
     {
         #region Champs
         private int numProduit;
