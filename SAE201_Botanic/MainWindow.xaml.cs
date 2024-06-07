@@ -67,9 +67,9 @@ namespace SAE201_Botanic
             }
             LesProduits = new ObservableCollection<Produit>();
 
-            String sql = "SELECT p.numProduit, p.nomproduit, p.tailleProduit, p.descriptionProduit, p.prixVente, p.prixAchat, c.nomCouleur, cat.numCategorie, cat.libellecategorie, tp.numtype, tp.nomtype, f.numFournisseur, f.nomfournisseur, f.codelocal, p.nomProduit, p.tailleProduit, p.descriptionProduit, p.prixVente, p.prixAchat " +
+            string sql = "SELECT p.numProduit, c.nomCouleur, cat.numCategorie, p.descriptionProduit, cat.libellecategorie, tp.numtype, tp.nomtype, f.numFournisseur, f.nomfournisseur, f.codelocal, p.nomProduit, p.tailleProduit,  p.prixVente, p.prixAchat " +
                 "FROM produit p " +
-                "JOIN couleur c ON p.nomCouleur = c.nomCouleur " +
+                "JOIN couleur c ON p.nomCouleur = c.nomcouleur " +
                 "JOIN categorie cat ON p.numCategorie = cat.numCategorie " +
                 "JOIN fournisseur f ON p.numFournisseur = f.numFournisseur " +
                 "JOIN type_produit tp ON cat.numtype = tp.numtype";
@@ -89,21 +89,25 @@ namespace SAE201_Botanic
                         codeLocal = false;
                     Fournisseur fournisseur = new Fournisseur(int.Parse(unProduit["numFournisseur"].ToString()), unProduit["nomFournisseur"].ToString(), codeLocal);
 ;                   Produit produit = new Produit(
-                        int.Parse(unProduit["numProduit"].ToString()),couleur, categorie, fournisseur,unProduit["nomProduit"].ToString(), unProduit["tailleProduit"].ToString(), unProduit["descriptionProduit"].ToString(), double.Parse(unProduit["prixVente"].ToString()), double.Parse(unProduit["prixAchat"].ToString()));
-               
+                        int.Parse(unProduit["numProduit"].ToString()), couleur, categorie, fournisseur, unProduit["nomProduit"].ToString(), unProduit["tailleProduit"].ToString(), unProduit["descriptionProduit"].ToString(), double.Parse(unProduit["prixVente"].ToString()), double.Parse(unProduit["prixAchat"].ToString()));
+                    LesProduits.Add(produit);
+
+                    Console.WriteLine("Chargement de la couleur : " + unProduit["nomCouleur"].ToString());
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erreur : " + ex  +" "+ sql, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Erreur : " + ex.Message  +" "+ sql, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
+
         }
 
         private void textMotClef_TextChanged(object sender, TextChangedEventArgs e)
         {
             CollectionViewSource.GetDefaultView(dgCommandes.ItemsSource).Refresh();
-        }
 
+            CollectionViewSource.GetDefaultView(dgrechercherproduit.ItemsSource).Refresh();
+        }
         private void Deconnexion(object sender, RoutedEventArgs e)
         {
             if (MessageBox.Show("Vous allez être déconnecté", "Déconnexion", MessageBoxButton.OKCancel, MessageBoxImage.Information) is MessageBoxResult.OK)
@@ -155,18 +159,22 @@ namespace SAE201_Botanic
         //    else MessageBox.Show(this, "Veuillez selectionner un client");
 
 
-        //private void AjouterCommande_Click(object sender, RoutedEventArgs e)
-        //{
-        //    CommandeAchat nouvelleCommande = new CommandeAchat();
-        //    FicheClient fiche = new FicheClient(Mode.Creation);
-        //    fiche.UCPanelClient.DataContext = nouvelleCommande;
-        //    fiche.ShowDialog();
-        //    if (fiche.DialogResult == true)
-        //    {
-        //        data.LesClients.Add(nouvelleCommande);
-        //        dgClients.SelectedItem = nouvelleCommande;
-        //        data.Create(nouvelleCommande);
-        //    }
-        //}
-    }
+//            foreach (DataRow row in lesProduits.Rows)
+//{
+//    Console.WriteLine(string.Join(", ", row.ItemArray));
+//}
+    //private void AjouterCommande_Click(object sender, RoutedEventArgs e)
+    //{
+    //    CommandeAchat nouvelleCommande = new CommandeAchat();
+    //    FicheClient fiche = new FicheClient(Mode.Creation);
+    //    fiche.UCPanelClient.DataContext = nouvelleCommande;
+    //    fiche.ShowDialog();
+    //    if (fiche.DialogResult == true)
+    //    {
+    //        data.LesClients.Add(nouvelleCommande);
+    //        dgClients.SelectedItem = nouvelleCommande;
+    //        data.Create(nouvelleCommande);
+    //    }
+    //}
+}
 }
