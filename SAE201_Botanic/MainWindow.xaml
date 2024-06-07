@@ -75,7 +75,7 @@
             </TabItem>
 
 
-            <TabItem Header=" Nouvelle commande ">
+            <TabItem Header="Rechercher produit">
 
                 <StackPanel
                     Height="694"
@@ -127,6 +127,54 @@
 
 
                     </StackPanel>
+                    <DataGrid
+                        x:Name="dh_rchr_produit"
+                        Grid.Column="1"
+                        Width="1600"
+                        Height="300"
+                        MinHeight="150"
+                        Margin="0,50,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        d:ItemsSource="{d:SampleData ItemCount=5}"
+                        AutoGenerateColumns="False"
+                        IsReadOnly="True"
+                        ItemsSource="{Binding LesProduits}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn
+                                Width="200"
+                                Binding="{Binding NumProduit}"
+                                Header="Numero Produit" />
+                            <DataGridTextColumn
+                                Width="200"
+                                Binding="{Binding NomCouleur}"
+                                Header="Nom Couleur" />
+                            <DataGridTextColumn
+                                Width="200"
+                                Binding="{Binding NumCategorie}"
+                                Header="Numero Catégorie" />
+                            <DataGridTextColumn
+                                Width="200"
+                                Binding="{Binding NumFournisseur}"
+                                Header="Numero Fournisseur" />
+                            <DataGridTextColumn
+                                Width="200"
+                                Binding="{Binding NomProduit}"
+                                Header="Nom Produit" />
+                            <DataGridTextColumn
+                                Width="200"
+                                Binding="{Binding DescriptionProduit}"
+                                Header="Descrption Produit" />
+                            <DataGridTextColumn
+                                Width="200"
+                                Binding="{Binding PrixVente}"
+                                Header="Prix Vente" />
+                            <DataGridTextColumn
+                                Width="200"
+                                Binding="{Binding PrixAchat}"
+                                Header="Prix Achat" />
+                        </DataGrid.Columns>
+                    </DataGrid>
                 </StackPanel>
 
             </TabItem>
