@@ -35,8 +35,8 @@
             <TabItem Header=" Visualiser commandes ">
                 <Grid Background="White">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="935*" />
-                        <ColumnDefinition Width="650*" />
+                        <ColumnDefinition Width="501*" />
+                        <ColumnDefinition Width="296*" />
                     </Grid.ColumnDefinitions>
                     <DataGrid
                         Name="dgCommandes"
@@ -51,32 +51,55 @@
                         ItemsSource="{Binding LesCommandes}">
                         <DataGrid.Columns>
                             <DataGridTextColumn
-                                Width="150"
+                                Width="1*"
                                 Binding="{Binding NumCommande}"
                                 Header="Numero Commande" />
                             <DataGridTextColumn
-                                Width="150"
+                                Width="1*"
                                 Binding="{Binding UnMagasin.NumMagasin}"
                                 Header="Numero Magasin" />
                             <DataGridTextColumn
-                                Width="150"
+                                Width="1*"
                                 Binding="{Binding UnModeTransport.ModedeTransport}"
                                 Header="Mode de Transport" />
                             <DataGridTextColumn
-                                Width="150"
+                                Width="1*"
                                 Binding="{Binding DateComande, StringFormat={}{0:dd/MM/yyyy}}"
                                 Header="Date de Commande" />
                             <DataGridTextColumn
-                                Width="150"
+                                Width="1*"
                                 Binding="{Binding DateLivraison, StringFormat={}{0:dd/MM/yyyy}}"
                                 Header="Date de Livraison" />
                             <DataGridTextColumn
-                                Width="150"
+                                Width="1*"
                                 Binding="{Binding ModeLivraison}"
                                 Header="Mode de Livraison" />
                         </DataGrid.Columns>
                     </DataGrid>
-                    <StackPanel Grid.Column="1" />
+                    <StackPanel
+                        x:Name="stkCreerCommande"
+                        Grid.Column="1"
+                        Margin="80,80,80,80">
+                        <Label Content="Numéro du magasin" />
+                        <TextBox />
+                        <Label Content="Mode de transport" />
+                        <ComboBox>
+                            <ComboBoxItem Content="UPS" />
+                            <ComboBoxItem Content="Chronopost" />
+                            <ComboBoxItem Content="Botanic" IsSelected="True" />
+                            <ComboBoxItem Content="Relais" />
+                        </ComboBox>
+                        <Label Content="Date de livraison" />
+                        <DatePicker x:Name="dpDateLivraison" />
+                        <Label Content="Mode de livraison" />
+                        <ComboBox>
+                            <ComboBoxItem Content="Classique" IsSelected="True" />
+                            <ComboBoxItem Content="Eco" />
+                            <ComboBoxItem Content="Express" />
+                            <ComboBoxItem Content="HyperExpress" />
+                        </ComboBox>
+
+                    </StackPanel>
                 </Grid>
             </TabItem>
 

@@ -18,6 +18,10 @@ namespace SAE201_Botanic
         public MainWindow()
         {
             InitializeComponent();
+
+            dpDateLivraison.DisplayDateStart = DateTime.Now;
+            dpDateLivraison.SelectedDate = DateTime.Now;
+
             LesCommandes = new ObservableCollection<CommandeAchat>();
             DataContext = this;
 
