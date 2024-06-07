@@ -58,7 +58,7 @@ namespace SAE201_Botanic
 
             set
             {
-                if (value.Length <= 100 && Regex.IsMatch(value, @"^[a-zA-Z]+$"))
+                if (value.Length <= 100 && value.All(c => Char.IsLetter(c) || c == ' '))
                 {
                     libelleCategorie = value;
                 }
