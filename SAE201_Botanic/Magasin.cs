@@ -29,7 +29,7 @@ namespace SAE201_Botanic
 
             set
             {
-                if (numMagasin > 0)
+                if (value > 0)
                 {
                     numMagasin = value;
                 }
@@ -49,7 +49,7 @@ namespace SAE201_Botanic
 
             set
             {
-                if (nomMagasin.Length <= 50 && Regex.IsMatch(nomMagasin, @"^[a-zA-Z]+$"))
+                if (value.Length <= 50 && Regex.IsMatch(value, @"^[a-zA-Z]+$"))
                 {
                     nomMagasin = value;
                 }
@@ -69,7 +69,7 @@ namespace SAE201_Botanic
 
             set
             {
-                if (rueMagasin.Length <= 50 && Regex.IsMatch(rueMagasin, @"^[a-zA-Z]+$"))
+                if (value.Length <= 50)
                 {
                     rueMagasin = value;
                 }
@@ -89,7 +89,7 @@ namespace SAE201_Botanic
 
             set
             { 
-                if(CPMagasin.Length <=5 && Regex.IsMatch(CPMagasin, @"^[0-9]+$"))
+                if(value.Length <=5 && Regex.IsMatch(value, @"^[0-9]+$"))
                 {
                     CPMagasin = value;
                 }
@@ -109,7 +109,7 @@ namespace SAE201_Botanic
 
             set
             {
-                if (villeMagasin.Length <= 50 && Regex.IsMatch(villeMagasin, @"^[a-zA-Z]+$"))
+                if (value.Length <= 50)
                 {
                     villeMagasin = value;
                 }
@@ -129,14 +129,14 @@ namespace SAE201_Botanic
 
             set
             {
-                if (Regex.IsMatch(horaire, @"^([01]\d|2[0-3])H([0-5]\d)-([01]\d|2[0-3])H([0-5]\d)$"))
-                {
+                //if (Regex.IsMatch(value, @"^([01]\d|2[0-3])H([0-5]\d)-([01]\d|2[0-3])H([0-5]\d)$"))
+                //{
                     horaire = value;
-                }
-                else
-                {
-                    throw new ArgumentException("L'horaire doit être au format HH:mm.");
-                }
+                //}
+                //else
+                //{
+                //    throw new ArgumentException("L'horaire doit être au format HH:mm.");
+                //}
             }
         }
         #endregion

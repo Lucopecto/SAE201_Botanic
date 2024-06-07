@@ -9,6 +9,7 @@
     Width="1600"
     Height="900"
     Icon="rsc/icon_botanic.ico"
+    WindowStartupLocation="CenterOwner"
     mc:Ignorable="d">
     <Window.Resources>
         <Style TargetType="TabItem">
@@ -47,27 +48,27 @@
                     <DataGrid.Columns>
                         <DataGridTextColumn
                             Width="200"
-                            Binding="{Binding numCommande}"
+                            Binding="{Binding NumCommande}"
                             Header="Numero Commande" />
                         <DataGridTextColumn
                             Width="200"
-                            Binding="{Binding numMagasin}"
+                            Binding="{Binding UnMagasin.NumMagasin}"
                             Header="Numero Magasin" />
                         <DataGridTextColumn
                             Width="200"
-                            Binding="{Binding modeDeTransport}"
+                            Binding="{Binding UnModeTransport.ModedeTransport}"
                             Header="Mode de Transport" />
                         <DataGridTextColumn
                             Width="200"
-                            Binding="{Binding dateCommande}"
+                            Binding="{Binding DateComande}"
                             Header="Date de Commande" />
                         <DataGridTextColumn
                             Width="200"
-                            Binding="{Binding dateLivraison}"
+                            Binding="{Binding DateLivraison}"
                             Header="Date de Livraison" />
                         <DataGridTextColumn
                             Width="200"
-                            Binding="{Binding modeLivraison}"
+                            Binding="{Binding ModeLivraison}"
                             Header="Mode de Livraison" />
                     </DataGrid.Columns>
                 </DataGrid>
@@ -75,7 +76,7 @@
             </TabItem>
 
 
-            <TabItem Header=" Nouvelle commande ">
+            <TabItem Header=" Rechercher produit ">
 
                 <StackPanel
                     Height="694"
@@ -127,6 +128,53 @@
 
 
                     </StackPanel>
+                    <DataGrid
+                        x:Name="dgrechercherproduit"
+                        Grid.Column="1"
+                        Width="1600"
+                        Height="300"
+                        MinHeight="150"
+                        Margin="0,50,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        AutoGenerateColumns="False"
+                        IsReadOnly="True"
+                        ItemsSource="{Binding LesProduits}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn
+                                Width="200"
+                                Binding="{Binding NumProduit}"
+                                Header="Numero Produit" />
+                            <DataGridTextColumn
+                                Width="200"
+                                Binding="{Binding NomCouleur}"
+                                Header="Nom Couleur" />
+                            <DataGridTextColumn
+                                Width="200"
+                                Binding="{Binding NumCategorie}"
+                                Header="Numero Catégorie" />
+                            <DataGridTextColumn
+                                Width="200"
+                                Binding="{Binding NumFournisseur}"
+                                Header="Numero Fournisseur" />
+                            <DataGridTextColumn
+                                Width="200"
+                                Binding="{Binding NomProduit}"
+                                Header="Nom Produit" />
+                            <DataGridTextColumn
+                                Width="200"
+                                Binding="{Binding DescriptionProduit}"
+                                Header="Descrption Produit" />
+                            <DataGridTextColumn
+                                Width="200"
+                                Binding="{Binding PrixVente}"
+                                Header="Prix Vente" />
+                            <DataGridTextColumn
+                                Width="200"
+                                Binding="{Binding PrixAchat}"
+                                Header="Prix Achat" />
+                        </DataGrid.Columns>
+                    </DataGrid>
                 </StackPanel>
 
             </TabItem>

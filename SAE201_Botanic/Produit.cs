@@ -31,7 +31,7 @@ namespace SAE201_Botanic
 
             set
             {
-                if (numProduit > 0)
+                if (value > 0)
                 {
                     numProduit = value;
                 }
@@ -90,7 +90,7 @@ namespace SAE201_Botanic
 
             set
             {
-                if (nomProduit.Length <= 50 && Regex.IsMatch(nomProduit, @"^[a-zA-Z]+$"))
+                if (value.Length <= 50 && Regex.IsMatch(value, @"^[a-zA-Z]+$"))
                 {
                     nomProduit = value;
                 }
@@ -110,7 +110,7 @@ namespace SAE201_Botanic
 
             set
             {
-                if (tailleProduit.Length <= 50 && Regex.IsMatch(tailleProduit, @"^[a-zA-Z]+$"))
+                if (value.Length <= 50 && Regex.IsMatch(value, @"^[a-zA-Z]+$"))
                 {
                     tailleProduit = value;
                 }
@@ -130,7 +130,7 @@ namespace SAE201_Botanic
 
             set
             {
-                if (descriptionProduit.Length <= 200 && Regex.IsMatch(descriptionProduit, @"^[a-zA-Z]+$"))
+                if (value.Length <= 200 && Regex.IsMatch(value, @"^[a-zA-Z]+$"))
                 {
                     descriptionProduit = value;
                 }

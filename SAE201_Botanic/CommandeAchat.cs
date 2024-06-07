@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 
 namespace SAE201_Botanic
 {
-    public class CommandeAchat
+    public class CommandeAchat : ICloneable
     {
         #region Champs
         private int numCommande;
@@ -25,7 +25,7 @@ namespace SAE201_Botanic
 
             set
             {
-                if (numCommande > 0)
+                if (value > 0)
                 {
                     numCommande = value;
                 }
@@ -71,7 +71,14 @@ namespace SAE201_Botanic
 
             set
             {
-                dateComande = value;
+                //if(value == DateTime.Today)
+                //{
+                    dateComande = value;
+                //}
+                //else
+                //{
+                //    throw new ArgumentOutOfRangeException("La date de commande doit être la date d'aujourd'hui");
+                //}
             }
         }
 
@@ -84,7 +91,14 @@ namespace SAE201_Botanic
 
             set
             {
-                dateLivraison = value;
+                if (value > DateTime.Today)
+                {
+                    dateLivraison = value;
+                }
+                else
+                {
+                    throw new ArgumentOutOfRangeException("La date de livraison doit être la date du jour");
+                }
             }
         }
 
@@ -97,7 +111,7 @@ namespace SAE201_Botanic
 
             set
             {
-                if (modeLivraison.Length <= 50 && Regex.IsMatch(modeLivraison, @"^[a-zA-Z]+$"))
+                if (value.Length <= 50 && Regex.IsMatch(value, @"^[a-zA-Z]+$"))
                 {
                     modeLivraison = value;
                 }
@@ -137,6 +151,11 @@ namespace SAE201_Botanic
         public override int GetHashCode()
         {
             return HashCode.Combine(this.NumCommande, this.UnMagasin, this.UnModeTransport, this.DateComande, this.DateLivraison, this.ModeLivraison);
+        }
+
+        public object Clone()
+        {
+            return new CommandeAchat(this.NumCommande, this.UnMagasin, this.UnModeTransport, this.DateComande, this.DateLivraison, this.ModeLivraison);
         }
 
 
