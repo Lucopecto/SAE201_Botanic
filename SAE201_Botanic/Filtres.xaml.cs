@@ -148,9 +148,8 @@ namespace SAE201_Botanic
         private void ValiderFiltres(object sender, RoutedEventArgs e)
         {
             string categorieSelect = btnSelectionCategorie.Content.ToString();
-            double prixMinSelect = double.Parse(tbPrixMin.Text.ToString());
-            double prixMaxSelect = double.Parse(tbPrixMax.Text.ToString());
             string couleurSelect = btnSelectionCouleur.Content.ToString();
+
 
             Categorie filtreCategorie;
             TypeProduit filtreType;
@@ -179,6 +178,9 @@ namespace SAE201_Botanic
                 }
             }
 
+            if (!double.TryParse(tbPrixMin.Text, out filtrePrixMin)) filtrePrixMin = -1;
+            if (!double.TryParse(tbPrixMax.Text, out filtrePrixMax)) filtrePrixMax = -1;
+
             foreach (Couleur uneCouleur in listeCouleur)
             {
                 if (uneCouleur.NomCouleur == categorieSelect)
@@ -187,7 +189,6 @@ namespace SAE201_Botanic
                     break;
                 }
             }
-
 
             Close();
         }
