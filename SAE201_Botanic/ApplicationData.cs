@@ -13,6 +13,7 @@ namespace SAE201_Botanic
     public class ApplicationData
     {
         private ObservableCollection<Produit> lesProduits;
+        private ObservableCollection<CommandeAchat> lesCommandes;
         private NpgsqlConnection connexion;
 
         public ObservableCollection<Produit> LesProduits
@@ -25,6 +26,18 @@ namespace SAE201_Botanic
             set
             {
                 this.lesProduits = value;
+            }
+        }
+        public ObservableCollection<CommandeAchat> LesCommandes
+        {
+            get
+            {
+                return this.lesCommandes;
+            }
+
+            set
+            {
+                this.lesCommandes= value;
             }
         }
 
@@ -43,7 +56,8 @@ namespace SAE201_Botanic
 
         public ApplicationData()
         {
-            //LesProduits = new ObservableCollection<Produit>();
+            LesProduits = new ObservableCollection<Produit>();
+            LesCommandes = new ObservableCollection<CommandeAchat>();
             ConnexionBD();
             //Read();
         }
@@ -113,33 +127,28 @@ namespace SAE201_Botanic
             }
         }
 
-        public int Create(Produit c)
+        public int CreateCommande(CommandeAchat c)
         {
-            //string sql = $"INSERT INTO wpfProduits.Produit (nom, prenom, email, genre, telephone, dateNaissance) " +
-            //             $"VALUES ('{c.Nom}', '{c.Prenom}', '{c.Email}', '{(char)c.Genre}', '{c.Telephone}', " +
-            //             $"'{c.DateNaissance:yyyy-MM-dd}');";
-            string sql = $"";
+            string sql = $"INSERT INTO commande_achat (numcommande, nummagasin, modetransport, datecommande, datelivraison, modelivraison) " +
+                         $"VALUES ({c.NumCommande}, {c.UnMagasin.NumMagasin}, '{c.UnModeTransport.ModedeTransport}', '{c.DateComande:yyyy-MM-dd}', " +
+                         $"'{c.DateLivraison:yyyy-MM-dd}', '{c.ModeLivraison}');";
             MethodeGenerique(sql);
-
             return 0;
         }
-
-        public int Update(Produit c)
+        public int UpdateCommande(CommandeAchat c)
         {
-            //string sql = $"UPDATE wpfProduits.Produit SET nom = '{c.Nom}', prenom = '{c.Prenom}', email = '{c.Email}', " +
-            //             $"genre = '{(char)c.Genre}', telephone = '{c.Telephone}', dateNaissance = '{c.DateNaissance:yyyy-MM-dd}' " +
-            //             $"WHERE id = {c.Id};";
-            string sql = $"";
+            string sql = $"UPDATE sae_botanic_s.commandeachat SET numcommande = '{c.NumCommande}', nummagasin = '{c.UnMagasin}', modetransport = '{c.UnModeTransport}', " +
+                         $"datecommande = '{c.DateComande:dd-MM-yyyy}', datelivraison= '{c.DateLivraison:dd-MM-yyyy}', modelivraison= '{c.ModeLivraison}' " +
+                         $"WHERE id = {c.NumCommande};";
             MethodeGenerique(sql);
 
             return 0;
 
         }
 
-        public int Delete(Produit c)
+        public int DeleteCommande(CommandeAchat c)
         {
-            //string sql = $"DELETE FROM wpfProduits.Produit WHERE id = {c.Id};";
-            string sql = $"";
+            string sql = $"DELETE FROM sae_botanic_s.commandeachat WHERE numcommande = {c.NumCommande};";
             MethodeGenerique(sql);
 
             return 0;
