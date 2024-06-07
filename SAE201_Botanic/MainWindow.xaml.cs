@@ -21,6 +21,7 @@ namespace SAE201_Botanic
 
             dpDateLivraison.DisplayDateStart = DateTime.Now;
             dpDateLivraison.SelectedDate = DateTime.Now;
+         
 
             LesCommandes = new ObservableCollection<CommandeAchat>();
             DataContext = this;
@@ -63,6 +64,7 @@ namespace SAE201_Botanic
                 }
             }
             LesProduits = new ObservableCollection<Produit>();
+
             String sql = "SELECT p.numProduit, p.nomproduit, p.tailleProduit, p.descriptionProduit, p.prixVente, p.prixAchat, c.nomCouleur, cat.numCategorie, cat.libellecategorie, tp.numtype, tp.nomtype, f.numFournisseur, f.nomfournisseur, f.codelocal, p.nomProduit, p.tailleProduit, p.descriptionProduit, p.prixVente, p.prixAchat " +
                 "FROM produit p " +
                 "JOIN couleur c ON p.nomCouleur = c.nomCouleur " +
