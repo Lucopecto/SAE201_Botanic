@@ -123,7 +123,23 @@ namespace SAE201_Botanic
                 FicheCommande fiche = new FicheCommande(Mode.Modification);
                 fiche.UCPannelCommande.DataContext = (CommandeAchat)dgCommandes.SelectedItem;
                 fiche.ShowDialog();
-                data.UpdateCommande(commandeSelectionne);
+                data?.UpdateCommande(commandeSelectionne);
+            }
+            else MessageBox.Show(this, "Veuillez selectionner une commande");
+        }
+
+        private void butSupprimer_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgCommandes.SelectedItem != null)
+            {
+                CommandeAchat commandeSelectionne = (CommandeAchat)dgCommandes.SelectedItem;
+                MessageBoxResult res = MessageBox.Show(this, $"Êtes-vous sûr de vouloir supprimer cette commande ?", "Confirmation",
+                    MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (res == MessageBoxResult.Yes)
+                {
+                    data.LesCommandes.Remove(commandeSelectionne);
+                    data.DeleteCommande(commandeSelectionne);
+                }
             }
             else MessageBox.Show(this, "Veuillez selectionner un client");
         }
