@@ -80,9 +80,8 @@ namespace SAE201_Botanic
             { Console.WriteLine("Problème à la déconnexion : " + e); }
         }
 
-        public DataRowCollection Read(string commandeSql)
+        public DataTable Read(string commandeSql)
         {
-            string sql = "SELECT numcommande, nummagasin, modetransport, datecommande, datelivraison, modelivraison FROM commande_achat";
             try
             {
                 NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter(commandeSql, Connexion);
@@ -97,12 +96,12 @@ namespace SAE201_Botanic
                 //    (GenreClient)char.Parse(res["genre"].ToString()));
                 //    LesClients.Add(nouveau);
                 //}
-                return dataTable.Rows;
+                return dataTable;
             }
             catch (NpgsqlException e)
             {
                 MessageBox.Show("Erreur : " + e, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
-                return new DataTable().Rows;
+                return new DataTable();
             }
         }  
 

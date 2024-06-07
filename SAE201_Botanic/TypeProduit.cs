@@ -24,14 +24,14 @@ namespace SAE201_Botanic
 
             set
             {
-                if (numType >0)
-                {
+                //if (numType >0)
+                //{
                     numType = value;
-                }
-                else
-                {
-                    throw new ArgumentOutOfRangeException("Le numéro du type doit être supérieur à 0.");
-                }
+                //}
+                //else
+                //{
+                //    throw new ArgumentOutOfRangeException("Le numéro du type doit être supérieur à 0.");
+                //}
             }
         }
 
@@ -44,14 +44,14 @@ namespace SAE201_Botanic
 
             set
             {
-                if (nomType.Length <= 100 && Regex.IsMatch(nomType, @"^[a-zA-Z]+$"))
-                {
+                //if (nomType.Length <= 100 && Regex.IsMatch(nomType, @"^[a-zA-Z]+$"))
+                //{
                     nomType = value;
-                }
-                else
-                {
-                    throw new ArgumentException("Le type du produit doit contenir uniquement des lettres et ne pas dépasser 100 caractères.");
-                }
+                //}
+                //else
+                //{
+                //    throw new ArgumentException("Le type du produit doit contenir uniquement des lettres et ne pas dépasser 100 caractères.");
+                //}
             }
         }
 
