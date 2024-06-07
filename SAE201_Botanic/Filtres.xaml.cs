@@ -130,15 +130,16 @@ namespace SAE201_Botanic
 
         private Button CreerBoutonFiltre()
         {
-            Button btnType = new Button();
-            btnType.Height = 30;
-            btnType.Padding = new Thickness(10, 0, 0, 0);
-            btnType.HorizontalAlignment = HorizontalAlignment.Stretch;
-            btnType.HorizontalContentAlignment = HorizontalAlignment.Left;
-            btnType.Background = Brushes.White;
-            btnType.Foreground = Brushes.Gray;
-            btnType.BorderThickness = new Thickness(0);
-            return btnType;
+            Button btn = new Button();
+            btn.Height = 30;
+            btn.Padding = new Thickness(10, 0, 0, 0);
+            btn.HorizontalAlignment = HorizontalAlignment.Stretch;
+            btn.HorizontalContentAlignment = HorizontalAlignment.Left;
+            btn.Background = Brushes.White;
+            btn.Foreground = Brushes.Gray;
+            btn.Cursor = Cursors.Hand;
+            btn.BorderThickness = new Thickness(0);
+            return btn;
         }
 
 

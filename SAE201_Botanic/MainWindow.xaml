@@ -76,39 +76,82 @@
                                 Header="Mode de Livraison" />
                         </DataGrid.Columns>
                     </DataGrid>
-                    
+
                     <StackPanel
                         x:Name="stkCreerCommande"
                         Grid.Column="1"
                         Margin="80,80,80,80">
-                        <Label Content="Détail des commandes" HorizontalAlignment="Center" FontSize="32" FontWeight="Bold" Foreground="#FF1C9E7F"/>
-                        <Label Content="Numéro du magasin" Margin="0,15,0,0" FontSize="20" FontWeight="Bold" />
+                        <Label
+                            HorizontalAlignment="Center"
+                            Content="Détail des commandes"
+                            FontSize="32"
+                            FontWeight="Bold"
+                            Foreground="#FF1C9E7F" />
+                        <Label
+                            Margin="0,15,0,0"
+                            Content="Numéro du magasin"
+                            FontSize="20"
+                            FontWeight="Bold" />
                         <TextBox x:Name="txtNumMagasin" FontSize="16" />
-                        <Label Content="Mode de transport" FontSize="20" FontWeight="Bold" Margin="0,15,0,0" />
-                        <ComboBox x:Name="cbModeTransport" FontSize="16" Margin="0,0,0,10">
+                        <Label
+                            Margin="0,15,0,0"
+                            Content="Mode de transport"
+                            FontSize="20"
+                            FontWeight="Bold" />
+                        <ComboBox
+                            x:Name="cbModeTransport"
+                            Margin="0,0,0,10"
+                            FontSize="16">
                             <ComboBoxItem Content="UPS" />
                             <ComboBoxItem Content="Chronopost" />
                             <ComboBoxItem Content="Botanic" IsSelected="True" />
                             <ComboBoxItem Content="Relais" />
                         </ComboBox>
-                        <Label Content="Date de livraison" FontWeight="Bold" FontSize="20" Margin="0,15,0,0" />
+                        <Label
+                            Margin="0,15,0,0"
+                            Content="Date de livraison"
+                            FontSize="20"
+                            FontWeight="Bold" />
                         <DatePicker x:Name="dpDateLivraison" FontSize="16" />
-                        <Label Content="Mode de livraison" FontWeight="Bold" FontSize="20" Margin="0,15,0,0" />
+                        <Label
+                            Margin="0,15,0,0"
+                            Content="Mode de livraison"
+                            FontSize="20"
+                            FontWeight="Bold" />
                         <ComboBox x:Name="cbModeLivraison" FontSize="16">
                             <ComboBoxItem Content="Classique" IsSelected="True" />
                             <ComboBoxItem Content="Eco" />
                             <ComboBoxItem Content="Express" />
                             <ComboBoxItem Content="HyperExpress" />
                         </ComboBox>
-                        
-                        <StackPanel x:Name="stkBoutton"  Grid.Column="1"   Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,25,0,0"   >
-                            <Button x:Name="butModifier" ToolTip="Modifier le département selectionné"  Width="65" Height="65" Click="butModifier_Click"  >
+
+                        <StackPanel
+                            x:Name="stkBoutton"
+                            Grid.Column="1"
+                            Margin="0,25,0,0"
+                            HorizontalAlignment="Center"
+                            Orientation="Horizontal">
+                            <Button
+                                x:Name="butModifier"
+                                Width="65"
+                                Height="65"
+                                ToolTip="Modifier le département selectionné">
                                 <Image Source="rsc\modifier.png" />
                             </Button>
-                            <Button x:Name="butSupprimer"  ToolTip="Supprimer le département selectionné" Margin="10,0,0,0" Width="65" Height="65" Click="butSupprimer_Click" >
+                            <Button
+                                x:Name="butSupprimer"
+                                Width="65"
+                                Height="65"
+                                Margin="10,0,0,0"
+                                ToolTip="Supprimer le département selectionné">
                                 <Image Source="rsc\supprimer.png" />
                             </Button>
-                            <Button x:Name="butAjouter" ToolTip="Ajouter un nouveau département" Margin="10,0,0,0" Width="65" Height="65" >
+                            <Button
+                                x:Name="butAjouter"
+                                Width="65"
+                                Height="65"
+                                Margin="10,0,0,0"
+                                ToolTip="Ajouter un nouveau département">
                                 <Image Source="rsc\ajouter.png" />
                             </Button>
 
@@ -168,7 +211,74 @@
                                 </Style>
                             </Button.Resources>
                         </Button>
-
+                        <StackPanel x:Name="spBtnSupprimerFiltres" Orientation="Horizontal">
+                            <StackPanel.Resources>
+                                <Style TargetType="Button">
+                                    <Setter Property="Height" Value="30" />
+                                    <Setter Property="Margin" Value="20,0,0,0" />
+                                    <Setter Property="Background" Value="White" />
+                                    <Setter Property="Foreground" Value="Gray" />
+                                    <Setter Property="BorderBrush" Value="Gray" />
+                                    <EventSetter Event="Click" Handler="SupprimerFiltre" />
+                                    <Setter Property="Cursor" Value="Hand" />
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="Button">
+                                                <Border CornerRadius="0" />
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </StackPanel.Resources>
+                            <Button
+                                Width="80"
+                                Height="30"
+                                Margin="20,0,0,0"
+                                Background="White"
+                                BorderBrush="Gray"
+                                Click="SupprimerFiltre"
+                                Content="Categorie"
+                                Cursor="Hand"
+                                Foreground="Gray">
+                                <Button.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="5" />
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                            <Button
+                                Width="50"
+                                Height="30"
+                                Margin="20,0,0,0"
+                                Background="White"
+                                BorderBrush="Gray"
+                                Click="SupprimerFiltre"
+                                Content="Prix"
+                                Cursor="Hand"
+                                Foreground="Gray">
+                                <Button.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="5" />
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                            <Button
+                                Width="70"
+                                Height="30"
+                                Margin="20,0,0,0"
+                                Background="White"
+                                BorderBrush="Gray"
+                                Click="SupprimerFiltre"
+                                Content="Couleur"
+                                Cursor="Hand"
+                                Foreground="Gray">
+                                <Button.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="5" />
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                        </StackPanel>
 
                     </StackPanel>
                     <DataGrid

@@ -39,7 +39,8 @@
                         Height="20"
                         Margin="140,0,0,0"
                         BorderThickness="0"
-                        Click="RetourFiltreAvecTout">
+                        Click="RetourFiltreAvecTout"
+                        Cursor="Hand">
                         <Button.Background>
                             <ImageBrush ImageSource="/rsc/croix.png" />
                         </Button.Background>
@@ -55,6 +56,7 @@
                     BorderThickness="0"
                     Click="AfficherCategories"
                     Content="Tout"
+                    Cursor="Hand"
                     Foreground="Gray" />
 
             </StackPanel>
@@ -84,7 +86,8 @@
                         Height="20"
                         Margin="140,0,0,0"
                         BorderThickness="0"
-                        Click="SupprimerFiltrePrix">
+                        Click="SupprimerFiltrePrix"
+                        Cursor="Hand">
                         <Button.Background>
                             <ImageBrush ImageSource="/rsc/croix.png" />
                         </Button.Background>
@@ -152,7 +155,8 @@
                         Height="20"
                         Margin="140,0,0,0"
                         BorderThickness="0"
-                        Click="RetourFiltreAvecTout">
+                        Click="RetourFiltreAvecTout"
+                        Cursor="Hand">
                         <Button.Background>
                             <ImageBrush ImageSource="/rsc/croix.png" />
                         </Button.Background>
@@ -168,6 +172,7 @@
                     BorderThickness="0"
                     Click="AfficherCouleur"
                     Content="Tout"
+                    Cursor="Hand"
                     Foreground="Gray" />
 
             </StackPanel>
@@ -215,7 +220,8 @@
                     Height="20"
                     Margin="0,3,0,0"
                     BorderThickness="0"
-                    Click="RetourFiltre">
+                    Click="RetourFiltre"
+                    Cursor="Hand">
                     <Button.Background>
                         <ImageBrush ImageSource="/rsc/icone-retour.png" />
                     </Button.Background>
@@ -236,6 +242,7 @@
                 BorderThickness="0"
                 Click="RetourFiltreAvecTout"
                 Content="Tout"
+                Cursor="Hand"
                 Foreground="Gray" />
         </StackPanel>
 
@@ -252,7 +259,8 @@
                     Height="20"
                     Margin="0,3,0,0"
                     BorderThickness="0"
-                    Click="AfficherCategories">
+                    Click="AfficherCategories"
+                    Cursor="Hand">
                     <Button.Background>
                         <ImageBrush ImageSource="/rsc/icone-retour.png" />
                     </Button.Background>
@@ -279,7 +287,8 @@
                     Height="20"
                     Margin="0,3,0,0"
                     BorderThickness="0"
-                    Click="RetourFiltre">
+                    Click="RetourFiltre"
+                    Cursor="Hand">
                     <Button.Background>
                         <ImageBrush ImageSource="/rsc/icone-retour.png" />
                     </Button.Background>
@@ -300,6 +309,7 @@
                 BorderThickness="0"
                 Click="RetourFiltreAvecTout"
                 Content="Tout"
+                Cursor="Hand"
                 Foreground="Gray" />
         </StackPanel>
 

@@ -4,6 +4,8 @@ using System.Data;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Input;
+using System.Windows.Media;
 
 namespace SAE201_Botanic
 {
@@ -117,34 +119,41 @@ namespace SAE201_Botanic
             filtreWin.ShowDialog();
         }
 
-        private void butModifier_Click(object sender, RoutedEventArgs e)
+        //}
+
+        private void SupprimerFiltre(object sender, RoutedEventArgs e)
         {
-            if (dgCommandes.SelectedItem != null)
-            {
-                CommandeAchat commandeSelectionne = (CommandeAchat)dgCommandes.SelectedItem;
-                FicheCommande fiche = new FicheCommande(Mode.Modification);
-                fiche.UCPannelCommande.DataContext = (CommandeAchat)dgCommandes.SelectedItem;
-                fiche.ShowDialog();
-                data?.UpdateCommande(commandeSelectionne);
-            }
-            else MessageBox.Show(this, "Veuillez selectionner une commande");
+            if (sender is Button btn && btn.Parent is StackPanel sp) sp.Children.Remove(btn);
         }
 
-        private void butSupprimer_Click(object sender, RoutedEventArgs e)
-        {
-            if (dgCommandes.SelectedItem != null)
-            {
-                CommandeAchat commandeSelectionne = (CommandeAchat)dgCommandes.SelectedItem;
-                MessageBoxResult res = MessageBox.Show(this, $"Êtes-vous sûr de vouloir supprimer cette commande ?", "Confirmation",
-                    MessageBoxButton.YesNo, MessageBoxImage.Question);
-                if (res == MessageBoxResult.Yes)
-                {
-                    data.LesCommandes.Remove(commandeSelectionne);
-                    data.DeleteCommande(commandeSelectionne);
-                }
-            }
-            else MessageBox.Show(this, "Veuillez selectionner un client");
-        }
+        //private void butModifier_Click(object sender, RoutedEventArgs e)
+        //{
+        //    if (dgCommandes.SelectedItem != null)
+        //    {
+        //        CommandeAchat commandeSelectionne = (CommandeAchat)dgCommandes.SelectedItem;
+        //        FicheCommande fiche = new FicheCommande(Mode.Modification);
+        //        fiche.UCPannelCommande.DataContext = (CommandeAchat)dgCommandes.SelectedItem;
+        //        fiche.ShowDialog();
+        //        data?.UpdateCommande(commandeSelectionne);
+        //    }
+        //    else MessageBox.Show(this, "Veuillez selectionner une commande");
+        //}
+
+        //private void butSupprimer_Click(object sender, RoutedEventArgs e)
+        //{
+        //    if (dgCommandes.SelectedItem != null)
+        //    {
+        //        CommandeAchat commandeSelectionne = (CommandeAchat)dgCommandes.SelectedItem;
+        //        MessageBoxResult res = MessageBox.Show(this, $"Êtes-vous sûr de vouloir supprimer cette commande ?", "Confirmation",
+        //            MessageBoxButton.YesNo, MessageBoxImage.Question);
+        //        if (res == MessageBoxResult.Yes)
+        //        {
+        //            data.LesCommandes.Remove(commandeSelectionne);
+        //            data.DeleteCommande(commandeSelectionne);
+        //        }
+        //    }
+        //    else MessageBox.Show(this, "Veuillez selectionner un client");
+
 
         //private void AjouterCommande_Click(object sender, RoutedEventArgs e)
         //{
