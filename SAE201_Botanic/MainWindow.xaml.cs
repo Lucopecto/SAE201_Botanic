@@ -59,12 +59,12 @@ namespace SAE201_Botanic
                 }
             }
             LesProduits = new ObservableCollection<Produit>();
-            String sql = "SELECT p.numProduit,c.nomCouleur, cat.numCategorie, f.numFournisseur, p.nomProduit, p.tailleProduit, p.descriptionProduit, p.prixVente, p.prixAchat " +
+            String sql = "SELECT p.numProduit, p.nomproduit, p.tailleProduit, p.descriptionProduit, p.prixVente, p.prixAchat, c.nomCouleur, cat.numCategorie, cat.libellecategorie, tp.numtype, tp.nomtype, f.numFournisseur, f.nomfournisseur, f.codelocal, p.nomProduit, p.tailleProduit, p.descriptionProduit, p.prixVente, p.prixAchat " +
                 "FROM produit p " +
-                "JOIN couleur c ON p.numProduit = c.nomCouleur " +
-                "JOIN categorie cat ON p.numµProduit = cat.numCategorie " +
-                "JOIN fournisseur f ON p.numProduit = f.numFournisseur " +
-                "JOIN type_produit tp ON cat.numCategorie = tp.numType";
+                "JOIN couleur c ON p.nomCouleur = c.nomCouleur " +
+                "JOIN categorie cat ON p.numCategorie = cat.numCategorie " +
+                "JOIN fournisseur f ON p.numFournisseur = f.numFournisseur " +
+                "JOIN type_produit tp ON cat.numtype = tp.numtype";
             Console.WriteLine(sql);
             DataTable lesProduits = appData.Read(sql);
             foreach (DataRow unProduit in lesProduits.Rows)
