@@ -14,22 +14,48 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+
+
+
+
+
+
+
+
+
 namespace SAE201_Botanic
 {
-    /// <summary>
-    /// Logique d'interaction pour Filtres.xaml
-    /// </summary>
+    
+
+
+
+
+
+
+
+
+
     public partial class Filtres : Window
     {
+
+
+
         List<Categorie> listeCategorie = new List<Categorie>();
         List<TypeProduit> listeType = new List<TypeProduit>();
+        List<Couleur> listeCouleur = new List<Couleur>();
+
+
 
 
 
         public Filtres()
         {
+
+
+
             InitializeComponent();
             ApplicationData appData = new ApplicationData();
+
 
 
             DataTable lesTypes = appData.Read("SELECT * FROM type_produit");
@@ -49,6 +75,7 @@ namespace SAE201_Botanic
                     MessageBox.Show("Erreur : " + ex, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
+
 
 
             DataTable lesCategories = appData.Read($"SELECT * FROM categorie");
@@ -74,11 +101,34 @@ namespace SAE201_Botanic
                 }
             }
 
+
+
+
+            DataTable lesCouleurs = appData.Read("SELECT * FROM couleur");
+            foreach (DataRow uneCouleur in lesCouleurs.Rows)
+            {
+                try
+                {
+                    Couleur couleur = new Couleur(uneCouleur["nomcouleur"].ToString());
+                    listeCouleur.Add(couleur);
+                    Button btnCouleur = CreerBoutonFiltre();
+                    btnCouleur.Click += new RoutedEventHandler(this.RetourFiltreAvecCouleur);
+                    btnCouleur.Content = couleur.NomCouleur;
+                    pageCouleur.Children.Add(btnCouleur);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erreur : " + ex, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+
         }
 
 
 
-        public Button CreerBoutonFiltre()
+
+
+        private Button CreerBoutonFiltre()
         {
             Button btnType = new Button();
             btnType.Height = 30;
@@ -91,10 +141,26 @@ namespace SAE201_Botanic
             return btnType;
         }
 
+
+
+
+
         private void ValiderFiltres(object sender, RoutedEventArgs e)
         {
             Close();
         }
+
+
+
+
+
+        private void AfficherCouleur(object sender, RoutedEventArgs e)
+        {
+            pageFiltres.Visibility = Visibility.Hidden;
+            pageCouleur.Visibility = Visibility.Visible;
+        }
+
+
 
         private void AfficherCategories(object sender, RoutedEventArgs e)
         {
@@ -103,23 +169,16 @@ namespace SAE201_Botanic
             pageCategorie.Visibility = Visibility.Visible;
         }
 
-        private void RetourFiltre(object sender, RoutedEventArgs e)
-        {
-            pageCategorie.Visibility = Visibility.Hidden;
-            pageSousCategorie.Visibility = Visibility.Hidden;
-            pageCouleur.Visibility = Visibility.Hidden;
-            pageFiltres.Visibility = Visibility.Visible;
-        }
 
-        private void AfficherCouleur(object sender, RoutedEventArgs e)
-        {
-            pageFiltres.Visibility = Visibility.Hidden;
-            pageCouleur.Visibility = Visibility.Visible;
-        }
 
         private void AfficherSousCategorie(object sender, RoutedEventArgs e)
         {
             spBoutonsSousCategories.Children.Clear();
+
+            Button btnTout = CreerBoutonFiltre();
+            btnTout.Content = "Tout";
+            btnTout.Click += new RoutedEventHandler(this.RetourFiltreAvecCategorie);
+            spBoutonsSousCategories.Children.Add(btnTout);
             Button btn;
             if (sender is Button)
             {
@@ -130,7 +189,7 @@ namespace SAE201_Botanic
                     if (uneCategorie.UnTypeProduit.NomType == btn.Content)
                     {
                         Button btnCategorie = CreerBoutonFiltre();
-                        btnCategorie.Click += new RoutedEventHandler(this.RetourFiltre);
+                        btnCategorie.Click += new RoutedEventHandler(this.RetourFiltreAvecCategorie);
                         btnCategorie.Content = uneCategorie.LibelleCategorie;
                         spBoutonsSousCategories.Children.Add(btnCategorie);
                     }
@@ -139,5 +198,85 @@ namespace SAE201_Botanic
                 pageSousCategorie.Visibility = Visibility.Visible;
             }
         }
+
+
+
+        private void AfficherFiltre()
+        {
+            pageCategorie.Visibility = Visibility.Hidden;
+            pageSousCategorie.Visibility = Visibility.Hidden;
+            pageCouleur.Visibility = Visibility.Hidden;
+            pageFiltres.Visibility = Visibility.Visible;
+        }
+
+
+
+
+
+        private void RetourFiltre(object sender, RoutedEventArgs e)
+        {
+            AfficherFiltre();
+        }
+
+
+
+        private void RetourFiltreAvecTout(object sender, RoutedEventArgs e)
+        {
+            Button btn;
+            StackPanel sp;
+            if (sender is Button)
+            {
+                btn = (Button)sender;
+                if (btn.Parent is StackPanel)
+                {
+                    sp = (StackPanel)btn.Parent;
+                    if (sp.Name == "pageCategorie") btnSelectionCategorie.Content = "Tout";
+                    else if (sp.Name == "pageCouleur") btnSelectionCouleur.Content = "Tout";
+                }
+            }
+            AfficherFiltre();
+        }
+
+
+
+        private void RetourFiltreAvecCouleur(object sender, RoutedEventArgs e)
+        {
+            Button btn;
+            if (sender is Button)
+            {
+                btn = (Button)sender;
+                btnSelectionCouleur.Content = btn.Content;
+            }
+            AfficherFiltre();
+        }
+
+
+
+        private void RetourFiltreAvecCategorie(object sender, RoutedEventArgs e)
+        {
+            Button btn;
+            if (sender is Button)
+            {
+                btn = (Button)sender;
+                if (btn.Content == "Tout") btnSelectionCategorie.Content = lbPageSousCategorie.Content;
+                else btnSelectionCategorie.Content = btn.Content;
+            }
+            AfficherFiltre();
+        }
+
+
+
+
+
     }
+
+
+
+
+
+
+
+
+
+
 }

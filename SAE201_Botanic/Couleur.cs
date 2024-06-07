@@ -23,7 +23,7 @@ namespace SAE201_Botanic
 
             set
             {
-                if (value.Length <= 20 && Regex.IsMatch(nomCouleur, @"^[a-zA-Z]+$"))
+                if (value.Length <= 20 && value.All(c => Char.IsLetter(c) || c == ' '))
                 {
                     nomCouleur = value;
                 }

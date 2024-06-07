@@ -91,10 +91,12 @@ namespace SAE201_Botanic
             }
             catch (NpgsqlException e)
             {
-                MessageBox.Show("Erreur : " + e, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Erreur : " + e  + "  " + commandeSql, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
                 return new DataTable();
             }
         }  
+
+
 
         private int MethodeGenerique(string sql)
         {
