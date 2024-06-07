@@ -16,7 +16,7 @@
             <Setter Property="FontSize" Value="14" />
         </Style>
     </Window.Resources>
-  
+
     <Grid Background="White">
         <DockPanel>
             <ToolBarTray DockPanel.Dock="Top">

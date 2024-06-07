@@ -27,24 +27,12 @@ namespace SAE201_Botanic
         {
             InitializeComponent();
 
-            //dgCommandes.Items.Filter = ContientMotClef;
         }
-
-        //private bool ContientMotClef(object obj)
-        //{
-        //    CommandeAchat unClient = obj as CommandeAchat;
-        //    if (String.IsNullOrEmpty(textMotClef.Text))
-        //        return true;
-        //    else
-        //        return (unClient.Nom.StartsWith(textMotClef.Text, StringComparison.OrdinalIgnoreCase) ||
-        //            unClient.Prenom.StartsWith(textMotClef.Text, StringComparison.OrdinalIgnoreCase));
-        //}
 
         private void textMotClef_TextChanged(object sender, TextChangedEventArgs e)
         {
             CollectionViewSource.GetDefaultView(dgCommandes.ItemsSource).Refresh();
         }
-
 
         private void Deconnexion(object sender, RoutedEventArgs e)
         {
@@ -55,13 +43,11 @@ namespace SAE201_Botanic
                 loginWin.ShowDialog();
             }
         }
-
         private void OuvrirFiltre(object sender, RoutedEventArgs e)
         {
             Filtres filtreWin = new Filtres();
             filtreWin.ShowDialog();
         }
-
 
         //private void AjouterCommande_Click(object sender, RoutedEventArgs e)
         //{
