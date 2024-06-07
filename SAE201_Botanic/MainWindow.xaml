@@ -47,27 +47,27 @@
                     <DataGrid.Columns>
                         <DataGridTextColumn
                             Width="200"
-                            Binding="{Binding numCommande}"
+                            Binding="{Binding NumCommande}"
                             Header="Numero Commande" />
                         <DataGridTextColumn
                             Width="200"
-                            Binding="{Binding numMagasin}"
+                            Binding="{Binding NumMagasin}"
                             Header="Numero Magasin" />
                         <DataGridTextColumn
                             Width="200"
-                            Binding="{Binding modeDeTransport}"
+                            Binding="{Binding ModeDeTransport}"
                             Header="Mode de Transport" />
                         <DataGridTextColumn
                             Width="200"
-                            Binding="{Binding dateCommande}"
+                            Binding="{Binding DateCommande}"
                             Header="Date de Commande" />
                         <DataGridTextColumn
                             Width="200"
-                            Binding="{Binding dateLivraison}"
+                            Binding="{Binding DateLivraison}"
                             Header="Date de Livraison" />
                         <DataGridTextColumn
                             Width="200"
-                            Binding="{Binding modeLivraison}"
+                            Binding="{Binding ModeLivraison}"
                             Header="Mode de Livraison" />
                     </DataGrid.Columns>
                 </DataGrid>

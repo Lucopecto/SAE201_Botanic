@@ -26,6 +26,21 @@ namespace SAE201_Botanic
         public MainWindow()
         {
             InitializeComponent();
+            ApplicationData appData = new ApplicationData();
+            DataTable lesCommandes = appData.Read("SELECT * FROM commande_achat");
+            //foreach (DataRow uneCommande in lesCommandes.Rows)
+            //{
+            //    try
+            //    {
+            //        CommandeAchat commande = new CommandeAchat(int.Parse(uneCommande["numcommande"].ToString()), uneCommande["nummagasin"].ToString(),
+            //            uneCommande["modetransport"].ToString(), DateTime.Parse(uneCommande["datecommande"].ToString()), DateTime.Parse(uneCommande["datelivraison"].ToString()), uneCommande["modelivraison"].ToString());
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        MessageBox.Show("Erreur : " + ex, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+            //    }
+            //}
+
 
         }
 
