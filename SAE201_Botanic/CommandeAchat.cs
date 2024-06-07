@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 
 namespace SAE201_Botanic
 {
-    public class CommandeAchat
+    public class CommandeAchat : ICloneable
     {
         #region Champs
         private int numCommande;
@@ -137,6 +137,11 @@ namespace SAE201_Botanic
         public override int GetHashCode()
         {
             return HashCode.Combine(this.NumCommande, this.UnMagasin, this.UnModeTransport, this.DateComande, this.DateLivraison, this.ModeLivraison);
+        }
+
+        public object Clone()
+        {
+            return new CommandeAchat(this.NumCommande, this.UnMagasin, this.UnModeTransport, this.DateComande, this.DateLivraison, this.ModeLivraison);
         }
 
 
