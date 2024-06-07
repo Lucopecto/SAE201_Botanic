@@ -80,19 +80,20 @@
                         x:Name="stkCreerCommande"
                         Grid.Column="1"
                         Margin="80,80,80,80">
-                        <Label Content="Numéro du magasin" />
-                        <TextBox />
-                        <Label Content="Mode de transport" />
-                        <ComboBox>
+                        <Label Content="Détail des commandes" HorizontalAlignment="Center" FontSize="32" FontWeight="Bold" Foreground="#FF1C9E7F"/>
+                        <Label Content="Numéro du magasin" Margin="0,15,0,0" FontSize="20" FontWeight="Bold" />
+                        <TextBox x:Name="txtNumMagasin" FontSize="16" />
+                        <Label Content="Mode de transport" FontSize="20" FontWeight="Bold" Margin="0,15,0,0" />
+                        <ComboBox x:Name="cbModeTransport" FontSize="16" Margin="0,0,0,10">
                             <ComboBoxItem Content="UPS" />
                             <ComboBoxItem Content="Chronopost" />
                             <ComboBoxItem Content="Botanic" IsSelected="True" />
                             <ComboBoxItem Content="Relais" />
                         </ComboBox>
-                        <Label Content="Date de livraison" />
-                        <DatePicker x:Name="dpDateLivraison" />
-                        <Label Content="Mode de livraison" />
-                        <ComboBox>
+                        <Label Content="Date de livraison" FontWeight="Bold" FontSize="20" Margin="0,15,0,0" />
+                        <DatePicker x:Name="dpDateLivraison" FontSize="16" />
+                        <Label Content="Mode de livraison" FontWeight="Bold" FontSize="20" Margin="0,15,0,0" />
+                        <ComboBox x:Name="cbModeLivraison" FontSize="16">
                             <ComboBoxItem Content="Classique" IsSelected="True" />
                             <ComboBoxItem Content="Eco" />
                             <ComboBoxItem Content="Express" />
