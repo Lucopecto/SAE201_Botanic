@@ -9,6 +9,7 @@
     Width="300"
     Height="400"
     Icon="rsc/icon_botanic.ico"
+    ResizeMode="NoResize"
     mc:Ignorable="d">
 
 
@@ -19,6 +20,7 @@
         <StackPanel
             x:Name="pageFiltres"
             Margin="20"
+            CanVerticallyScroll="True"
             Visibility="Visible">
 
 
@@ -30,6 +32,7 @@
                     FontSize="16"
                     Foreground="Black" />
                 <Button
+                    x:Name="btnSelectionCategorie"
                     Height="30"
                     Padding="10,0,0,0"
                     HorizontalAlignment="Stretch"
@@ -119,6 +122,7 @@
                     FontSize="16"
                     Foreground="Black" />
                 <Button
+                    x:Name="btnSelectionCouleur"
                     Height="30"
                     Padding="10,0,0,0"
                     HorizontalAlignment="Stretch"
@@ -193,6 +197,7 @@
                 HorizontalContentAlignment="Left"
                 Background="White"
                 BorderThickness="0"
+                Click="RetourFiltreAvecTout"
                 Content="Tout"
                 Foreground="Gray" />
         </StackPanel>
@@ -222,15 +227,6 @@
                     FontSize="16"
                     Foreground="Black" />
             </StackPanel>
-            <Button
-                Height="30"
-                Padding="10,0,0,0"
-                HorizontalAlignment="Stretch"
-                HorizontalContentAlignment="Left"
-                Background="White"
-                BorderThickness="0"
-                Content="Tout"
-                Foreground="Gray" />
             <StackPanel x:Name="spBoutonsSousCategories" />
         </StackPanel>
 
@@ -258,6 +254,16 @@
                     FontSize="16"
                     Foreground="Black" />
             </StackPanel>
+            <Button
+                Height="30"
+                Padding="10,0,0,0"
+                HorizontalAlignment="Stretch"
+                HorizontalContentAlignment="Left"
+                Background="White"
+                BorderThickness="0"
+                Click="RetourFiltreAvecTout"
+                Content="Tout"
+                Foreground="Gray" />
         </StackPanel>
 
 
