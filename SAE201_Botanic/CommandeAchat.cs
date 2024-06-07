@@ -71,7 +71,14 @@ namespace SAE201_Botanic
 
             set
             {
-                dateComande = value;
+                if(dateComande == DateTime.Today)
+                {
+                    dateComande = value;
+                }
+                else
+                {
+                    throw new ArgumentOutOfRangeException("La date de commande doit être la date d'aujourd'hui");
+                }
             }
         }
 
@@ -84,7 +91,14 @@ namespace SAE201_Botanic
 
             set
             {
-                dateLivraison = value;
+                if (dateLivraison > DateTime.Today)
+                {
+                    dateLivraison = value;
+                }
+                else
+                {
+                    throw new ArgumentOutOfRangeException("La date de livraison doit être la date du jour");
+                }
             }
         }
 
