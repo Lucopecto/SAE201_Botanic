@@ -21,16 +21,24 @@ namespace SAE201_Botanic
     /// </summary>
     public partial class Filtres : Window
     {
+        List<Categorie> listeCategorie = new List<Categorie>();
+        List<TypeProduit> listeType = new List<TypeProduit>();
+
+
+
         public Filtres()
         {
             InitializeComponent();
             ApplicationData appData = new ApplicationData();
+
+
             DataTable lesTypes = appData.Read("SELECT * FROM type_produit");
             foreach (DataRow unType in lesTypes.Rows)
             {
                 try
                 {
                     TypeProduit type = new TypeProduit(int.Parse(unType["numtype"].ToString()), unType["nomType"].ToString());
+                    listeType.Add(type);
                     Button btnType = CreerBoutonFiltre();
                     btnType.Click += new RoutedEventHandler(this.AfficherSousCategorie);
                     btnType.Content = type.NomType;
@@ -41,7 +49,34 @@ namespace SAE201_Botanic
                     MessageBox.Show("Erreur : " + ex, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
+
+
+            DataTable lesCategories = appData.Read($"SELECT * FROM categorie");
+            TypeProduit leType;
+            foreach (DataRow uneCategorie in lesCategories.Rows)
+            {
+                try
+                {
+                    foreach (TypeProduit unType in listeType)
+                    {
+                        if (unType.NumType == int.Parse(uneCategorie["numtype"].ToString()))
+                        {
+                            leType = unType;
+                            Categorie categorie = new Categorie(int.Parse(uneCategorie["numcategorie"].ToString()), leType, uneCategorie["libellecategorie"].ToString());
+                            listeCategorie.Add(categorie);
+                            break;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erreur : " + ex, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+
         }
+
+
 
         public Button CreerBoutonFiltre()
         {
@@ -84,13 +119,24 @@ namespace SAE201_Botanic
 
         private void AfficherSousCategorie(object sender, RoutedEventArgs e)
         {
+            spBoutonsSousCategories.Children.Clear();
             Button btn;
             if (sender is Button)
             {
                 btn = (Button)sender;
                 lbPageSousCategorie.Content = btn.Content;
-            pageCategorie.Visibility = Visibility.Hidden;
-            pageSousCategorie.Visibility = Visibility.Visible;
+                foreach (Categorie uneCategorie in listeCategorie)
+                {
+                    if (uneCategorie.UnTypeProduit.NomType == btn.Content)
+                    {
+                        Button btnCategorie = CreerBoutonFiltre();
+                        btnCategorie.Click += new RoutedEventHandler(this.RetourFiltre);
+                        btnCategorie.Content = uneCategorie.LibelleCategorie;
+                        spBoutonsSousCategories.Children.Add(btnCategorie);
+                    }
+                }
+                pageCategorie.Visibility = Visibility.Hidden;
+                pageSousCategorie.Visibility = Visibility.Visible;
             }
         }
     }

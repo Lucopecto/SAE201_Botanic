@@ -169,6 +169,7 @@
             Visibility="Hidden">
             <StackPanel Orientation="Horizontal">
                 <Button
+                    x:Name="btnRetourAFiltre"
                     Width="20"
                     Height="20"
                     Margin="0,3,0,0"
@@ -204,6 +205,7 @@
             Visibility="Hidden">
             <StackPanel Orientation="Horizontal">
                 <Button
+                    x:Name="btnRetourACategorie"
                     Width="20"
                     Height="20"
                     Margin="0,3,0,0"
@@ -229,6 +231,7 @@
                 BorderThickness="0"
                 Content="Tout"
                 Foreground="Gray" />
+            <StackPanel x:Name="spBoutonsSousCategories" />
         </StackPanel>
 
 
@@ -255,15 +258,6 @@
                     FontSize="16"
                     Foreground="Black" />
             </StackPanel>
-            <Button
-                Height="30"
-                Padding="10,0,0,0"
-                HorizontalAlignment="Stretch"
-                HorizontalContentAlignment="Left"
-                Background="White"
-                BorderThickness="0"
-                Content="Tout"
-                Foreground="Gray" />
         </StackPanel>
 
 
