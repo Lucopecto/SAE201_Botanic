@@ -29,7 +29,7 @@
             Foreground="Gray" />
         <Label
             HorizontalAlignment="Center"
-            Content="Détail des commandes"
+            Content="Enregistrer une commandes"
             FontSize="32"
             FontWeight="Bold"
             Foreground="#FF1C9E7F" Margin="0,30,0,0" />

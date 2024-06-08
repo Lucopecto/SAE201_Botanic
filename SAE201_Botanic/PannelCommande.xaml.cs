@@ -23,6 +23,9 @@ namespace SAE201_Botanic
         public PannelCommande()
         {
             InitializeComponent();
+            dpDateLivraison.DisplayDateStart = DateTime.Now;
+            dpDateLivraison.SelectedDate = DateTime.Now;
+
         }
     }
 }

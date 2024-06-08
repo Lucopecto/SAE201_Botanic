@@ -4,8 +4,6 @@ using System.Data;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Input;
-using System.Windows.Media;
 
 namespace SAE201_Botanic
 {
@@ -20,10 +18,10 @@ namespace SAE201_Botanic
         public MainWindow()
         {
             InitializeComponent();
+            dgCommandes.Items.Filter = ContientMotClef;
+            //dpDateLivraison.DisplayDateStart = DateTime.Now;
+            //dpDateLivraison.SelectedDate = DateTime.Now;
 
-            dpDateLivraison.DisplayDateStart = DateTime.Now;
-            dpDateLivraison.SelectedDate = DateTime.Now;
-         
 
             LesCommandes = new ObservableCollection<CommandeAchat>();
             DataContext = this;
@@ -58,7 +56,7 @@ namespace SAE201_Botanic
                         DateTime.Parse(uneCommande["datelivraison"].ToString()),
                         uneCommande["modelivraison"].ToString());
 
-                    LesCommandes.Add(commande); 
+                    LesCommandes.Add(commande);
                 }
                 catch (Exception ex)
                 {
@@ -84,30 +82,24 @@ namespace SAE201_Botanic
                     TypeProduit typeProduit = new TypeProduit(int.Parse(unProduit["numType"].ToString()), unProduit["nomType"].ToString());
                     Categorie categorie = new Categorie(int.Parse(unProduit["numCategorie"].ToString()), typeProduit, unProduit["libelleCategorie"].ToString());
                     if (unProduit["codelocal"].ToString() == "True")
-                         codeLocal = true;
+                        codeLocal = true;
                     else
                         codeLocal = false;
                     Fournisseur fournisseur = new Fournisseur(int.Parse(unProduit["numFournisseur"].ToString()), unProduit["nomFournisseur"].ToString(), codeLocal);
-;                   Produit produit = new Produit(
-                        int.Parse(unProduit["numProduit"].ToString()), couleur, categorie, fournisseur, unProduit["nomProduit"].ToString(), unProduit["tailleProduit"].ToString(), unProduit["descriptionProduit"].ToString(), double.Parse(unProduit["prixVente"].ToString()), double.Parse(unProduit["prixAchat"].ToString()));
+                    ; Produit produit = new Produit(
+                                            int.Parse(unProduit["numProduit"].ToString()), couleur, categorie, fournisseur, unProduit["nomProduit"].ToString(), unProduit["tailleProduit"].ToString(), unProduit["descriptionProduit"].ToString(), double.Parse(unProduit["prixVente"].ToString()), double.Parse(unProduit["prixAchat"].ToString()));
                     LesProduits.Add(produit);
 
                     Console.WriteLine("Chargement de la couleur : " + unProduit["nomCouleur"].ToString());
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erreur : " + ex.Message  +" "+ sql, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Erreur : " + ex.Message + " " + sql, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
 
         }
 
-        private void textMotClef_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            CollectionViewSource.GetDefaultView(dgCommandes.ItemsSource).Refresh();
-
-            CollectionViewSource.GetDefaultView(dgrechercherproduit.ItemsSource).Refresh();
-        }
         private void Deconnexion(object sender, RoutedEventArgs e)
         {
             if (MessageBox.Show("Vous allez être déconnecté", "Déconnexion", MessageBoxButton.OKCancel, MessageBoxImage.Information) is MessageBoxResult.OK)
@@ -117,64 +109,82 @@ namespace SAE201_Botanic
                 loginWin.ShowDialog();
             }
         }
+
         private void OuvrirFiltre(object sender, RoutedEventArgs e)
         {
             Filtres filtreWin = new Filtres();
             filtreWin.ShowDialog();
         }
 
-        //}
-
         private void SupprimerFiltre(object sender, RoutedEventArgs e)
         {
             if (sender is Button btn && btn.Parent is StackPanel sp) sp.Children.Remove(btn);
         }
 
-        //private void butModifier_Click(object sender, RoutedEventArgs e)
-        //{
-        //    if (dgCommandes.SelectedItem != null)
-        //    {
-        //        CommandeAchat commandeSelectionne = (CommandeAchat)dgCommandes.SelectedItem;
-        //        FicheCommande fiche = new FicheCommande(Mode.Modification);
-        //        fiche.UCPannelCommande.DataContext = (CommandeAchat)dgCommandes.SelectedItem;
-        //        fiche.ShowDialog();
-        //        data?.UpdateCommande(commandeSelectionne);
-        //    }
-        //    else MessageBox.Show(this, "Veuillez selectionner une commande");
-        //}
+        private void butModifier_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgCommandes.SelectedItem != null)
+            {
+                CommandeAchat commandeSelectionne = (CommandeAchat)dgCommandes.SelectedItem;
+                FicheCommande fiche = new FicheCommande(Mode.Modification);
+                fiche.UCPannelCommande.DataContext = (CommandeAchat)dgCommandes.SelectedItem;
+                fiche.ShowDialog();
+                data?.UpdateCommande(commandeSelectionne);
+            }
+            else MessageBox.Show(this, "Veuillez selectionner une commande");
+        }
 
-        //private void butSupprimer_Click(object sender, RoutedEventArgs e)
-        //{
-        //    if (dgCommandes.SelectedItem != null)
-        //    {
-        //        CommandeAchat commandeSelectionne = (CommandeAchat)dgCommandes.SelectedItem;
-        //        MessageBoxResult res = MessageBox.Show(this, $"Êtes-vous sûr de vouloir supprimer cette commande ?", "Confirmation",
-        //            MessageBoxButton.YesNo, MessageBoxImage.Question);
-        //        if (res == MessageBoxResult.Yes)
-        //        {
-        //            data.LesCommandes.Remove(commandeSelectionne);
-        //            data.DeleteCommande(commandeSelectionne);
-        //        }
-        //    }
-        //    else MessageBox.Show(this, "Veuillez selectionner un client");
+        private void butSupprimer_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgCommandes.SelectedItem != null)
+            {
+                CommandeAchat commandeSelectionne = (CommandeAchat)dgCommandes.SelectedItem;
+                MessageBoxResult res = MessageBox.Show(this, $"Êtes-vous sûr de vouloir supprimer cette commande ?", "Confirmation",
+                    MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (res == MessageBoxResult.Yes)
+                {
+                    data.LesCommandes.Remove(commandeSelectionne);
+                    data.DeleteCommande(commandeSelectionne);
+                }
+            }
+            else MessageBox.Show(this, "Veuillez selectionner un client");
 
 
-//            foreach (DataRow row in lesProduits.Rows)
-//{
-//    Console.WriteLine(string.Join(", ", row.ItemArray));
-//}
-    //private void AjouterCommande_Click(object sender, RoutedEventArgs e)
-    //{
-    //    CommandeAchat nouvelleCommande = new CommandeAchat();
-    //    FicheClient fiche = new FicheClient(Mode.Creation);
-    //    fiche.UCPanelClient.DataContext = nouvelleCommande;
-    //    fiche.ShowDialog();
-    //    if (fiche.DialogResult == true)
-    //    {
-    //        data.LesClients.Add(nouvelleCommande);
-    //        dgClients.SelectedItem = nouvelleCommande;
-    //        data.Create(nouvelleCommande);
-    //    }
-    //}
-}
+            //foreach (DataRow row in LesCommandes.Rows)
+            //{
+            //    Console.WriteLine(string.Join(", ", row.ItemArray));
+            //}
+        }
+
+        private void AjouterCommande_Click(object sender, RoutedEventArgs e)
+        {
+            CommandeAchat nouvelleCommande = new CommandeAchat();
+            FicheCommande fiche = new FicheCommande(Mode.Creation);
+            fiche.UCPannelCommande.DataContext = nouvelleCommande;
+            fiche.ShowDialog();
+            if (fiche.DialogResult == true)
+            {
+                data.LesCommandes.Add(nouvelleCommande);
+                dgCommandes.SelectedItem = nouvelleCommande;
+                data.CreateCommande(nouvelleCommande);
+            }
+        }
+
+        private bool ContientMotClef(object obj)
+        {
+            CommandeAchat? uneCommande = obj as CommandeAchat;
+            if (String.IsNullOrEmpty(txtCommandeRecherche.Text))
+                return true;
+            else
+                return (uneCommande.ModeLivraison.StartsWith(txtCommandeRecherche.Text, StringComparison.OrdinalIgnoreCase) ||
+                    uneCommande.UnModeTransport.ModedeTransport.StartsWith(txtCommandeRecherche.Text, StringComparison.OrdinalIgnoreCase));
+        }
+
+
+        private void txtCommandeRecherche_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            CollectionViewSource.GetDefaultView(dgCommandes.ItemsSource).Refresh();
+            CollectionViewSource.GetDefaultView(dgrechercherproduit.ItemsSource).Refresh();
+        }
+    }
 }
