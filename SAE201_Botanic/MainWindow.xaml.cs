@@ -18,7 +18,8 @@ namespace SAE201_Botanic
         public MainWindow()
         {
             InitializeComponent();
-            dgCommandes.Items.Filter = ContientMotClef;
+            dgCommandes.Items.Filter = ContientMotClefCommande;
+            dgrechercherproduit.Items.Filter = ContientMotClefProduit;
             //dpDateLivraison.DisplayDateStart = DateTime.Now;
             //dpDateLivraison.SelectedDate = DateTime.Now;
 
@@ -170,18 +171,33 @@ namespace SAE201_Botanic
             }
         }
 
-        private bool ContientMotClef(object obj)
+        private bool ContientMotClefCommande(object obj)
         {
             CommandeAchat? uneCommande = obj as CommandeAchat;
             if (String.IsNullOrEmpty(txtCommandeRecherche.Text))
                 return true;
             else
-                return (uneCommande.ModeLivraison.StartsWith(txtCommandeRecherche.Text, StringComparison.OrdinalIgnoreCase) ||
-                    uneCommande.UnModeTransport.ModedeTransport.StartsWith(txtCommandeRecherche.Text, StringComparison.OrdinalIgnoreCase));
+                return uneCommande.ModeLivraison.StartsWith(txtCommandeRecherche.Text, StringComparison.OrdinalIgnoreCase) ||
+                    uneCommande.UnModeTransport.ModedeTransport.StartsWith(txtCommandeRecherche.Text, StringComparison.OrdinalIgnoreCase);
         }
 
+        private bool ContientMotClefProduit(object obj)
+        {
+            Produit? unProduit= obj as Produit;
+            if (String.IsNullOrEmpty(txtRechercheProduit.Text))
+                return true;
+            else
+                return unProduit.NomProduit.StartsWith(txtCommandeRecherche.Text, StringComparison.OrdinalIgnoreCase) ||
+                    unProduit.DescriptionProduit.StartsWith(txtCommandeRecherche.Text, StringComparison.OrdinalIgnoreCase);
+        }
 
         private void txtCommandeRecherche_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            CollectionViewSource.GetDefaultView(dgCommandes.ItemsSource).Refresh();
+            CollectionViewSource.GetDefaultView(dgrechercherproduit.ItemsSource).Refresh();
+        }
+
+        private void txtRechercheProduit_TextChanged(object sender, TextChangedEventArgs e)
         {
             CollectionViewSource.GetDefaultView(dgCommandes.ItemsSource).Refresh();
             CollectionViewSource.GetDefaultView(dgrechercherproduit.ItemsSource).Refresh();

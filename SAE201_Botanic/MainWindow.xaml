@@ -39,7 +39,7 @@
                         <ColumnDefinition Width="139*" />
                     </Grid.ColumnDefinitions>
                     <StackPanel Orientation="Horizontal">
-                    <TextBox
+                        <TextBox
                             x:Name="txtCommandeRecherche"
                             Width="300"
                             Height="30"
@@ -47,33 +47,32 @@
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             BorderThickness="1" Margin="50,25,0,0" TextChanged="txtCommandeRecherche_TextChanged">
-                        <TextBox.Resources>
-                            <Style TargetType="Border">
-                                <Setter Property="CornerRadius" Value="15" />
-                            </Style>
-                        </TextBox.Resources>
-                        <TextBox.Effect>
-                            <DropShadowEffect ShadowDepth="1" Color="Gray" />
-                        </TextBox.Effect>
-                    </TextBox>
-                    <Image
+                            <TextBox.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="15" />
+                                </Style>
+                            </TextBox.Resources>
+                            <TextBox.Effect>
+                                <DropShadowEffect ShadowDepth="1" Color="Gray" />
+                            </TextBox.Effect>
+                        </TextBox>
+                        <Image
                             Width="16"
                             Height="16"
                             Margin="-30,30,0,0"
                             Source="/rsc/icone_recherche.png"
-                            Stretch="Fill" VerticalAlignment="Top" HorizontalAlignment="Right" />
+                            Stretch="Fill" VerticalAlignment="Top" />
                     </StackPanel>
 
                     <DataGrid
                         Name="dgCommandes"
-                        Width="816"
-                        Height="750"
+                        Height="700"
                         Margin="0,80,0,0"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Top"
                         AutoGenerateColumns="False"
                         IsReadOnly="True"
-                        ItemsSource="{Binding LesCommandes}">
+                        ItemsSource="{Binding LesCommandes}" Width="814.5">
                         <DataGrid.Columns>
                             <DataGridTextColumn
                                 Width="1*"
@@ -164,13 +163,12 @@
                     <StackPanel Orientation="Horizontal">
 
                         <TextBox
-                            x:Name="tbRecherche"
+                            x:Name="txtRechercheProduit"
                             Width="300"
                             Height="30"
                             Padding="12,4,30,4"
-                            HorizontalAlignment="Left"
                             VerticalAlignment="Top"
-                            BorderThickness="1">
+                            BorderThickness="1" TextChanged="txtRechercheProduit_TextChanged">
                             <TextBox.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="15" />
@@ -276,7 +274,7 @@
                     <DataGrid
                         x:Name="dgrechercherproduit"
                         Grid.Column="1"
-                        Width="1400"
+                        Width="1000"
                         Height="300"
                         MinHeight="150"
                         Margin="0,50,0,0"
