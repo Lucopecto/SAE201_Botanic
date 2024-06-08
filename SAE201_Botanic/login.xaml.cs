@@ -52,7 +52,6 @@ namespace SAE201_Botanic
             }
             else lbIdentifiantIncorrecte.Visibility = Visibility.Visible;
         }
-
         private void Login(object sender, RoutedEventArgs e)
         {
             NpgsqlConnection connexion = new NpgsqlConnection();
@@ -83,6 +82,5 @@ namespace SAE201_Botanic
             Close();
             mainWin.Show();
         }
-
     }
 }

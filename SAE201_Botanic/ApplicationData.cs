@@ -137,7 +137,7 @@ namespace SAE201_Botanic
         }
         public int UpdateCommande(CommandeAchat c)
         {
-            string sql = $"UPDATE sae_botanic_s.commandeachat SET numcommande = '{c.NumCommande}', nummagasin = '{c.UnMagasin}', modetransport = '{c.UnModeTransport}', " +
+            string sql = $"UPDATE sae_botanic_s.commandeachat SET numcommande = '{c.NumCommande}', nummagasin = '{c.UnMagasin.NumMagasin}', modetransport = '{c.UnModeTransport.ModedeTransport}', " +
                          $"datecommande = '{c.DateComande:dd-MM-yyyy}', datelivraison= '{c.DateLivraison:dd-MM-yyyy}', modelivraison= '{c.ModeLivraison}' " +
                          $"WHERE id = {c.NumCommande};";
             MethodeGenerique(sql);
@@ -155,8 +155,10 @@ namespace SAE201_Botanic
         }
         public int UpdateProduit(Produit p)
         {
-            string sql = $"UPDATE sae_botanic_s.produit SET numProduit= '{p.NumProduit}', nomCouleur = '{p.UneCouleur}', numCategorie = '{p.UneCategorie}', numFournisseur = '{p.UnFournisseur}', nomProduit= '{p.NomProduit}', tailleProduit= '{p.TailleProduit}', descriptionProduit= '{p.DescriptionProduit}', prixVente= '{p.PrixVente}', prixAchat= '{p.PrixAchat}'" +
-                         $"WHERE id = {p.NumProduit};";
+            string sql = $"UPDATE sae_botanic_s.produit SET numProduit= '{p.NumProduit}', nomCouleur = '{p.UneCouleur}', numCategorie = '{p.UneCategorie}'," +
+                $" numFournisseur = '{p.UnFournisseur}', nomProduit= '{p.NomProduit}', tailleProduit= '{p.TailleProduit}'," +
+                $" descriptionProduit= '{p.DescriptionProduit}', prixVente= '{p.PrixVente}', prixAchat= '{p.PrixAchat}'" +
+                $"WHERE id = {p.NumProduit};";
             MethodeGenerique(sql);
 
             return 0;
