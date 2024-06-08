@@ -115,6 +115,8 @@ namespace SAE201_Botanic
         {
             Filtres filtreWin = new Filtres();
             filtreWin.ShowDialog();
+            string filtreSql = "SELECT * FROM";
+            //if (!(filtreWin.typeProduitSelect is null)) 
         }
 
         private void SupprimerFiltre(object sender, RoutedEventArgs e)
