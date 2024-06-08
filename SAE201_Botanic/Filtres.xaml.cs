@@ -40,10 +40,17 @@ namespace SAE201_Botanic
 
 
 
-        List<Categorie> listeCategorie = new List<Categorie>();
-        List<TypeProduit> listeType = new List<TypeProduit>();
-        List<Couleur> listeCouleur = new List<Couleur>();
-        ApplicationData appData = new ApplicationData();
+        private List<Categorie> listeCategorie = new List<Categorie>();
+        private List<TypeProduit> listeType = new List<TypeProduit>();
+        private List<Couleur> listeCouleur = new List<Couleur>();
+        private ApplicationData appData = new ApplicationData();
+
+
+
+        public Categorie categorieSelect;
+        public TypeProduit typeProduitSelect;
+        public double prixMinSelect, prixMaxSelect;
+        public Couleur couleurSelect;
 
 
 
@@ -148,21 +155,15 @@ namespace SAE201_Botanic
 
         private void ValiderFiltres(object sender, RoutedEventArgs e)
         {
-            string categorieSelect = btnSelectionCategorie.Content.ToString();
-            string couleurSelect = btnSelectionCouleur.Content.ToString();
-
-
-            Categorie filtreCategorie;
-            TypeProduit filtreType;
+            string txtBtnCategorie = btnSelectionCategorie.Content.ToString();
+            string txtBtncouleur = btnSelectionCouleur.Content.ToString();
             bool estType = false;
-            double filtrePrixMin, filtrePrixMax;
-            Couleur filtreCouleur;
 
             foreach (TypeProduit unType in listeType)
             {
-                if (unType.NomType == categorieSelect)
+                if (unType.NomType == txtBtnCategorie)
                 {
-                    filtreType = unType;
+                    typeProduitSelect = unType;
                     estType = true;
                     break;
                 }
@@ -171,22 +172,22 @@ namespace SAE201_Botanic
             {
                 foreach (Categorie uneCategorie in listeCategorie)
                 {
-                    if (uneCategorie.LibelleCategorie == categorieSelect)
+                    if (uneCategorie.LibelleCategorie == txtBtncouleur)
                     {
-                        filtreCategorie = uneCategorie;
+                        categorieSelect = uneCategorie;
                         break;
                     }
                 }
             }
 
-            if (!double.TryParse(tbPrixMin.Text, out filtrePrixMin)) filtrePrixMin = -1;
-            if (!double.TryParse(tbPrixMax.Text, out filtrePrixMax)) filtrePrixMax = -1;
+            if (!double.TryParse(tbPrixMin.Text, out prixMinSelect)) prixMinSelect = -1;
+            if (!double.TryParse(tbPrixMax.Text, out prixMaxSelect)) prixMaxSelect = -1;
 
             foreach (Couleur uneCouleur in listeCouleur)
             {
-                if (uneCouleur.NomCouleur == categorieSelect)
+                if (uneCouleur.NomCouleur == txtBtncouleur)
                 {
-                    filtreCouleur = uneCouleur;
+                    couleurSelect = uneCouleur;
                     break;
                 }
             }
@@ -315,7 +316,13 @@ namespace SAE201_Botanic
             tbPrixMin.Text = string.Empty;
             tbPrixMax.Text = string.Empty;
         }
+
+
+
+        
     }
+
+
 
 
 
