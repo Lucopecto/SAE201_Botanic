@@ -32,7 +32,7 @@
 
         <TabControl Margin="0,32,0,0">
 
-            <TabItem Header=" Visualiser commandes ">
+            <TabItem Header=" Visualiser commande ">
                 <Grid Background="White" Width="1595">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="180*" />
@@ -111,10 +111,10 @@
                             FontSize="32"
                             FontWeight="Bold"
                             Foreground="#FF1C9E7F" />
-                        <local:PannelCommande
+                        <!--<local:PannelCommande
                             x:Name="UCPannelCommande"
                             Grid.Column="1"
-                            DataContext="{Binding SelectedItem, ElementName=dgCommandes}" Height="548" />
+                            DataContext="{Binding SelectedItem, ElementName=dgCommandes}" Height="548" />-->
                         <StackPanel
                             x:Name="stkBoutton"
                             Grid.Column="1"
@@ -124,7 +124,7 @@
                                 x:Name="butModifier"
                                 Width="65"
                                 Height="65"
-                                ToolTip="Modifier le département selectionné" Click="butModifierCommande_Click">
+                                ToolTip="Modifier la commande selectionné" Click="butModifierCommande_Click">
                                 <Image Source="rsc\modifier.png" />
                             </Button>
                             <Button
@@ -132,7 +132,7 @@
                                 Width="65"
                                 Height="65"
                                 Margin="10,0,0,0"
-                                ToolTip="Supprimer le département selectionné" Click="butSupprimerCommande_Click">
+                                ToolTip="Supprimer la commande selectionné" Click="butSupprimerCommande_Click">
                                 <Image Source="rsc\supprimer.png" />
                             </Button>
                             <Button
@@ -140,7 +140,7 @@
                                 Width="65"
                                 Height="65"
                                 Margin="10,0,0,0"
-                                ToolTip="Ajouter un nouveau département" Click="AjouterCommandeCommande_Click">
+                                ToolTip="Ajouter un nouveau commande" Click="AjouterCommandeCommande_Click">
                                 <Image Source="rsc\ajouter.png" />
                             </Button>
                         </StackPanel>
@@ -267,9 +267,13 @@
                         </StackPanel>
 
                     </StackPanel>
-                    <DataGrid
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <DataGrid
                         x:Name="dgProduit"
-                        Grid.Column="1"
                         Width="1000"
                         Height="300"
                         MinHeight="150"
@@ -277,49 +281,92 @@
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top"
                         AutoGenerateColumns="False"
+                        Grid.Column="0"
                         IsReadOnly="True"
-                        ItemsSource="{Binding LesProduits}">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn
+                        ItemsSource="{Binding LesProduits}" Grid.ColumnSpan="2">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn
                                 Width="1*"
                                 Binding="{Binding NumProduit}"
                                 Header="Numero Produit" />
-                            <DataGridTextColumn
+                                <DataGridTextColumn
                                 Width="1*"
                                 Binding="{Binding NomCouleur}"
                                 Header="Nom Couleur" />
-                            <DataGridTextColumn
+                                <DataGridTextColumn
                                 Width="1*"
                                 Binding="{Binding NumCategorie}"
                                 Header="Numero Catégorie" />
-                            <DataGridTextColumn
+                                <DataGridTextColumn
                                 Width="1*"
                                 Binding="{Binding NumFournisseur}"
                                 Header="Numero Fournisseur" />
-                            <DataGridTextColumn
+                                <DataGridTextColumn
                                 Width="1*"
                                 Binding="{Binding NomProduit}"
                                 Header="Nom Produit" />
-                            <DataGridTextColumn
+                                <DataGridTextColumn
                                 Width="1*"
                                 Binding="{Binding TailleProduit}"
                                 Header="Taille Produit" />
-                            <DataGridTextColumn
+                                <DataGridTextColumn
                                 Width="1*"
                                 Binding="{Binding DescriptionProduit}"
                                 Header="Descrption Produit" />
-                            <DataGridTextColumn
+                                <DataGridTextColumn
                                 Width="1*"
                                 Binding="{Binding PrixVente}"
                                 Header="Prix Vente" />
-                            <DataGridTextColumn
+                                <DataGridTextColumn
                                 Width="1*"
                                 Binding="{Binding PrixAchat}"
                                 Header="Prix Achat" />
-                        </DataGrid.Columns>
-                    </DataGrid>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <StackPanel
+                        x:Name="stkDetailProduite"
+                        Margin="80,80,80,80"  Grid.Column="1">
+                            <Label
+                            HorizontalAlignment="Center"
+                            Content="Détail des produits"
+                            FontSize="32"
+                            FontWeight="Bold"
+                            Foreground="#FF1C9E7F" />
+                            <!--<local:PanelProduit
+                            x:Name="UCPanelProduit"
+                            Grid.Column="1"
+                            DataContext="{Binding SelectedItem, ElementName=dgCommandes}" Height="548" />-->
+                            <StackPanel
+                            x:Name="stkBouttonP"
+                            HorizontalAlignment="Center"
+                            Orientation="Horizontal" Width="NaN" Height="NaN">
+                                <Button
+                                x:Name="butModifierP"
+                                Width="65"
+                                Height="65"
+                                ToolTip="Modifier le produit selectionné" Click="butModifierP_Click">
+                                    <Image Source="rsc\modifier.png" />
+                                </Button>
+                                <Button
+                                x:Name="butSupprimerP"
+                                Width="65"
+                                Height="65"
+                                Margin="10,0,0,0"
+                                ToolTip="Supprimer le produit selectionné" Click="butSupprimerCommande_Click">
+                                    <Image Source="rsc\supprimer.png" />
+                                </Button>
+                                <Button
+                                x:Name="butAjouterP"
+                                Width="65"
+                                Height="65"
+                                Margin="10,0,0,0"
+                                ToolTip="Ajouter un nouveau produit" Click="AjouterCommandeCommande_Click">
+                                    <Image Source="rsc\ajouter.png" />
+                                </Button>
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
                 </StackPanel>
-
             </TabItem>
         </TabControl>
     </Grid>

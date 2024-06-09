@@ -27,6 +27,7 @@ namespace SAE201_Botanic
             LesCommandes = new ObservableCollection<CommandeAchat>();
             DataContext = this;
 
+            #region Requete
             ApplicationData appData = new ApplicationData();
             DataTable lesCommandes = appData.Read(
                 "SELECT ca.numcommande, mp.modetransport, m.nummagasin, m.nommagasin, m.ruemagasin, m.cpmagasin, m.villemagasin, m.horaire, " +
@@ -98,7 +99,7 @@ namespace SAE201_Botanic
                     MessageBox.Show("Erreur : " + ex.Message + " " + sql, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
-
+            #endregion
         }
 
         private void Deconnexion(object sender, RoutedEventArgs e)
@@ -111,7 +112,7 @@ namespace SAE201_Botanic
             }
         }
 
-
+        #region Methode de boutton commande
         private void butModifierCommande_Click(object sender, RoutedEventArgs e)
         {
             if (dgCommandes.SelectedItem != null)
@@ -160,6 +161,59 @@ namespace SAE201_Botanic
                 data.CreateCommande(nouvelleCommande);
             }
         }
+        #endregion
+
+        #region Methode de boutton produit
+        private void butModifierProduit_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgProduit.SelectedItem != null)
+            {
+                Produit produitSelectionne = (Produit)dgProduit.SelectedItem;
+                FicheProduit fiche = new FicheProduit(ModeP.Modification);
+                fiche.UCPanelProduit.DataContext = (Produit)dgProduit.SelectedItem;
+                fiche.ShowDialog();
+                data?.UpdateProduit(produitSelectionne);
+            }
+            else MessageBox.Show(this, "Veuillez selectionner un produit");
+        }
+
+        private void butSupprimerProduit_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgProduit.SelectedItem != null)
+            {
+                Produit produitSelectionne = (Produit)dgProduit.SelectedItem;
+                MessageBoxResult res = MessageBox.Show(this, $"Êtes-vous sûr de vouloir supprimer ce produit ?", "Confirmation",
+                    MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (res == MessageBoxResult.Yes)
+                {
+                    data.LesProduits.Remove(produitSelectionne);
+                    data.DeleteCommande(produitSelectionne);
+                }
+            }
+            else MessageBox.Show(this, "Veuillez selectionner un produit");
+
+
+            //foreach (DataRow row in LesProduits.Rows)
+            //{
+            //    Console.WriteLine(string.Join(", ", row.ItemArray));
+            //}
+        }
+
+        private void AjouterCommandeCommandeProduit_Click(object sender, RoutedEventArgs e)
+        {
+            Produit nouveauProduit = new Produit();
+            FicheProduit fiche = new FicheProduit(ModeP.Creation);
+            fiche.UCPanelProduit.DataContext = nouveauProduit;
+            fiche.ShowDialog();
+            if (fiche.DialogResult == true)
+            {
+                data.LesProduits.Add(nouveauProduit);
+                dgProduit.SelectedItem = nouveauProduit;
+                data.CreateCommande(nouveauProduit);
+            }
+        }
+        #endregion
+
 
         #region Methode de filtre
         private void OuvrirFiltre(object sender, RoutedEventArgs e)
