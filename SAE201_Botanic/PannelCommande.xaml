@@ -47,21 +47,22 @@
         </ComboBox>
         <Label
             Margin="0,15,0,0"
+            Content="Date de commande"
+            FontSize="20"
+            FontWeight="Bold" />
+        <DatePicker x:Name="dpDatCommande" FontSize="16" />
+        <Label
+            Margin="0,15,0,0"
             Content="Date de livraison"
             FontSize="20"
             FontWeight="Bold" />
-        <DatePicker x:Name="dpDateLivraison" FontSize="16" />
+        <DatePicker x:Name="dpDateLivraison" FontSize="16" IsEnabled="False"/>
         <Label
             Margin="0,15,0,0"
             Content="Mode de livraison"
             FontSize="20"
             FontWeight="Bold" />
-        <ComboBox x:Name="cbModeLivraison" FontSize="16" ItemsSource="{Binding ModeLivraison}">
-            <ComboBoxItem Content="Classique" IsSelected="True" />
-            <ComboBoxItem Content="Eco" />
-            <ComboBoxItem Content="Express" />
-            <ComboBoxItem Content="HyperExpress" />
-        </ComboBox>
+        <TextBox x:Name="cbModeLivraison" FontSize="16" />
 
         <Label
             Margin="0,15,0,0"

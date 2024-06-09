@@ -25,12 +25,12 @@
             HorizontalAlignment="Center"
             HorizontalContentAlignment="Right"
             Content="Tous les champs sont obligatoires"
-            FontSize="10"
+            FontSize="12"
             Foreground="Gray" />
         <Label
             HorizontalAlignment="Center"
-            Content="Enregistrer une commandes"
-            FontSize="32"
+            Content="Enregistrer ou modifier une commandes"
+            FontSize="26"
             FontWeight="Bold"
             Foreground="#FF1C9E7F" Margin="0,30,0,0" />
         <local:PannelCommande

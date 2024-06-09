@@ -125,7 +125,7 @@
                                 x:Name="butModifier"
                                 Width="65"
                                 Height="65"
-                                ToolTip="Modifier le département selectionné">
+                                ToolTip="Modifier le département selectionné" Click="butModifierCommande_Click">
                                 <Image Source="rsc\modifier.png" />
                             </Button>
                             <Button
@@ -133,7 +133,7 @@
                                 Width="65"
                                 Height="65"
                                 Margin="10,0,0,0"
-                                ToolTip="Supprimer le département selectionné">
+                                ToolTip="Supprimer le département selectionné" Click="butSupprimerCommande_Click">
                                 <Image Source="rsc\supprimer.png" />
                             </Button>
                             <Button
@@ -141,14 +141,11 @@
                                 Width="65"
                                 Height="65"
                                 Margin="10,0,0,0"
-                                ToolTip="Ajouter un nouveau département">
+                                ToolTip="Ajouter un nouveau département" Click="AjouterCommandeCommande_Click">
                                 <Image Source="rsc\ajouter.png" />
                             </Button>
-
                         </StackPanel>
-
                     </StackPanel>
-
                 </Grid>
             </TabItem>
 

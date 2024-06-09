@@ -25,7 +25,7 @@ namespace SAE201_Botanic
             InitializeComponent();
             dpDateLivraison.DisplayDateStart = DateTime.Now;
             dpDateLivraison.SelectedDate = DateTime.Now;
-
+            dpDatCommande.SelectedDate = DateTime.Now;
         }
     }
 }

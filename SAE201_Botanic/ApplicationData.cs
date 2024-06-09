@@ -143,7 +143,6 @@ namespace SAE201_Botanic
             MethodeGenerique(sql);
 
             return 0;
-
         }
 
         public int DeleteCommande(CommandeAchat c)
@@ -153,6 +152,7 @@ namespace SAE201_Botanic
 
             return 0;
         }
+
         public int UpdateProduit(Produit p)
         {
             string sql = $"UPDATE sae_botanic_s.produit SET numProduit= '{p.NumProduit}', nomCouleur = '{p.UneCouleur}', numCategorie = '{p.UneCategorie}'," +

@@ -28,6 +28,7 @@ namespace SAE201_Botanic
             else if (leMode == Mode.Modification)
                 this.Title = "Modification d'une commande";
         }
+
         private void butAnnuler_Click(object sender, RoutedEventArgs e)
         {
             DialogResult = false;

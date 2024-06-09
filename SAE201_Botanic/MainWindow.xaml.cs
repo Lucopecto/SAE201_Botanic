@@ -87,7 +87,7 @@ namespace SAE201_Botanic
                     else
                         codeLocal = false;
                     Fournisseur fournisseur = new Fournisseur(int.Parse(unProduit["numFournisseur"].ToString()), unProduit["nomFournisseur"].ToString(), codeLocal);
-                    ; Produit produit = new Produit(
+                    Produit produit = new Produit(
                                             int.Parse(unProduit["numProduit"].ToString()), couleur, categorie, fournisseur, unProduit["nomProduit"].ToString(), unProduit["tailleProduit"].ToString(), unProduit["descriptionProduit"].ToString(), double.Parse(unProduit["prixVente"].ToString()), double.Parse(unProduit["prixAchat"].ToString()));
                     LesProduits.Add(produit);
 
@@ -111,20 +111,8 @@ namespace SAE201_Botanic
             }
         }
 
-        private void OuvrirFiltre(object sender, RoutedEventArgs e)
-        {
-            Filtres filtreWin = new Filtres();
-            filtreWin.ShowDialog();
-            string filtreSql = "SELECT * FROM";
-            //if (!(filtreWin.typeProduitSelect is null)) 
-        }
 
-        private void SupprimerFiltre(object sender, RoutedEventArgs e)
-        {
-            if (sender is Button btn && btn.Parent is StackPanel sp) sp.Children.Remove(btn);
-        }
-
-        private void butModifier_Click(object sender, RoutedEventArgs e)
+        private void butModifierCommande_Click(object sender, RoutedEventArgs e)
         {
             if (dgCommandes.SelectedItem != null)
             {
@@ -137,7 +125,7 @@ namespace SAE201_Botanic
             else MessageBox.Show(this, "Veuillez selectionner une commande");
         }
 
-        private void butSupprimer_Click(object sender, RoutedEventArgs e)
+        private void butSupprimerCommande_Click(object sender, RoutedEventArgs e)
         {
             if (dgCommandes.SelectedItem != null)
             {
@@ -159,7 +147,7 @@ namespace SAE201_Botanic
             //}
         }
 
-        private void AjouterCommande_Click(object sender, RoutedEventArgs e)
+        private void AjouterCommandeCommande_Click(object sender, RoutedEventArgs e)
         {
             CommandeAchat nouvelleCommande = new CommandeAchat();
             FicheCommande fiche = new FicheCommande(Mode.Creation);
@@ -173,6 +161,22 @@ namespace SAE201_Botanic
             }
         }
 
+        #region Methode de filtre
+        private void OuvrirFiltre(object sender, RoutedEventArgs e)
+        {
+            Filtres filtreWin = new Filtres();
+            filtreWin.ShowDialog();
+            string filtreSql = "SELECT * FROM";
+            //if (!(filtreWin.typeProduitSelect is null)) 
+        }
+
+        private void SupprimerFiltre(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button btn && btn.Parent is StackPanel sp) sp.Children.Remove(btn);
+        }
+        #endregion
+
+        #region Methode de recherche
         private bool ContientMotClefCommande(object obj)
         {
             CommandeAchat? uneCommande = obj as CommandeAchat;
@@ -204,5 +208,6 @@ namespace SAE201_Botanic
             CollectionViewSource.GetDefaultView(dgCommandes.ItemsSource).Refresh();
             CollectionViewSource.GetDefaultView(dgrechercherproduit.ItemsSource).Refresh();
         }
+        #endregion
     }
 }
