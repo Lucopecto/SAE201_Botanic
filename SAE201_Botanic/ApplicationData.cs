@@ -156,7 +156,7 @@ namespace SAE201_Botanic
         #endregion
 
         #region Methode requete produit
-        public int CreateCommande(Produit p)
+        public int CreateProduit(Produit p)
         {
             string sql = $"INSERT INTO produit (numproduit, nomcouleur, numcategorie, numfournisseur, nomproduit, tailleproduit, descriptionproduit, prixvente, prixachat) " +
                          $"VALUES ({p.NumProduit}, {p.UneCouleur.NomCouleur}, '{p.UneCategorie.NumCategorie}', '{p.UnFournisseur.NumFournisseur}', " +

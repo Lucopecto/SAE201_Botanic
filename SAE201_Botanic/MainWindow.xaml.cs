@@ -187,7 +187,7 @@ namespace SAE201_Botanic
                 if (res == MessageBoxResult.Yes)
                 {
                     data.LesProduits.Remove(produitSelectionne);
-                    data.DeleteCommande(produitSelectionne);
+                    data.DeleteProduit(produitSelectionne);
                 }
             }
             else MessageBox.Show(this, "Veuillez selectionner un produit");
@@ -209,11 +209,10 @@ namespace SAE201_Botanic
             {
                 data.LesProduits.Add(nouveauProduit);
                 dgProduit.SelectedItem = nouveauProduit;
-                data.CreateCommande(nouveauProduit);
+                data.CreateProduit(nouveauProduit);
             }
         }
         #endregion
-
 
         #region Methode de filtre
         private void OuvrirFiltre(object sender, RoutedEventArgs e)

@@ -344,7 +344,7 @@
                                 x:Name="butModifierP"
                                 Width="65"
                                 Height="65"
-                                ToolTip="Modifier le produit selectionné" Click="butModifierP_Click">
+                                ToolTip="Modifier le produit selectionné" Click="butModifierProduit_Click">
                                     <Image Source="rsc\modifier.png" />
                                 </Button>
                                 <Button
@@ -352,7 +352,7 @@
                                 Width="65"
                                 Height="65"
                                 Margin="10,0,0,0"
-                                ToolTip="Supprimer le produit selectionné" Click="butSupprimerCommande_Click">
+                                ToolTip="Supprimer le produit selectionné" Click="butSupprimerProduit_Click">
                                     <Image Source="rsc\supprimer.png" />
                                 </Button>
                                 <Button
@@ -360,7 +360,7 @@
                                 Width="65"
                                 Height="65"
                                 Margin="10,0,0,0"
-                                ToolTip="Ajouter un nouveau produit" Click="AjouterCommandeCommande_Click">
+                                ToolTip="Ajouter un nouveau produit" Click="AjouterCommandeProduit_Click">
                                     <Image Source="rsc\ajouter.png" />
                                 </Button>
                             </StackPanel>
