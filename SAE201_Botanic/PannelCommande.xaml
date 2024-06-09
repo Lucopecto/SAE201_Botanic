@@ -5,7 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:SAE201_Botanic"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    d:DesignHeight="800"
+    d:DesignHeight="650"
     d:DesignWidth="600"
     mc:Ignorable="d">
     <StackPanel
@@ -64,11 +64,11 @@
             FontWeight="Bold" />
         <TextBox x:Name="cbModeLivraison" FontSize="16" />
 
-        <Label
+        <!--<Label
             Margin="0,15,0,0"
             Content="Numéro du produit"
             FontSize="20"
             FontWeight="Bold" />
-        <TextBox x:Name="txtNumProduit" FontSize="16" />
+        <TextBox x:Name="txtNumProduit" FontSize="16" />-->
     </StackPanel>
 </UserControl>

@@ -114,8 +114,7 @@
                         <local:PannelCommande
                             x:Name="UCPannelCommande"
                             Grid.Column="1"
-                            VerticalAlignment="Top"
-                            DataContext="{Binding SelectedItem, ElementName=dgCommandes}" />
+                            DataContext="{Binding SelectedItem, ElementName=dgCommandes}" Height="548" />
                         <StackPanel
                             x:Name="stkBoutton"
                             Grid.Column="1"
