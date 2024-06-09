@@ -268,7 +268,7 @@
 
                     </StackPanel>
                     <DataGrid
-                        x:Name="dgrechercherproduit"
+                        x:Name="dgProduit"
                         Grid.Column="1"
                         Width="1000"
                         Height="300"

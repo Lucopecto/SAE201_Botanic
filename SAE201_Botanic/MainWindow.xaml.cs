@@ -19,7 +19,7 @@ namespace SAE201_Botanic
         {
             InitializeComponent();
             dgCommandes.Items.Filter = ContientMotClefCommande;
-            dgrechercherproduit.Items.Filter = ContientMotClefProduit;
+            dgProduit.Items.Filter = ContientMotClefProduit;
             //dpDateLivraison.DisplayDateStart = DateTime.Now;
             //dpDateLivraison.SelectedDate = DateTime.Now;
 
@@ -200,13 +200,13 @@ namespace SAE201_Botanic
         private void txtCommandeRecherche_TextChanged(object sender, TextChangedEventArgs e)
         {
             CollectionViewSource.GetDefaultView(dgCommandes.ItemsSource).Refresh();
-            CollectionViewSource.GetDefaultView(dgrechercherproduit.ItemsSource).Refresh();
+            CollectionViewSource.GetDefaultView(dgProduit.ItemsSource).Refresh();
         }
 
         private void txtRechercheProduit_TextChanged(object sender, TextChangedEventArgs e)
         {
             CollectionViewSource.GetDefaultView(dgCommandes.ItemsSource).Refresh();
-            CollectionViewSource.GetDefaultView(dgrechercherproduit.ItemsSource).Refresh();
+            CollectionViewSource.GetDefaultView(dgProduit.ItemsSource).Refresh();
         }
         #endregion
     }

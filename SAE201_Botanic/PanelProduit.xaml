@@ -21,12 +21,12 @@
             SelectedIndex="0"
             Margin="0,0,0,10"
             FontSize="16" >
-            <ComboBoxItem Content="1" IsSelected="True" />
-            <ComboBoxItem Content="2" />
-            <ComboBoxItem Content="3" />
-            <ComboBoxItem Content="4" />
-            <ComboBoxItem Content="5" />
-            <ComboBoxItem Content="6" />
+            <ComboBoxItem Content="Blanc" IsSelected="True" />
+            <ComboBoxItem Content="Noir" />
+            <ComboBoxItem Content="Rouge" />
+            <ComboBoxItem Content="Vert" />
+            <ComboBoxItem Content="Bleu" />
+            <ComboBoxItem Content="Rose" />
         </ComboBox>
         <Label
             Margin="0,15,0,0"
@@ -38,10 +38,10 @@
             Margin="0,0,0,10"
             ItemsSource="{Binding NumCategorie}"
             FontSize="16">
-            <ComboBoxItem Content="UPS" />
-            <ComboBoxItem Content="Chronopost" />
-            <ComboBoxItem Content="Botanic" IsSelected="True" />
-            <ComboBoxItem Content="Relais" />
+            <ComboBoxItem Content="1" IsSelected="True" />
+            <ComboBoxItem Content="2" />
+            <ComboBoxItem Content="3" />
+            <ComboBoxItem Content="4" />
         </ComboBox>
         <Label
             Margin="0,15,0,0"
@@ -53,10 +53,10 @@
             Margin="0,0,0,10"
             ItemsSource="{Binding NumFournisseur}"
             FontSize="16">
-            <ComboBoxItem Content="UPS" />
-            <ComboBoxItem Content="Chronopost" />
-            <ComboBoxItem Content="Botanic" IsSelected="True" />
-            <ComboBoxItem Content="Relais" />
+            <ComboBoxItem Content="1" IsSelected="True" />
+            <ComboBoxItem Content="2" />
+            <ComboBoxItem Content="3" />
+            <ComboBoxItem Content="4" />
         </ComboBox>
         <Label
             Margin="0,15,0,0"
