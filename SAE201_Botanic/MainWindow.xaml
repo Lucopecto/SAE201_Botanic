@@ -149,7 +149,7 @@
             </TabItem>
 
 
-            <TabItem Header=" Rechercher produit " Height="30" VerticalAlignment="Top">
+            <TabItem Header=" Rechercher produit " Height="30" VerticalAlignment="Top" Margin="-3,-2,-1,0">
 
                 <StackPanel
                     Height="694"
