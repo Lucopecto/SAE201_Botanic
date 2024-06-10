@@ -59,18 +59,18 @@ namespace SAE201_Botanic
 
         private void butEnvoyerAssoc_Click(object sender, RoutedEventArgs e)
         {
-            DataGridRow row = dataGrid.ItemContainerGenerator.ContainerFromIndex(dataGrid.SelectedIndex) as DataGridRow;
-            var i = 2;
-            TextBox txtQuantite = ((ContentPresenter)(dataGrid.Columns[i].GetCellContent(row))).Content as TextBox;
-            var produitchoisi = (Produit)dataGrid.SelectedItem;
-            if (dataGrid.SelectedItem != null)
-            {
-                var quantite? = int.Parse(txtQuantite.Text);
-                data.AssocierProduitACommande(CommandeSelectionne, produitchoisi, (int)quantite);
-                this.Close();
-            }
-            else
-                MessageBox.Show(this, "Veuillez selectionner un produit", "Attention", MessageBoxButton.OK, MessageBoxImage.Information);
+            //DataGridRow row = dataGrid.ItemContainerGenerator.ContainerFromIndex(dataGrid.SelectedIndex) as DataGridRow;
+            //var i = 2;
+            //TextBox txtQuantite = ((ContentPresenter)(dataGrid.Columns[i].GetCellContent(row))).Content as TextBox;
+            //var produitchoisi = (Produit)dataGrid.SelectedItem;
+            //if (dataGrid.SelectedItem != null)
+            //{
+            //    var quantite = int.Parse(txtQuantite.Text);
+            //    data.AssocierProduitACommande(CommandeSelectionne, produitchoisi, quantite);
+            //    this.Close();
+            //}
+            //else
+            //    MessageBox.Show(this, "Veuillez selectionner un produit", "Attention", MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
     public class Item : INotifyPropertyChanged
