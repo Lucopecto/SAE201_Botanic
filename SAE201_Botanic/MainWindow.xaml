@@ -178,7 +178,7 @@
                             FontFamily="Segoe UI Light"
                             FontSize="20"
                             Foreground="Black" />
-                        <Button
+                        <Button x:Name="butVoirLesProduits"
                                 Width="120"
                                 Height="30"
                                 Background="White"
@@ -216,7 +216,7 @@
                             FontFamily="Segoe UI Light"
                             FontSize="12"
                             Foreground="Black" />
-                        <Button
+                        <Button x:Name="butValider"
                             Width="70"
                             Height="30"
                             Margin="0,30,0,0"
