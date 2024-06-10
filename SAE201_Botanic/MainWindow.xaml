@@ -35,15 +35,12 @@
             <TabItem Header=" Visualiser commandes ">
                 <Grid Background="White">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="501*" />
-                        <ColumnDefinition Width="296*" />
+                        <ColumnDefinition Width="8*" />
+                        <ColumnDefinition Width="3*" />
                     </Grid.ColumnDefinitions>
                     <DataGrid
                         Name="dgCommandes"
-                        Width="900"
-                        Height="750"
-                        MinHeight="150"
-                        Margin="0,20,0,0"
+                        Margin="50,20,50,50"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Top"
                         AutoGenerateColumns="False"
@@ -78,84 +75,164 @@
                     </DataGrid>
 
                     <StackPanel
-                        x:Name="stkCreerCommande"
+                        x:Name="spDetailCommande"
                         Grid.Column="1"
                         Margin="80,80,80,80">
                         <Label
-                            HorizontalAlignment="Center"
-                            Content="Détail des commandes"
-                            FontSize="32"
-                            FontWeight="Bold"
-                            Foreground="#FF1C9E7F" />
+                            x:Name="lbNumCommande"
+                            HorizontalAlignment="Left"
+                            HorizontalContentAlignment="Left"
+                            Content="Commande n°"
+                            FontFamily="Segoe UI Light"
+                            FontSize="26"
+                            Foreground="Black" />
                         <Label
-                            Margin="0,15,0,0"
-                            Content="Numéro du magasin"
-                            FontSize="20"
-                            FontWeight="Bold" />
-                        <TextBox x:Name="txtNumMagasin" FontSize="16" />
+                            x:Name="lbDateCreationCommande"
+                            Margin="10,0,0,0"
+                            HorizontalAlignment="Left"
+                            HorizontalContentAlignment="Left"
+                            Content="Date de création : "
+                            FontFamily="Segoe UI Light"
+                            FontSize="12"
+                            Foreground="Black" />
+                        <Border
+                            Margin="0,5,0,0"
+                            BorderBrush="Gray"
+                            BorderThickness="0.2" />
                         <Label
-                            Margin="0,15,0,0"
-                            Content="Mode de transport"
+                            x:Name="lbTransport"
+                            Margin="0,10,0,0"
+                            HorizontalAlignment="Left"
+                            HorizontalContentAlignment="Left"
+                            Content="Transport"
+                            FontFamily="Segoe UI Light"
                             FontSize="20"
-                            FontWeight="Bold" />
-                        <ComboBox
-                            x:Name="cbModeTransport"
-                            Margin="0,0,0,10"
-                            FontSize="16">
-                            <ComboBoxItem Content="UPS" />
-                            <ComboBoxItem Content="Chronopost" />
-                            <ComboBoxItem Content="Botanic" IsSelected="True" />
-                            <ComboBoxItem Content="Relais" />
-                        </ComboBox>
+                            Foreground="Black" />
                         <Label
-                            Margin="0,15,0,0"
-                            Content="Date de livraison"
-                            FontSize="20"
-                            FontWeight="Bold" />
-                        <DatePicker x:Name="dpDateLivraison" FontSize="16" />
+                            x:Name="lbLibelleTransport"
+                            Margin="10,0,0,0"
+                            HorizontalAlignment="Left"
+                            HorizontalContentAlignment="Left"
+                            Content="Mode de transport : "
+                            FontFamily="Segoe UI Light"
+                            FontSize="12"
+                            Foreground="Black" />
+                        <Border
+                            Margin="0,5,0,0"
+                            BorderBrush="Gray"
+                            BorderThickness="0.2" />
                         <Label
-                            Margin="0,15,0,0"
-                            Content="Mode de livraison"
+                            x:Name="lbMagasin"
+                            Margin="0,10,0,0"
+                            HorizontalAlignment="Left"
+                            HorizontalContentAlignment="Left"
+                            Content="Magasin"
+                            FontFamily="Segoe UI Light"
                             FontSize="20"
-                            FontWeight="Bold" />
-                        <ComboBox x:Name="cbModeLivraison" FontSize="16">
-                            <ComboBoxItem Content="Classique" IsSelected="True" />
-                            <ComboBoxItem Content="Eco" />
-                            <ComboBoxItem Content="Express" />
-                            <ComboBoxItem Content="HyperExpress" />
-                        </ComboBox>
-
-                        <StackPanel
-                            x:Name="stkBoutton"
-                            Grid.Column="1"
-                            Margin="0,25,0,0"
-                            HorizontalAlignment="Center"
-                            Orientation="Horizontal">
-                            <Button
-                                x:Name="butModifier"
-                                Width="65"
-                                Height="65"
-                                ToolTip="Modifier le département selectionné">
-                                <Image Source="rsc\modifier.png" />
-                            </Button>
-                            <Button
-                                x:Name="butSupprimer"
-                                Width="65"
-                                Height="65"
-                                Margin="10,0,0,0"
-                                ToolTip="Supprimer le département selectionné">
-                                <Image Source="rsc\supprimer.png" />
-                            </Button>
-                            <Button
-                                x:Name="butAjouter"
-                                Width="65"
-                                Height="65"
-                                Margin="10,0,0,0"
-                                ToolTip="Ajouter un nouveau département">
-                                <Image Source="rsc\ajouter.png" />
-                            </Button>
-
-                        </StackPanel>
+                            Foreground="Black" />
+                        <Label
+                            x:Name="lbNomMagasin"
+                            Margin="10,0,0,0"
+                            HorizontalAlignment="Left"
+                            HorizontalContentAlignment="Left"
+                            Content="Nom : "
+                            FontFamily="Segoe UI Light"
+                            FontSize="12"
+                            Foreground="Black" />
+                        <Label
+                            x:Name="lbRue"
+                            Margin="10,0,0,0"
+                            HorizontalAlignment="Left"
+                            HorizontalContentAlignment="Left"
+                            Content="Rue : "
+                            FontFamily="Segoe UI Light"
+                            FontSize="12"
+                            Foreground="Black" />
+                        <Label
+                            x:Name="lbCp"
+                            Margin="10,0,0,0"
+                            HorizontalAlignment="Left"
+                            HorizontalContentAlignment="Left"
+                            Content="Code postal : "
+                            FontFamily="Segoe UI Light"
+                            FontSize="12"
+                            Foreground="Black" />
+                        <Label
+                            x:Name="lbVille"
+                            Margin="10,0,0,0"
+                            HorizontalAlignment="Left"
+                            HorizontalContentAlignment="Left"
+                            Content="Ville : "
+                            FontFamily="Segoe UI Light"
+                            FontSize="12"
+                            Foreground="Black" />
+                        <Border
+                            Margin="0,5,0,0"
+                            BorderBrush="Gray"
+                            BorderThickness="0.2" />
+                        <Label
+                            x:Name="lbProduits"
+                            Margin="0,10,0,0"
+                            HorizontalAlignment="Left"
+                            HorizontalContentAlignment="Left"
+                            Content="Produits"
+                            FontFamily="Segoe UI Light"
+                            FontSize="20"
+                            Foreground="Black" />
+                        <Button
+                                Width="120"
+                                Height="30"
+                                Background="White"
+                            Foreground="Gray"
+                            BorderBrush="Gray"
+                                BorderThickness="1"
+                                Content="Voir les produits"
+                                Cursor="Hand"
+                            HorizontalAlignment="Right">
+                            <Button.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="5" />
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Border
+                            Margin="0,5,0,0"
+                            BorderBrush="Gray"
+                            BorderThickness="0.2" />
+                        <Label
+                            x:Name="lbLivraison"
+                            Margin="0,10,0,0"
+                            HorizontalAlignment="Left"
+                            HorizontalContentAlignment="Left"
+                            Content="Livraison"
+                            FontFamily="Segoe UI Light"
+                            FontSize="20"
+                            Foreground="Black" />
+                        <Label
+                            x:Name="lbModeLivraison"
+                            Margin="10,0,0,0"
+                            HorizontalAlignment="Left"
+                            HorizontalContentAlignment="Left"
+                            Content="Mode de livraison : "
+                            FontFamily="Segoe UI Light"
+                            FontSize="12"
+                            Foreground="Black" />
+                        <Button
+                            Width="70"
+                            Height="30"
+                            Margin="0,30,0,0"
+                            Background="#FF1C9E7F"
+                            BorderThickness="0"
+                            Content="Valider"
+                            Cursor="Hand"
+                            HorizontalAlignment="Right"
+                            Foreground="White">
+                            <Button.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="5" />
+                                </Style>
+                            </Button.Resources>
+                        </Button>
 
                     </StackPanel>
                 </Grid>

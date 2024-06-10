@@ -23,6 +23,7 @@ namespace SAE201_Botanic
 
             dpDateLivraison.DisplayDateStart = DateTime.Now;
             dpDateLivraison.SelectedDate = DateTime.Now;
+            
          
 
             LesCommandes = new ObservableCollection<CommandeAchat>();
@@ -102,12 +103,12 @@ namespace SAE201_Botanic
 
         }
 
-        private void textMotClef_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            CollectionViewSource.GetDefaultView(dgCommandes.ItemsSource).Refresh();
+        //private void textMotClef_TextChanged(object sender, TextChangedEventArgs e)
+        //{
+        //    CollectionViewSource.GetDefaultView(dgCommandes.ItemsSource).Refresh();
 
-            CollectionViewSource.GetDefaultView(dgrechercherproduit.ItemsSource).Refresh();
-        }
+        //    CollectionViewSource.GetDefaultView(dgrechercherproduit.ItemsSource).Refresh();
+        //}
         private void Deconnexion(object sender, RoutedEventArgs e)
         {
             if (MessageBox.Show("Vous allez être déconnecté", "Déconnexion", MessageBoxButton.OKCancel, MessageBoxImage.Information) is MessageBoxResult.OK)
