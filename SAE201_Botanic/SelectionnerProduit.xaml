@@ -40,7 +40,7 @@
             FontSize="16"
             Foreground="Black"
             IsReadOnly="True"
-            ItemsSource="{Binding}">
+            ItemsSource="{Binding LesProduits}">
 
             <DataGrid.Columns>
                 <DataGridTextColumn
