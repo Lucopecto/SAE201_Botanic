@@ -22,6 +22,7 @@ namespace SAE201_Botanic
     /// </summary>
     public partial class SelectionnerProduit : Window
     {
+        public List<Produit> CommandeSelect;
         public ApplicationData data;
         public ObservableCollection<Item> Items { get; set; }
         public ObservableCollection<Produit> LesProduits { get; set; }

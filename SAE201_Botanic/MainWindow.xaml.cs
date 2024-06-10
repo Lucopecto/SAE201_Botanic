@@ -128,6 +128,13 @@ namespace SAE201_Botanic
             if (sender is Button btn && btn.Parent is StackPanel sp) sp.Children.Remove(btn);
         }
 
+        private void OuvrirValiderCommande(object sender, RoutedEventArgs e)
+        {
+            SelectionnerProduit selectProduitWin = new SelectionnerProduit();
+            //selectProduitWin.CommandeSelect = dgCommandes;
+            selectProduitWin.ShowDialog();
+        }
+
         //private void butModifier_Click(object sender, RoutedEventArgs e)
         //{
         //    if (dgCommandes.SelectedItem != null)
@@ -157,22 +164,22 @@ namespace SAE201_Botanic
         //    else MessageBox.Show(this, "Veuillez selectionner un client");
 
 
-//            foreach (DataRow row in lesProduits.Rows)
-//{
-//    Console.WriteLine(string.Join(", ", row.ItemArray));
-//}
-    //private void AjouterCommande_Click(object sender, RoutedEventArgs e)
-    //{
-    //    CommandeAchat nouvelleCommande = new CommandeAchat();
-    //    FicheClient fiche = new FicheClient(Mode.Creation);
-    //    fiche.UCPanelClient.DataContext = nouvelleCommande;
-    //    fiche.ShowDialog();
-    //    if (fiche.DialogResult == true)
-    //    {
-    //        data.LesClients.Add(nouvelleCommande);
-    //        dgClients.SelectedItem = nouvelleCommande;
-    //        data.Create(nouvelleCommande);
-    //    }
-    //}
-}
+        //            foreach (DataRow row in lesProduits.Rows)
+        //{
+        //    Console.WriteLine(string.Join(", ", row.ItemArray));
+        //}
+        //private void AjouterCommande_Click(object sender, RoutedEventArgs e)
+        //{
+        //    CommandeAchat nouvelleCommande = new CommandeAchat();
+        //    FicheClient fiche = new FicheClient(Mode.Creation);
+        //    fiche.UCPanelClient.DataContext = nouvelleCommande;
+        //    fiche.ShowDialog();
+        //    if (fiche.DialogResult == true)
+        //    {
+        //        data.LesClients.Add(nouvelleCommande);
+        //        dgClients.SelectedItem = nouvelleCommande;
+        //        data.Create(nouvelleCommande);
+        //    }
+        //}
+    }
 }
