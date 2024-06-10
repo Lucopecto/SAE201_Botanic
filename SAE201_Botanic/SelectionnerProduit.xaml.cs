@@ -67,8 +67,15 @@ namespace SAE201_Botanic
             }
         }
 
+        private void toutSelectionner_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (var produit in LesProduits)
+            {
+                produit.IsSelected = !produit.IsSelected;
+            }
+        }
     }
-        public class Item : INotifyPropertyChanged
+    public class Item : INotifyPropertyChanged
         {
             private bool estChoisi;
             public string Produit { get; set; }
