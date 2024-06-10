@@ -10,7 +10,8 @@
     Height="500"
     Icon="rsc/icon_botanic.ico"
     ResizeMode="NoResize"
-    mc:Ignorable="d" WindowStartupLocation="CenterScreen">
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
     <Grid Margin="50,40">
         <Button
             Width="120"
@@ -62,12 +63,13 @@
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
                                 <TextBox
+                                    x:Name="txtQuantite"
                                     Grid.Column="2"
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center"
                                     HorizontalContentAlignment="Center"
                                     VerticalContentAlignment="Center"
-                                    Text="{Binding Quantity}" />
+                                    Text="{Binding Quantite}" />
                             </Grid>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
@@ -76,7 +78,7 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <CheckBox IsChecked="{Binding IsSelected, Mode=TwoWay}">
-                                <CheckBox.Template>
+                                <!--<CheckBox.Template>
                                     <ControlTemplate TargetType="CheckBox">
                                         <Grid Width="20" Height="20">
                                             <Border
@@ -98,7 +100,7 @@
                                             </Trigger>
                                         </ControlTemplate.Triggers>
                                     </ControlTemplate>
-                                </CheckBox.Template>
+                                </CheckBox.Template>-->
                             </CheckBox>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
@@ -106,12 +108,14 @@
             </DataGrid.Columns>
         </DataGrid>
         <Button
+            x:Name="butEnvoyerAssoc"
             Width="70"
             Height="30"
             HorizontalAlignment="Right"
             VerticalAlignment="Bottom"
             Background="#FF1C9E7F"
             BorderThickness="0"
+            Click="butEnvoyerAssoc_Click"
             Content="Envoyer"
             Cursor="Hand"
             Foreground="White">

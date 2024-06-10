@@ -10,7 +10,7 @@
     Height="900"
     Icon="rsc/icon_botanic.ico"
     WindowStartupLocation="CenterScreen"
-    mc:Ignorable="d">
+    mc:Ignorable="d" WindowState="Maximized">
     <Window.Resources>
         <Style TargetType="TabItem">
             <Setter Property="Height" Value="30" />
@@ -81,7 +81,7 @@
                             x:Name="lbNumCommande"
                             HorizontalAlignment="Left"
                             HorizontalContentAlignment="Left"
-                            Content="Commande n°"
+                            Content="Commande"
                             FontFamily="Segoe UI Light"
                             FontSize="26"
                             Foreground="Black" />
@@ -226,7 +226,7 @@
                             
                             Cursor="Hand"
                             HorizontalAlignment="Right"
-                            Foreground="White" Click="OuvrirValiderCommande">
+                            Foreground="White" >
                             <Button.Resources>
                                 <Style TargetType="{x:Type Border}">
                                     <Setter Property="CornerRadius" Value="5" />

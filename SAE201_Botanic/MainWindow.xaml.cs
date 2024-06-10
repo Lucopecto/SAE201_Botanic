@@ -132,6 +132,25 @@ namespace SAE201_Botanic
             else MessageBox.Show(this, "Veuillez selectionner une commande", "Attention", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
+
+        //private void Envoyer_Click(object sender, RoutedEventArgs e)
+        //{
+        //    foreach (var produit in LesProduits)
+        //    {
+        //        if (produit.IsSelected)   
+        //        {
+        //            // Traiter le produit sélectionné
+        //            int numCommande = 1; // Remplacer par la valeur réelle de la commande
+        //            int numProduit = produit.NumProduit;
+        //            int quantite = produit.Quantity;
+
+        //            // Associez ici la commande avec le produit
+        //            // Exemple : Enregistrer dans la base de données, afficher un message, etc.
+        //            MessageBox.Show($"Commande {numCommande} associée avec le produit {numProduit} et quantité {quantite}.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+        //        }
+        //    }
+        //}
+
         private void tbRechercheProduit_TextChanged(object sender, TextChangedEventArgs e)
         {
             CollectionViewSource.GetDefaultView(dgrechercherproduit.ItemsSource).Refresh();

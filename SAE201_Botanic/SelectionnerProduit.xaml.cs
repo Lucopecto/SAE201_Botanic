@@ -1,19 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace SAE201_Botanic
 {
@@ -22,7 +12,7 @@ namespace SAE201_Botanic
     /// </summary>
     public partial class SelectionnerProduit : Window
     {
-        public CommandeAchat CommandeSelect;
+        public CommandeAchat CommandeSelectionne;
         public ApplicationData data;
         public ObservableCollection<Item> Items { get; set; }
         public ObservableCollection<Produit> LesProduits { get; set; }
@@ -67,52 +57,65 @@ namespace SAE201_Botanic
             }
         }
 
-    }
-        public class Item : INotifyPropertyChanged
+        private void butEnvoyerAssoc_Click(object sender, RoutedEventArgs e)
         {
-            private bool estChoisi;
-            public string Produit { get; set; }
-            public int Quantity { get; set; }
-            public bool EstChoisi
+            DataGridRow row = dataGrid.ItemContainerGenerator.ContainerFromIndex(dataGrid.SelectedIndex) as DataGridRow;
+            var i = 2;
+            TextBox txtQuantite = ((ContentPresenter)(dataGrid.Columns[i].GetCellContent(row))).Content as TextBox;
+            var produitchoisi = (Produit)dataGrid.SelectedItem;
+            if (dataGrid.SelectedItem != null)
             {
-                get { return estChoisi; }
-                set
-                {
-                    if (estChoisi != value)
-                    {
-                        estChoisi = value;
-                        OnPropertyChanged("EstChoisi");
-                    }
-                }
+                var quantite? = int.Parse(txtQuantite.Text);
+                data.AssocierProduitACommande(CommandeSelectionne, produitchoisi, (int)quantite);
+                this.Close();
             }
-
-
-            public event PropertyChangedEventHandler PropertyChanged;
-
-            protected void OnPropertyChanged(string name)
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-            }
-
-            public class Product
-            {
-                public string Name { get; set; }
-                public int Quantity { get; set; }
-            }
-            //private void ValidateButton_Click(object sender, RoutedEventArgs e)
-            //{
-            //    var selectedItems = Items.Where(item => item.IsSelected).ToList();
-            //    if (selectedItems.Any())
-            //    {
-            //        CommandWindow commandWindow = new CommandWindow(selectedItems);
-            //        commandWindow.Show();
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("Aucun élément sélectionné.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
-            //    }
-            //}
+            else
+                MessageBox.Show(this, "Veuillez selectionner un produit", "Attention", MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
+    public class Item : INotifyPropertyChanged
+    {
+        private bool estChoisi;
+        public string Produit { get; set; }
+        public int Quantity { get; set; }
+        public bool EstChoisi
+        {
+            get { return estChoisi; }
+            set
+            {
+                if (estChoisi != value)
+                {
+                    estChoisi = value;
+                    OnPropertyChanged("EstChoisi");
+                }
+            }
+        }
 
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged(string name)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+
+        public class Product
+        {
+            public string Name { get; set; }
+            public int Quantity { get; set; }
+        }
+        //private void ValidateButton_Click(object sender, RoutedEventArgs e)
+        //{
+        //    var selectedItems = Items.Where(item => item.IsSelected).ToList();
+        //    if (selectedItems.Any())
+        //    {
+        //        CommandWindow commandWindow = new CommandWindow(selectedItems);
+        //        commandWindow.Show();
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Aucun élément sélectionné.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+        //    }
+        //}
+    }
+}

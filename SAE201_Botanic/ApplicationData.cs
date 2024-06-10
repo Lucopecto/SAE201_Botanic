@@ -153,6 +153,13 @@ namespace SAE201_Botanic
 
             return 0;
         }
+
+        public int AssocierProduitACommande(CommandeAchat c, Produit p, int quantite)
+        {
+            string sql = $"INSERT INTO commande_produit (idcommande, idproduit, quantite) VALUES ({c.NumCommande}, {p.NumProduit}, {quantite});";
+            MethodeGenerique(sql);
+            return 0;
+        }
         #endregion
 
         #region Methode requete produit
