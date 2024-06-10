@@ -18,11 +18,11 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Background="White"
-            BorderBrush="Gray"
+            BorderBrush="Black"
             BorderThickness="1"
             Content="Tout sélectionner"
             Cursor="Hand"
-            Foreground="Gray">
+            Foreground="Black">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="5" />
@@ -53,33 +53,17 @@
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
-                                <Button
-                                    Grid.Column="1"
-                                    Width="30"
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Center"
-                                    HorizontalContentAlignment="Center"
-                                    VerticalContentAlignment="Center"
-                                    Content="-" />
                                 <TextBox
-                                    Grid.Column="2"
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Center"
-                                    HorizontalContentAlignment="Center"
-                                    VerticalContentAlignment="Center"
-                                    Text="{Binding Quantity}" />
-                                <Button
                                     Grid.Column="3"
-                                    Width="30"
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Center"
+                                    Width="100"
+                                    
                                     HorizontalContentAlignment="Center"
                                     VerticalContentAlignment="Center"
-                                    Content="+" />
+                                    Text="{Binding Quantity}" HorizontalAlignment="Center" VerticalAlignment="Center" />
                             </Grid>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
@@ -95,8 +79,8 @@
                                                 x:Name="border"
                                                 Background="White"
                                                 BorderBrush="#4CAF50"
-                                                BorderThickness="1"
-                                                CornerRadius="3" />
+                                                BorderThickness="100"
+                                                CornerRadius="3" Cursor="" />
                                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                                         </Grid>
                                         <ControlTemplate.Triggers>
@@ -133,8 +117,5 @@
                 </Style>
             </Button.Resources>
         </Button>
-
-
-
     </Grid>
 </Window>

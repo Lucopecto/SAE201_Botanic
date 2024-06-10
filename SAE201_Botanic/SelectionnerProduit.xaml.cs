@@ -70,19 +70,19 @@ namespace SAE201_Botanic
     }
         public class Item : INotifyPropertyChanged
         {
-            private bool _isSelected;
+            private bool estChoisi;
             public string Produit { get; set; }
             public int Quantity { get; set; }
 
-            public bool IsSelected
+            public bool EstChoisi
             {
-                get { return _isSelected; }
+                get { return estChoisi; }
                 set
                 {
-                    if (_isSelected != value)
+                    if (estChoisi != value)
                     {
-                        _isSelected = value;
-                        OnPropertyChanged("IsSelected");
+                        estChoisi = value;
+                        OnPropertyChanged("EstChoisi");
                     }
                 }
             }
@@ -95,20 +95,6 @@ namespace SAE201_Botanic
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
             }
 
-            private void DecreaseButton_Click(object sender, RoutedEventArgs e)
-            {
-                var button = (Button)sender;
-                var product = (Product)button.DataContext;
-                product.Quantity--;
-            }
-
-            private void IncreaseButton_Click(object sender, RoutedEventArgs e)
-            {
-                var button = (Button)sender;
-                var product = (Product)button.DataContext;
-                product.Quantity++;
-
-            }
             public class Product
             {
                 public string Name { get; set; }
