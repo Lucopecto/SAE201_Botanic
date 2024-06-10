@@ -9,7 +9,7 @@
     Width="1600"
     Height="900"
     Icon="rsc/icon_botanic.ico"
-    WindowStartupLocation="CenterOwner"
+    WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <Window.Resources>
         <Style TargetType="TabItem">
@@ -410,7 +410,6 @@
                         </DataGrid.Columns>
                     </DataGrid>
                 </StackPanel>
-
             </TabItem>
         </TabControl>
     </Grid>
