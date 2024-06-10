@@ -84,7 +84,7 @@
                         <Label Content="Numéro du magasin" Margin="0,15,0,0" FontSize="20" FontWeight="Bold" />
                         <TextBox x:Name="txtNumMagasin" FontSize="16" />
                         <Label Content="Mode de transport" FontSize="20" FontWeight="Bold" Margin="0,15,0,0" />
-                        <ComboBox x:Name="cbModeTransport" FontSize="16" Margin="0,0,0,10">
+                        <ComboBox x:Name="cbModeTransport" FontSize="16">
                             <ComboBoxItem Content="UPS" />
                             <ComboBoxItem Content="Chronopost" />
                             <ComboBoxItem Content="Botanic" IsSelected="True" />
