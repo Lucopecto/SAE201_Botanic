@@ -13,7 +13,7 @@
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <Grid Margin="50,40">
-        <Button
+        <Button x:Name="toutSelectionner"
             Width="120"
             Height="30"
             HorizontalAlignment="Left"
@@ -23,7 +23,7 @@
             BorderThickness="1"
             Content="Tout sélectionner"
             Cursor="Hand"
-            Foreground="Gray">
+            Foreground="Gray" Click="toutSelectionner_Click">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="5" />

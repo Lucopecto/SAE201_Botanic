@@ -72,6 +72,13 @@ namespace SAE201_Botanic
             //else
             //    MessageBox.Show(this, "Veuillez selectionner un produit", "Attention", MessageBoxButton.OK, MessageBoxImage.Information);
         }
+        private void toutSelectionner_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (var produit in LesProduits)
+            {
+                produit.IsSelected = !produit.IsSelected;
+            }
+        }
     }
     public class Item : INotifyPropertyChanged
     {

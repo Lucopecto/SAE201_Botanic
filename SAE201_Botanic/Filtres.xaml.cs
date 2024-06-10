@@ -16,35 +16,16 @@ using System.Windows.Shapes;
 
 
 
-
-
-
-
-
-
-
 namespace SAE201_Botanic
 {
     
-
-
-
-
-
-
-
-
-
     public partial class Filtres : Window
     {
-
-
 
         private List<Categorie> listeCategorie = new List<Categorie>();
         private List<TypeProduit> listeType = new List<TypeProduit>();
         private List<Couleur> listeCouleur = new List<Couleur>();
         private ApplicationData appData = new ApplicationData();
-
 
 
         public Categorie categorieSelect;
@@ -53,17 +34,10 @@ namespace SAE201_Botanic
         public Couleur couleurSelect;
 
 
-
-
-
         public Filtres()
         {
 
-
-
             InitializeComponent();
-
-
 
             DataTable lesTypes = appData.Read("SELECT * FROM type_produit");
             foreach (DataRow unType in lesTypes.Rows)
@@ -82,8 +56,6 @@ namespace SAE201_Botanic
                     MessageBox.Show("Erreur : " + ex, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
-
-
 
             DataTable lesCategories = appData.Read($"SELECT * FROM categorie");
             TypeProduit leType;
@@ -109,8 +81,6 @@ namespace SAE201_Botanic
             }
 
 
-
-
             DataTable lesCouleurs = appData.Read("SELECT * FROM couleur");
             foreach (DataRow uneCouleur in lesCouleurs.Rows)
             {
@@ -130,11 +100,6 @@ namespace SAE201_Botanic
             }
 
         }
-
-
-
-
-
         private Button CreerBoutonFiltre()
         {
             Button btn = new Button();
@@ -148,10 +113,6 @@ namespace SAE201_Botanic
             btn.BorderThickness = new Thickness(0);
             return btn;
         }
-
-
-
-
 
         private void ValiderFiltres(object sender, RoutedEventArgs e)
         {
@@ -321,15 +282,6 @@ namespace SAE201_Botanic
 
         
     }
-
-
-
-
-
-
-
-
-
 
 
 

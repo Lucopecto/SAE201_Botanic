@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SAE201_Botanic
 {
-    public class Produit 
+    public class Produit : INotifyPropertyChanged
     {
         #region Champs
         private int numProduit;
@@ -166,7 +167,31 @@ namespace SAE201_Botanic
                 this.prixAchat = value;
             }
         }
+        private bool isSelected;
 
+        public bool IsSelected
+        {
+            get { return isSelected; }
+            set
+            {
+                if (isSelected != value)
+                {
+                    isSelected = value;
+                    OnPropertyChanged("IsSelected");
+                }
+              
+
+            }
+        }
+
+        // Autres membres de la classe
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
         #endregion
 
         #region Constructeur
