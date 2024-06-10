@@ -90,7 +90,7 @@ namespace SAE201_Botanic
                         int.Parse(unProduit["numProduit"].ToString()), couleur, categorie, fournisseur, unProduit["nomProduit"].ToString(), unProduit["tailleProduit"].ToString(), unProduit["descriptionProduit"].ToString(), double.Parse(unProduit["prixVente"].ToString()), double.Parse(unProduit["prixAchat"].ToString()));
                     LesProduits.Add(produit);
 
-                    Console.WriteLine("Chargement de la couleur : " + unProduit["nomCouleur"].ToString());
+                    //Console.WriteLine("Chargement de la couleur : " + unProduit["nomCouleur"].ToString());
                 }
                 catch (Exception ex)
                 {
