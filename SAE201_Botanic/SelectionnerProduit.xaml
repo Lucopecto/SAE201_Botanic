@@ -8,6 +8,7 @@
     Title="Valider la commande"
     Width="600"
     Height="500"
+    Icon="rsc/icon_botanic.ico"
     ResizeMode="NoResize"
     mc:Ignorable="d">
     <Grid Margin="50,40">

@@ -188,7 +188,7 @@
                                 BorderThickness="1"
                                 Content="Voir les produits"
                                 Cursor="Hand"
-                            HorizontalAlignment="Right">
+                            HorizontalAlignment="Right" Click="OuvrirValiderCommande">
                             <Button.Resources>
                                 <Style TargetType="{x:Type Border}">
                                     <Setter Property="CornerRadius" Value="5" />
@@ -224,9 +224,10 @@
                             Background="#FF1C9E7F"
                             BorderThickness="0"
                             Content="Valider"
+                            
                             Cursor="Hand"
                             HorizontalAlignment="Right"
-                            Foreground="White">
+                            Foreground="White" Click="OuvrirValiderCommande">
                             <Button.Resources>
                                 <Style TargetType="{x:Type Border}">
                                     <Setter Property="CornerRadius" Value="5" />
