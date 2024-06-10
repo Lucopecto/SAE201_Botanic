@@ -378,15 +378,15 @@
                                 Header="Numero Produit" />
                             <DataGridTextColumn
                                 Width="1*"
-                                Binding="{Binding NomCouleur}"
+                                Binding="{Binding UneCouleur.NomCouleur}"
                                 Header="Nom Couleur" />
                             <DataGridTextColumn
                                 Width="1*"
-                                Binding="{Binding NumCategorie}"
+                                Binding="{Binding UneCategorie.NumCategorie}"
                                 Header="Numero Catégorie" />
                             <DataGridTextColumn
                                 Width="1*"
-                                Binding="{Binding NumFournisseur}"
+                                Binding="{Binding UnFournisseur.NumFournisseur}"
                                 Header="Numero Fournisseur" />
                             <DataGridTextColumn
                                 Width="1*"
