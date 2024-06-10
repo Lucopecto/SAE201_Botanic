@@ -40,7 +40,7 @@
                     </Grid.ColumnDefinitions>
                     <DataGrid
                         Name="dgCommandes"
-                        Margin="50,20,50,50"
+                        Margin="50"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Top"
                         AutoGenerateColumns="False"
@@ -73,7 +73,6 @@
                                 Header="Mode de Livraison" />
                         </DataGrid.Columns>
                     </DataGrid>
-
                     <StackPanel
                         x:Name="spDetailCommande"
                         Grid.Column="1"
@@ -250,13 +249,13 @@
                     <StackPanel Orientation="Horizontal">
 
                         <TextBox
-                            x:Name="tbRecherche"
+                            x:Name="tbRechercheProduit"
                             Width="300"
                             Height="30"
                             Padding="12,4,30,4"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
-                            BorderThickness="1">
+                            BorderThickness="1" TextChanged="tbRechercheProduit_TextChanged">
                             <TextBox.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="15" />

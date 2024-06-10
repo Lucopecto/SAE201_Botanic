@@ -20,7 +20,7 @@ namespace SAE201_Botanic
         public MainWindow()
         {
             InitializeComponent();
-            
+            dgrechercherproduit.Items.Filter = ContientMotClefProduit;
          
 
             LesCommandes = new ObservableCollection<CommandeAchat>();
@@ -134,6 +134,22 @@ namespace SAE201_Botanic
             //selectProduitWin.CommandeSelect = dgCommandes;
             selectProduitWin.ShowDialog();
         }
+
+        private void tbRechercheProduit_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            CollectionViewSource.GetDefaultView(dgrechercherproduit.ItemsSource).Refresh(); 
+        }
+
+        private bool ContientMotClefProduit(object obj)
+        {
+            Produit unProduit = obj as Produit;
+            if (String.IsNullOrEmpty(tbRechercheProduit.Text))
+                return true;
+            else
+                return unProduit.NomProduit.StartsWith(tbRechercheProduit.Text, StringComparison.OrdinalIgnoreCase) ||
+                    unProduit.DescriptionProduit.StartsWith(tbRechercheProduit.Text, StringComparison.OrdinalIgnoreCase);
+        }
+
 
         //private void butModifier_Click(object sender, RoutedEventArgs e)
         //{
