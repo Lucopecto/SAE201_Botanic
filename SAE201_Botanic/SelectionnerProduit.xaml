@@ -38,7 +38,6 @@
             AutoGenerateColumns="False"
             Background="White"
             CanUserAddRows="False"
-            FontFamily="Segoe UI Light"
             FontSize="16"
             Foreground="Black"
             IsReadOnly="True"
