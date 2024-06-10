@@ -78,7 +78,7 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <CheckBox IsChecked="{Binding IsSelected, Mode=TwoWay}">
-                                <!--<CheckBox.Template>
+                                <CheckBox.Template>
                                     <ControlTemplate TargetType="CheckBox">
                                         <Grid Width="20" Height="20">
                                             <Border
@@ -100,7 +100,7 @@
                                             </Trigger>
                                         </ControlTemplate.Triggers>
                                     </ControlTemplate>
-                                </CheckBox.Template>-->
+                                </CheckBox.Template>
                             </CheckBox>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
