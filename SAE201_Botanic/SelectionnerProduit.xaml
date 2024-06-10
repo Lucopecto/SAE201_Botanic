@@ -5,8 +5,87 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SAE201_Botanic"
         mc:Ignorable="d"
-        Title="SelectionnerProduit" Height="450" Width="800">
+        Title="SelectionnerProduit" Height="450" Width="400">
     <Grid>
-        
+        <StackPanel Opacity="0.7">
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FFB5B5B5" Offset="1"/>
+                    <GradientStop Color="#FF747474" Offset="0.585"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+        </StackPanel>
+        <DataGrid
+    Name="dataGrid"
+    Width="300"
+    Height="300"
+    MinHeight="150"
+    Margin="50,68,0,0"
+    CanUserAddRows="False"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Top"
+    AutoGenerateColumns="False"
+    IsReadOnly="True"
+    ItemsSource="{Binding}" Background="White" Foreground="Black" FontFamily="Caladea" FontSize="16">
+            <DataGrid.BorderBrush>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FF3BED39" Offset="1"/>
+                </LinearGradientBrush>
+            </DataGrid.BorderBrush>
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Produit" Binding="{Binding NomProduit}" Width="*"/>
+                <DataGridTemplateColumn Header="Quantity" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Button Grid.Column="1" Content="-" Width="30" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+                                <TextBox Grid.Column="2" Text="{Binding Quantity}" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+                                <Button Grid.Column="3" Content="+" Width="30" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+                            </Grid>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Selectionner" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox IsChecked="{Binding IsSelected, Mode=TwoWay}">
+                                <CheckBox.Template>
+                                    <ControlTemplate TargetType="CheckBox">
+                                        <Grid Width="20" Height="20">
+                                            <Border x:Name="border" BorderBrush="#4CAF50" BorderThickness="1" Background="White" CornerRadius="3"/>
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Grid>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsChecked" Value="True">
+                                                <Setter TargetName="border" Property="Background" Value="#4CAF50"/>
+                                                <Setter Property="Content" Value="✔"/>
+                                            </Trigger>
+                                            <Trigger Property="IsChecked" Value="False">
+                                                <Setter TargetName="border" Property="Background" Value="Red "/>
+                                                <Setter Property="Content" Value="🕒"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </CheckBox.Template>
+                            </CheckBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Annuler" HorizontalAlignment="Left" Margin="28,391,0,0" VerticalAlignment="Top" Height="33" Width="62"/>
+        <Button Content="Valider" HorizontalAlignment="Left" Margin="313,391,0,0" VerticalAlignment="Top" Height="33" Width="62"/>
+
+
+
     </Grid>
 </Window>
