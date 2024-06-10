@@ -182,6 +182,10 @@ namespace SAE201_Botanic
             this.PrixVente = prixVente;
             this.PrixAchat = prixAchat;
         }
+
+        public Produit()
+        {
+        }
         #endregion
 
         #region Methode

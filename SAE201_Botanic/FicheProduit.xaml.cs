@@ -14,19 +14,19 @@ using System.Windows.Shapes;
 
 namespace SAE201_Botanic
 {
-    public enum Mode { Creation, Modification };
+    public enum ModeP { Creation, Modification };
     /// <summary>
-    /// Logique d'interaction pour FicheCommande.xaml
+    /// Logique d'interaction pour FicheProduit.xaml
     /// </summary>
-    public partial class FicheCommande : Window
+    public partial class FicheProduit : Window
     {
-        public FicheCommande(Mode leMode)
+        public FicheProduit(ModeP leMode)
         {
             InitializeComponent();
-            if (leMode == Mode.Creation)
-                this.Title = "Creation d'une commande";
-            else if (leMode == Mode.Modification)
-                this.Title = "Modification d'une commande";
+            if (leMode == ModeP.Creation)
+                this.Title = "Creation d'un produit";
+            else if (leMode == ModeP.Modification)
+                this.Title = "Modification d'un produit";
         }
 
         private void butAnnuler_Click(object sender, RoutedEventArgs e)
@@ -37,7 +37,7 @@ namespace SAE201_Botanic
         private void butValider_Click(object sender, RoutedEventArgs e)
         {
             bool ok = true;
-            foreach (UIElement uie in UCPannelCommande.mainPanel.Children)
+            foreach (UIElement uie in UCPanelProduit.mainPanelProduit.Children)
             {
                 if (uie is TextBox)
                 {
@@ -48,7 +48,6 @@ namespace SAE201_Botanic
                 if (Validation.GetHasError(uie))
                     ok = false;
             }
-            UCPannelCommande.dpDateLivraison.GetBindingExpression(DatePicker.SelectedDateProperty).UpdateSource();
             if (ok)
                 DialogResult = true;
             else

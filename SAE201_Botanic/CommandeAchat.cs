@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 
 namespace SAE201_Botanic
@@ -122,8 +123,9 @@ namespace SAE201_Botanic
             }
         }
 
+
         #endregion
-        
+
         #region Constructeur
         public CommandeAchat(int numCommande, Magasin unMagasin, ModeTransport unModeTransport, DateTime dateComande, DateTime dateLivraison, string modeLivraison)
         {
@@ -133,6 +135,10 @@ namespace SAE201_Botanic
             this.DateComande = dateComande;
             this.DateLivraison = dateLivraison;
             this.ModeLivraison = modeLivraison;
+        }
+
+        public CommandeAchat()
+        {
         }
         #endregion
 
@@ -157,7 +163,6 @@ namespace SAE201_Botanic
         {
             return new CommandeAchat(this.NumCommande, this.UnMagasin, this.UnModeTransport, this.DateComande, this.DateLivraison, this.ModeLivraison);
         }
-
 
         #endregion
     }
