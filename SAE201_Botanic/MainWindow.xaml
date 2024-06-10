@@ -35,15 +35,12 @@
             <TabItem Header=" Visualiser commandes ">
                 <Grid Background="White">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="501*" />
-                        <ColumnDefinition Width="296*" />
+                        <ColumnDefinition Width="8*" />
+                        <ColumnDefinition Width="3*" />
                     </Grid.ColumnDefinitions>
                     <DataGrid
                         Name="dgCommandes"
-                        Width="898"
-                        Height="784"
-                        MinHeight="150"
-                        Margin="0,20,0,0"
+                        Margin="50,20,50,50"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Top"
                         AutoGenerateColumns="False"
@@ -76,36 +73,174 @@
                                 Header="Mode de Livraison" />
                         </DataGrid.Columns>
                     </DataGrid>
+
                     <StackPanel
-                        x:Name="stkCreerCommande"
+                        x:Name="spDetailCommande"
                         Grid.Column="1"
                         Margin="80,80,80,80">
-                        <Label Content="Détail des commandes" HorizontalAlignment="Center" FontSize="32" FontWeight="Bold" Foreground="#FF1C9E7F"/>
-                        <Label Content="Numéro du magasin" Margin="0,15,0,0" FontSize="20" FontWeight="Bold" />
-                        <TextBox x:Name="txtNumMagasin" FontSize="16" />
-                        <Label Content="Mode de transport" FontSize="20" FontWeight="Bold" Margin="0,15,0,0" />
-                        <ComboBox x:Name="cbModeTransport" FontSize="16">
-                            <ComboBoxItem Content="UPS" />
-                            <ComboBoxItem Content="Chronopost" />
-                            <ComboBoxItem Content="Botanic" IsSelected="True" />
-                            <ComboBoxItem Content="Relais" />
-                        </ComboBox>
-                        <Label Content="Date de livraison" FontWeight="Bold" FontSize="20" Margin="0,15,0,0" />
-                        <DatePicker x:Name="dpDateLivraison" FontSize="16" />
-                        <Label Content="Mode de livraison" FontWeight="Bold" FontSize="20" Margin="0,15,0,0" />
-                        <ComboBox x:Name="cbModeLivraison" FontSize="16">
-                            <ComboBoxItem Content="Classique" IsSelected="True" />
-                            <ComboBoxItem Content="Eco" />
-                            <ComboBoxItem Content="Express" />
-                            <ComboBoxItem Content="HyperExpress" />
-                        </ComboBox>
+                        <Label
+                            x:Name="lbNumCommande"
+                            HorizontalAlignment="Left"
+                            HorizontalContentAlignment="Left"
+                            Content="Commande n°"
+                            FontFamily="Segoe UI Light"
+                            FontSize="26"
+                            Foreground="Black" />
+                        <Label
+                            x:Name="lbDateCreationCommande"
+                            Margin="10,0,0,0"
+                            HorizontalAlignment="Left"
+                            HorizontalContentAlignment="Left"
+                            Content="Date de création : "
+                            FontFamily="Segoe UI Light"
+                            FontSize="12"
+                            Foreground="Black" />
+                        <Border
+                            Margin="0,5,0,0"
+                            BorderBrush="Gray"
+                            BorderThickness="0.2" />
+                        <Label
+                            x:Name="lbTransport"
+                            Margin="0,10,0,0"
+                            HorizontalAlignment="Left"
+                            HorizontalContentAlignment="Left"
+                            Content="Transport"
+                            FontFamily="Segoe UI Light"
+                            FontSize="20"
+                            Foreground="Black" />
+                        <Label
+                            x:Name="lbLibelleTransport"
+                            Margin="10,0,0,0"
+                            HorizontalAlignment="Left"
+                            HorizontalContentAlignment="Left"
+                            Content="Mode de transport : "
+                            FontFamily="Segoe UI Light"
+                            FontSize="12"
+                            Foreground="Black" />
+                        <Border
+                            Margin="0,5,0,0"
+                            BorderBrush="Gray"
+                            BorderThickness="0.2" />
+                        <Label
+                            x:Name="lbMagasin"
+                            Margin="0,10,0,0"
+                            HorizontalAlignment="Left"
+                            HorizontalContentAlignment="Left"
+                            Content="Magasin"
+                            FontFamily="Segoe UI Light"
+                            FontSize="20"
+                            Foreground="Black" />
+                        <Label
+                            x:Name="lbNomMagasin"
+                            Margin="10,0,0,0"
+                            HorizontalAlignment="Left"
+                            HorizontalContentAlignment="Left"
+                            Content="Nom : "
+                            FontFamily="Segoe UI Light"
+                            FontSize="12"
+                            Foreground="Black" />
+                        <Label
+                            x:Name="lbRue"
+                            Margin="10,0,0,0"
+                            HorizontalAlignment="Left"
+                            HorizontalContentAlignment="Left"
+                            Content="Rue : "
+                            FontFamily="Segoe UI Light"
+                            FontSize="12"
+                            Foreground="Black" />
+                        <Label
+                            x:Name="lbCp"
+                            Margin="10,0,0,0"
+                            HorizontalAlignment="Left"
+                            HorizontalContentAlignment="Left"
+                            Content="Code postal : "
+                            FontFamily="Segoe UI Light"
+                            FontSize="12"
+                            Foreground="Black" />
+                        <Label
+                            x:Name="lbVille"
+                            Margin="10,0,0,0"
+                            HorizontalAlignment="Left"
+                            HorizontalContentAlignment="Left"
+                            Content="Ville : "
+                            FontFamily="Segoe UI Light"
+                            FontSize="12"
+                            Foreground="Black" />
+                        <Border
+                            Margin="0,5,0,0"
+                            BorderBrush="Gray"
+                            BorderThickness="0.2" />
+                        <Label
+                            x:Name="lbProduits"
+                            Margin="0,10,0,0"
+                            HorizontalAlignment="Left"
+                            HorizontalContentAlignment="Left"
+                            Content="Produits"
+                            FontFamily="Segoe UI Light"
+                            FontSize="20"
+                            Foreground="Black" />
+                        <Button
+                                Width="120"
+                                Height="30"
+                                Background="White"
+                            Foreground="Gray"
+                            BorderBrush="Gray"
+                                BorderThickness="1"
+                                Content="Voir les produits"
+                                Cursor="Hand"
+                            HorizontalAlignment="Right" Click="OuvrirValiderCommande">
+                            <Button.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="5" />
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Border
+                            Margin="0,5,0,0"
+                            BorderBrush="Gray"
+                            BorderThickness="0.2" />
+                        <Label
+                            x:Name="lbLivraison"
+                            Margin="0,10,0,0"
+                            HorizontalAlignment="Left"
+                            HorizontalContentAlignment="Left"
+                            Content="Livraison"
+                            FontFamily="Segoe UI Light"
+                            FontSize="20"
+                            Foreground="Black" />
+                        <Label
+                            x:Name="lbModeLivraison"
+                            Margin="10,0,0,0"
+                            HorizontalAlignment="Left"
+                            HorizontalContentAlignment="Left"
+                            Content="Mode de livraison : "
+                            FontFamily="Segoe UI Light"
+                            FontSize="12"
+                            Foreground="Black" />
+                        <Button
+                            Width="70"
+                            Height="30"
+                            Margin="0,30,0,0"
+                            Background="#FF1C9E7F"
+                            BorderThickness="0"
+                            Content="Valider"
+                            
+                            Cursor="Hand"
+                            HorizontalAlignment="Right"
+                            Foreground="White" Click="OuvrirValiderCommande">
+                            <Button.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="5" />
+                                </Style>
+                            </Button.Resources>
+                        </Button>
 
                     </StackPanel>
                 </Grid>
             </TabItem>
 
 
-            <TabItem Header=" Rechercher produit ">
+            <TabItem Header=" Rechercher produit " Height="30" VerticalAlignment="Top">
 
                 <StackPanel
                     Height="694"
@@ -154,13 +289,80 @@
                                 </Style>
                             </Button.Resources>
                         </Button>
-
+                        <StackPanel x:Name="spBtnSupprimerFiltres" Orientation="Horizontal">
+                            <StackPanel.Resources>
+                                <Style TargetType="Button">
+                                    <Setter Property="Height" Value="30" />
+                                    <Setter Property="Margin" Value="20,0,0,0" />
+                                    <Setter Property="Background" Value="White" />
+                                    <Setter Property="Foreground" Value="Gray" />
+                                    <Setter Property="BorderBrush" Value="Gray" />
+                                    <EventSetter Event="Click" Handler="SupprimerFiltre" />
+                                    <Setter Property="Cursor" Value="Hand" />
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="Button">
+                                                <Border CornerRadius="0" />
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </StackPanel.Resources>
+                            <Button
+                                Width="80"
+                                Height="30"
+                                Margin="20,0,0,0"
+                                Background="White"
+                                BorderBrush="Gray"
+                                Click="SupprimerFiltre"
+                                Content="Categorie"
+                                Cursor="Hand"
+                                Foreground="Gray">
+                                <Button.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="5" />
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                            <Button
+                                Width="50"
+                                Height="30"
+                                Margin="20,0,0,0"
+                                Background="White"
+                                BorderBrush="Gray"
+                                Click="SupprimerFiltre"
+                                Content="Prix"
+                                Cursor="Hand"
+                                Foreground="Gray">
+                                <Button.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="5" />
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                            <Button
+                                Width="70"
+                                Height="30"
+                                Margin="20,0,0,0"
+                                Background="White"
+                                BorderBrush="Gray"
+                                Click="SupprimerFiltre"
+                                Content="Couleur"
+                                Cursor="Hand"
+                                Foreground="Gray">
+                                <Button.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="5" />
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                        </StackPanel>
 
                     </StackPanel>
                     <DataGrid
                         x:Name="dgrechercherproduit"
                         Grid.Column="1"
-                        Width="1600"
+                        Width="1400"
                         Height="300"
                         MinHeight="150"
                         Margin="0,50,0,0"
@@ -171,35 +373,39 @@
                         ItemsSource="{Binding LesProduits}">
                         <DataGrid.Columns>
                             <DataGridTextColumn
-                                Width="200"
+                                Width="1*"
                                 Binding="{Binding NumProduit}"
                                 Header="Numero Produit" />
                             <DataGridTextColumn
-                                Width="200"
-                                Binding="{Binding NomCouleur}"
+                                Width="1*"
+                                Binding="{Binding UneCouleur.NomCouleur}"
                                 Header="Nom Couleur" />
                             <DataGridTextColumn
-                                Width="200"
-                                Binding="{Binding NumCategorie}"
+                                Width="1*"
+                                Binding="{Binding UneCategorie.NumCategorie}"
                                 Header="Numero Catégorie" />
                             <DataGridTextColumn
-                                Width="200"
-                                Binding="{Binding NumFournisseur}"
+                                Width="1*"
+                                Binding="{Binding UnFournisseur.NumFournisseur}"
                                 Header="Numero Fournisseur" />
                             <DataGridTextColumn
-                                Width="200"
+                                Width="1*"
                                 Binding="{Binding NomProduit}"
                                 Header="Nom Produit" />
                             <DataGridTextColumn
-                                Width="200"
+                                Width="1*"
+                                Binding="{Binding TailleProduit}"
+                                Header="Taille Produit" />
+                            <DataGridTextColumn
+                                Width="1*"
                                 Binding="{Binding DescriptionProduit}"
                                 Header="Descrption Produit" />
                             <DataGridTextColumn
-                                Width="200"
+                                Width="1*"
                                 Binding="{Binding PrixVente}"
                                 Header="Prix Vente" />
                             <DataGridTextColumn
-                                Width="200"
+                                Width="1*"
                                 Binding="{Binding PrixAchat}"
                                 Header="Prix Achat" />
                         </DataGrid.Columns>

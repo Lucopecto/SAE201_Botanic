@@ -40,9 +40,17 @@ namespace SAE201_Botanic
 
 
 
-        List<Categorie> listeCategorie = new List<Categorie>();
-        List<TypeProduit> listeType = new List<TypeProduit>();
-        List<Couleur> listeCouleur = new List<Couleur>();
+        private List<Categorie> listeCategorie = new List<Categorie>();
+        private List<TypeProduit> listeType = new List<TypeProduit>();
+        private List<Couleur> listeCouleur = new List<Couleur>();
+        private ApplicationData appData = new ApplicationData();
+
+
+
+        public Categorie categorieSelect;
+        public TypeProduit typeProduitSelect;
+        public double prixMinSelect, prixMaxSelect;
+        public Couleur couleurSelect;
 
 
 
@@ -54,7 +62,6 @@ namespace SAE201_Botanic
 
 
             InitializeComponent();
-            ApplicationData appData = new ApplicationData();
 
 
 
@@ -130,15 +137,16 @@ namespace SAE201_Botanic
 
         private Button CreerBoutonFiltre()
         {
-            Button btnType = new Button();
-            btnType.Height = 30;
-            btnType.Padding = new Thickness(10, 0, 0, 0);
-            btnType.HorizontalAlignment = HorizontalAlignment.Stretch;
-            btnType.HorizontalContentAlignment = HorizontalAlignment.Left;
-            btnType.Background = Brushes.White;
-            btnType.Foreground = Brushes.Gray;
-            btnType.BorderThickness = new Thickness(0);
-            return btnType;
+            Button btn = new Button();
+            btn.Height = 30;
+            btn.Padding = new Thickness(10, 0, 0, 0);
+            btn.HorizontalAlignment = HorizontalAlignment.Stretch;
+            btn.HorizontalContentAlignment = HorizontalAlignment.Left;
+            btn.Background = Brushes.White;
+            btn.Foreground = Brushes.Gray;
+            btn.Cursor = Cursors.Hand;
+            btn.BorderThickness = new Thickness(0);
+            return btn;
         }
 
 
@@ -147,6 +155,43 @@ namespace SAE201_Botanic
 
         private void ValiderFiltres(object sender, RoutedEventArgs e)
         {
+            string txtBtnCategorie = btnSelectionCategorie.Content.ToString();
+            string txtBtncouleur = btnSelectionCouleur.Content.ToString();
+            bool estType = false;
+
+            foreach (TypeProduit unType in listeType)
+            {
+                if (unType.NomType == txtBtnCategorie)
+                {
+                    typeProduitSelect = unType;
+                    estType = true;
+                    break;
+                }
+            }
+            if (!(estType))
+            {
+                foreach (Categorie uneCategorie in listeCategorie)
+                {
+                    if (uneCategorie.LibelleCategorie == txtBtncouleur)
+                    {
+                        categorieSelect = uneCategorie;
+                        break;
+                    }
+                }
+            }
+
+            if (!double.TryParse(tbPrixMin.Text, out prixMinSelect)) prixMinSelect = -1;
+            if (!double.TryParse(tbPrixMax.Text, out prixMaxSelect)) prixMaxSelect = -1;
+
+            foreach (Couleur uneCouleur in listeCouleur)
+            {
+                if (uneCouleur.NomCouleur == txtBtncouleur)
+                {
+                    couleurSelect = uneCouleur;
+                    break;
+                }
+            }
+
             Close();
         }
 
@@ -230,8 +275,8 @@ namespace SAE201_Botanic
                 if (btn.Parent is StackPanel)
                 {
                     sp = (StackPanel)btn.Parent;
-                    if (sp.Name == "pageCategorie") btnSelectionCategorie.Content = "Tout";
-                    else if (sp.Name == "pageCouleur") btnSelectionCouleur.Content = "Tout";
+                    if (sp.Name == "pageCategorie" || btn.Name == "btnSupprimerCategorie") btnSelectionCategorie.Content = "Tout";
+                    else if (sp.Name == "pageCouleur" || btn.Name == "btnSupprimerCouleur") btnSelectionCouleur.Content = "Tout";
                 }
             }
             AfficherFiltre();
@@ -266,9 +311,18 @@ namespace SAE201_Botanic
 
 
 
+        private void SupprimerFiltrePrix(object sender, RoutedEventArgs e)
+        {
+            tbPrixMin.Text = string.Empty;
+            tbPrixMax.Text = string.Empty;
+        }
 
 
+
+        
     }
+
+
 
 
 

@@ -13,6 +13,7 @@ namespace SAE201_Botanic
     public class ApplicationData
     {
         private ObservableCollection<Produit> lesProduits;
+        private ObservableCollection<CommandeAchat> lesCommandes;
         private NpgsqlConnection connexion;
 
         public ObservableCollection<Produit> LesProduits
@@ -25,6 +26,19 @@ namespace SAE201_Botanic
             set
             {
                 this.lesProduits = value;
+            }
+        }
+
+        public ObservableCollection<CommandeAchat> LesCommandes
+        {
+            get
+            {
+                return this.lesCommandes;
+            }
+
+            set
+            {
+                this.lesCommandes= value;
             }
         }
 
@@ -43,7 +57,8 @@ namespace SAE201_Botanic
 
         public ApplicationData()
         {
-            //LesProduits = new ObservableCollection<Produit>();
+            LesProduits = new ObservableCollection<Produit>();
+            LesCommandes = new ObservableCollection<CommandeAchat>();
             ConnexionBD();
             //Read();
         }
@@ -96,8 +111,6 @@ namespace SAE201_Botanic
             }
         }  
 
-
-
         private int MethodeGenerique(string sql)
         {
             try
@@ -113,36 +126,63 @@ namespace SAE201_Botanic
             }
         }
 
-        public int Create(Produit c)
+        #region Methode requete commande
+        public int CreateCommande(CommandeAchat c)
         {
-            //string sql = $"INSERT INTO wpfProduits.Produit (nom, prenom, email, genre, telephone, dateNaissance) " +
-            //             $"VALUES ('{c.Nom}', '{c.Prenom}', '{c.Email}', '{(char)c.Genre}', '{c.Telephone}', " +
-            //             $"'{c.DateNaissance:yyyy-MM-dd}');";
-            string sql = $"";
+            string sql = $"INSERT INTO commande_achat (numcommande, nummagasin, modetransport, datecommande, datelivraison, modelivraison) " +
+                         $"VALUES ({c.NumCommande}, {c.UnMagasin.NumMagasin}, '{c.UnModeTransport.ModedeTransport}', '{c.DateComande:yyyy-MM-dd}', " +
+                         $"'{c.DateLivraison:yyyy-MM-dd}', '{c.ModeLivraison}');";
+            MethodeGenerique(sql);
+            return 0;
+        }
+
+        public int UpdateCommande(CommandeAchat c)
+        {
+            string sql = $"UPDATE sae_botanic_s.commandeachat SET numcommande = '{c.NumCommande}', nummagasin = '{c.UnMagasin.NumMagasin}', modetransport = '{c.UnModeTransport.ModedeTransport}', " +
+                         $"datecommande = '{c.DateComande:dd-MM-yyyy}', datelivraison= '{c.DateLivraison:dd-MM-yyyy}', modelivraison= '{c.ModeLivraison}' " +
+                         $"WHERE id = {c.NumCommande};";
             MethodeGenerique(sql);
 
             return 0;
         }
 
-        public int Update(Produit c)
+        public int DeleteCommande(CommandeAchat c)
         {
-            //string sql = $"UPDATE wpfProduits.Produit SET nom = '{c.Nom}', prenom = '{c.Prenom}', email = '{c.Email}', " +
-            //             $"genre = '{(char)c.Genre}', telephone = '{c.Telephone}', dateNaissance = '{c.DateNaissance:yyyy-MM-dd}' " +
-            //             $"WHERE id = {c.Id};";
-            string sql = $"";
-            MethodeGenerique(sql);
-
-            return 0;
-
-        }
-
-        public int Delete(Produit c)
-        {
-            //string sql = $"DELETE FROM wpfProduits.Produit WHERE id = {c.Id};";
-            string sql = $"";
+            string sql = $"DELETE FROM sae_botanic_s.commandeachat WHERE numcommande = {c.NumCommande};";
             MethodeGenerique(sql);
 
             return 0;
         }
+        #endregion
+
+        #region Methode requete produit
+        public int CreateProduit(Produit p)
+        {
+            string sql = $"INSERT INTO produit (numproduit, nomcouleur, numcategorie, numfournisseur, nomproduit, tailleproduit, descriptionproduit, prixvente, prixachat) " +
+                         $"VALUES ({p.NumProduit}, {p.UneCouleur.NomCouleur}, '{p.UneCategorie.NumCategorie}', '{p.UnFournisseur.NumFournisseur}', " +
+                         $"'{p.NomProduit}', '{p.TailleProduit}', '{p.DescriptionProduit}', '{p.PrixVente}', '{p.PrixAchat}');";
+            MethodeGenerique(sql);
+            return 0;
+        }
+
+        public int UpdateProduit(Produit p)
+        {
+            string sql = $"UPDATE sae_botanic_s.produit SET numProduit= '{p.NumProduit}', nomCouleur = '{p.UneCouleur.NomCouleur}', numCategorie = '{p.UneCategorie.NumCategorie}'," +
+                $" numFournisseur = '{p.UnFournisseur.NumFournisseur}', nomProduit= '{p.NomProduit}', tailleProduit= '{p.TailleProduit}'," +
+                $" descriptionProduit= '{p.DescriptionProduit}', prixVente= '{p.PrixVente}', prixAchat= '{p.PrixAchat}'" +
+                $"WHERE id = {p.NumProduit};";
+            MethodeGenerique(sql);
+
+            return 0;
+        }
+
+        public int DeleteProduit(Produit p)
+        {
+            string sql = $"DELETE FROM sae_botanic_s.produit! WHERE numproduit = {p.NumProduit};";
+            MethodeGenerique(sql);
+
+            return 0;
+        }
+        #endregion
     }
 }
