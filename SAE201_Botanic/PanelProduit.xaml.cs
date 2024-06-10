@@ -16,16 +16,13 @@ using System.Windows.Shapes;
 namespace SAE201_Botanic
 {
     /// <summary>
-    /// Logique d'interaction pour PannelCommande.xaml
+    /// Logique d'interaction pour PanelProduit.xaml
     /// </summary>
-    public partial class PannelCommande : UserControl
+    public partial class PanelProduit : UserControl
     {
-        public PannelCommande()
+        public PanelProduit()
         {
             InitializeComponent();
-            dpDateLivraison.DisplayDateStart = DateTime.Now;
-            dpDateLivraison.SelectedDate = DateTime.Now;
-            dpDatCommande.SelectedDate = DateTime.Now;
         }
     }
 }

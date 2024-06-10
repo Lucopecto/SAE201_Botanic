@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace SAE201_Botanic
 {
@@ -12,7 +13,7 @@ namespace SAE201_Botanic
     {
         private static DataAccess instance;
         private static string strConnexion = "Server=srv-peda-new;port=5433;"
-        + "Database=sae_botanic;Search Path=sae_botanic_s;uid=tasdemis;password=r9H2lI;";
+        + $"Database=sae_botanic;Search Path=sae_botanic_s;uid=tasdemis;password=r9H2lI;";
         private DataAccess()
         {
             ConnexionBD();
@@ -45,7 +46,7 @@ namespace SAE201_Botanic
             catch (Exception e)
             {
                 Console.WriteLine("pb de connexion : " + e);
-                // juste pour le debug : à transformer en MsgBox
+                MessageBox.Show("Problème de connexion : " + e.Message, "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -89,7 +90,5 @@ namespace SAE201_Botanic
                 return 0;
             }
         }
-
-
     }
 }

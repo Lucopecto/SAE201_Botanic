@@ -32,23 +32,47 @@
 
         <TabControl Margin="0,32,0,0">
 
-            <TabItem Header=" Visualiser commandes ">
-                <Grid Background="White">
+            <TabItem Header=" Visualiser commande ">
+                <Grid Background="White" Width="1595">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="501*" />
-                        <ColumnDefinition Width="296*" />
+                        <ColumnDefinition Width="180*" />
+                        <ColumnDefinition Width="139*" />
                     </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox
+                            x:Name="txtCommandeRecherche"
+                            Width="300"
+                            Height="30"
+                            Padding="12,4,30,4"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            BorderThickness="1" Margin="50,25,0,0" TextChanged="txtCommandeRecherche_TextChanged">
+                            <TextBox.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="15" />
+                                </Style>
+                            </TextBox.Resources>
+                            <TextBox.Effect>
+                                <DropShadowEffect ShadowDepth="1" Color="Gray" />
+                            </TextBox.Effect>
+                        </TextBox>
+                        <Image
+                            Width="16"
+                            Height="16"
+                            Margin="-30,30,0,0"
+                            Source="/rsc/icone_recherche.png"
+                            Stretch="Fill" VerticalAlignment="Top" />
+                    </StackPanel>
+
                     <DataGrid
                         Name="dgCommandes"
-                        Width="900"
-                        Height="750"
-                        MinHeight="150"
-                        Margin="0,20,0,0"
+                        Height="700"
+                        Margin="0,80,0,0"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Top"
                         AutoGenerateColumns="False"
                         IsReadOnly="True"
-                        ItemsSource="{Binding LesCommandes}">
+                        ItemsSource="{Binding LesCommandes}" Width="814.5">
                         <DataGrid.Columns>
                             <DataGridTextColumn
                                 Width="1*"
@@ -76,50 +100,56 @@
                                 Header="Mode de Livraison" />
                         </DataGrid.Columns>
                     </DataGrid>
-                    
+
                     <StackPanel
-                        x:Name="stkCreerCommande"
+                        x:Name="stkDetailCommande"
                         Grid.Column="1"
                         Margin="80,80,80,80">
-                        <Label Content="Détail des commandes" HorizontalAlignment="Center" FontSize="32" FontWeight="Bold" Foreground="#FF1C9E7F"/>
-                        <Label Content="Numéro du magasin" Margin="0,15,0,0" FontSize="20" FontWeight="Bold" />
-                        <TextBox x:Name="txtNumMagasin" FontSize="16" />
-                        <Label Content="Mode de transport" FontSize="20" FontWeight="Bold" Margin="0,15,0,0" />
-                        <ComboBox x:Name="cbModeTransport" FontSize="16" Margin="0,0,0,10">
-                            <ComboBoxItem Content="UPS" />
-                            <ComboBoxItem Content="Chronopost" />
-                            <ComboBoxItem Content="Botanic" IsSelected="True" />
-                            <ComboBoxItem Content="Relais" />
-                        </ComboBox>
-                        <Label Content="Date de livraison" FontWeight="Bold" FontSize="20" Margin="0,15,0,0" />
-                        <DatePicker x:Name="dpDateLivraison" FontSize="16" />
-                        <Label Content="Mode de livraison" FontWeight="Bold" FontSize="20" Margin="0,15,0,0" />
-                        <ComboBox x:Name="cbModeLivraison" FontSize="16">
-                            <ComboBoxItem Content="Classique" IsSelected="True" />
-                            <ComboBoxItem Content="Eco" />
-                            <ComboBoxItem Content="Express" />
-                            <ComboBoxItem Content="HyperExpress" />
-                        </ComboBox>
-                        
-                        <StackPanel x:Name="stkBoutton"  Grid.Column="1"   Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,25,0,0"   >
-                            <Button x:Name="butModifier" ToolTip="Modifier le département selectionné"  Width="65" Height="65" Click="butModifier_Click"  >
+                        <Label
+                            HorizontalAlignment="Center"
+                            Content="Détail des commandes"
+                            FontSize="32"
+                            FontWeight="Bold"
+                            Foreground="#FF1C9E7F" />
+                        <!--<local:PannelCommande
+                            x:Name="UCPannelCommande"
+                            Grid.Column="1"
+                            DataContext="{Binding SelectedItem, ElementName=dgCommandes}" Height="548" />-->
+                        <StackPanel
+                            x:Name="stkBoutton"
+                            Grid.Column="1"
+                            HorizontalAlignment="Center"
+                            Orientation="Horizontal" Width="NaN" Height="NaN">
+                            <Button
+                                x:Name="butModifier"
+                                Width="65"
+                                Height="65"
+                                ToolTip="Modifier la commande selectionné" Click="butModifierCommande_Click">
                                 <Image Source="rsc\modifier.png" />
                             </Button>
-                            <Button x:Name="butSupprimer"  ToolTip="Supprimer le département selectionné" Margin="10,0,0,0" Width="65" Height="65" Click="butSupprimer_Click" >
+                            <Button
+                                x:Name="butSupprimer"
+                                Width="65"
+                                Height="65"
+                                Margin="10,0,0,0"
+                                ToolTip="Supprimer la commande selectionné" Click="butSupprimerCommande_Click">
                                 <Image Source="rsc\supprimer.png" />
                             </Button>
-                            <Button x:Name="butAjouter" ToolTip="Ajouter un nouveau département" Margin="10,0,0,0" Width="65" Height="65" >
+                            <Button
+                                x:Name="butAjouter"
+                                Width="65"
+                                Height="65"
+                                Margin="10,0,0,0"
+                                ToolTip="Ajouter un nouveau commande" Click="AjouterCommandeCommande_Click">
                                 <Image Source="rsc\ajouter.png" />
                             </Button>
-
                         </StackPanel>
-
                     </StackPanel>
                 </Grid>
             </TabItem>
 
 
-            <TabItem Header=" Rechercher produit ">
+            <TabItem Header=" Rechercher produit " Height="30" VerticalAlignment="Top" Margin="-3,-2,-1,0">
 
                 <StackPanel
                     Height="694"
@@ -129,13 +159,12 @@
                     <StackPanel Orientation="Horizontal">
 
                         <TextBox
-                            x:Name="tbRecherche"
+                            x:Name="txtRechercheProduit"
                             Width="300"
                             Height="30"
                             Padding="12,4,30,4"
-                            HorizontalAlignment="Left"
                             VerticalAlignment="Top"
-                            BorderThickness="1">
+                            BorderThickness="1" TextChanged="txtRechercheProduit_TextChanged">
                             <TextBox.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="15" />
@@ -168,58 +197,176 @@
                                 </Style>
                             </Button.Resources>
                         </Button>
-
+                        <StackPanel x:Name="spBtnSupprimerFiltres" Orientation="Horizontal">
+                            <StackPanel.Resources>
+                                <Style TargetType="Button">
+                                    <Setter Property="Height" Value="30" />
+                                    <Setter Property="Margin" Value="20,0,0,0" />
+                                    <Setter Property="Background" Value="White" />
+                                    <Setter Property="Foreground" Value="Gray" />
+                                    <Setter Property="BorderBrush" Value="Gray" />
+                                    <EventSetter Event="Click" Handler="SupprimerFiltre" />
+                                    <Setter Property="Cursor" Value="Hand" />
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="Button">
+                                                <Border CornerRadius="0" />
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </StackPanel.Resources>
+                            <Button
+                                Width="80"
+                                Height="30"
+                                Margin="20,0,0,0"
+                                Background="White"
+                                BorderBrush="Gray"
+                                Click="SupprimerFiltre"
+                                Content="Categorie"
+                                Cursor="Hand"
+                                Foreground="Gray">
+                                <Button.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="5" />
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                            <Button
+                                Width="50"
+                                Height="30"
+                                Margin="20,0,0,0"
+                                Background="White"
+                                BorderBrush="Gray"
+                                Click="SupprimerFiltre"
+                                Content="Prix"
+                                Cursor="Hand"
+                                Foreground="Gray">
+                                <Button.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="5" />
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                            <Button
+                                Width="70"
+                                Height="30"
+                                Margin="20,0,0,0"
+                                Background="White"
+                                BorderBrush="Gray"
+                                Click="SupprimerFiltre"
+                                Content="Couleur"
+                                Cursor="Hand"
+                                Foreground="Gray">
+                                <Button.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="5" />
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                        </StackPanel>
 
                     </StackPanel>
-                    <DataGrid
-                        x:Name="dgrechercherproduit"
-                        Grid.Column="1"
-                        Width="1600"
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <DataGrid
+                        x:Name="dgProduit"
+                        Width="1000"
                         Height="300"
                         MinHeight="150"
                         Margin="0,50,0,0"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top"
                         AutoGenerateColumns="False"
+                        Grid.Column="0"
                         IsReadOnly="True"
-                        ItemsSource="{Binding LesProduits}">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn
-                                Width="200"
+                        ItemsSource="{Binding LesProduits}" Grid.ColumnSpan="2">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn
+                                Width="1*"
                                 Binding="{Binding NumProduit}"
                                 Header="Numero Produit" />
-                            <DataGridTextColumn
-                                Width="200"
+                                <DataGridTextColumn
+                                Width="1*"
                                 Binding="{Binding NomCouleur}"
                                 Header="Nom Couleur" />
-                            <DataGridTextColumn
-                                Width="200"
+                                <DataGridTextColumn
+                                Width="1*"
                                 Binding="{Binding NumCategorie}"
                                 Header="Numero Catégorie" />
-                            <DataGridTextColumn
-                                Width="200"
+                                <DataGridTextColumn
+                                Width="1*"
                                 Binding="{Binding NumFournisseur}"
                                 Header="Numero Fournisseur" />
-                            <DataGridTextColumn
-                                Width="200"
+                                <DataGridTextColumn
+                                Width="1*"
                                 Binding="{Binding NomProduit}"
                                 Header="Nom Produit" />
-                            <DataGridTextColumn
-                                Width="200"
+                                <DataGridTextColumn
+                                Width="1*"
+                                Binding="{Binding TailleProduit}"
+                                Header="Taille Produit" />
+                                <DataGridTextColumn
+                                Width="1*"
                                 Binding="{Binding DescriptionProduit}"
                                 Header="Descrption Produit" />
-                            <DataGridTextColumn
-                                Width="200"
+                                <DataGridTextColumn
+                                Width="1*"
                                 Binding="{Binding PrixVente}"
                                 Header="Prix Vente" />
-                            <DataGridTextColumn
-                                Width="200"
+                                <DataGridTextColumn
+                                Width="1*"
                                 Binding="{Binding PrixAchat}"
                                 Header="Prix Achat" />
-                        </DataGrid.Columns>
-                    </DataGrid>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <StackPanel
+                        x:Name="stkDetailProduite"
+                        Margin="80,80,80,80"  Grid.Column="1">
+                            <Label
+                            HorizontalAlignment="Center"
+                            Content="Détail des produits"
+                            FontSize="32"
+                            FontWeight="Bold"
+                            Foreground="#FF1C9E7F" />
+                            <!--<local:PanelProduit
+                            x:Name="UCPanelProduit"
+                            Grid.Column="1"
+                            DataContext="{Binding SelectedItem, ElementName=dgCommandes}" Height="548" />-->
+                            <StackPanel
+                            x:Name="stkBouttonP"
+                            HorizontalAlignment="Center"
+                            Orientation="Horizontal" Width="NaN" Height="NaN">
+                                <Button
+                                x:Name="butModifierP"
+                                Width="65"
+                                Height="65"
+                                ToolTip="Modifier le produit selectionné" Click="butModifierProduit_Click">
+                                    <Image Source="rsc\modifier.png" />
+                                </Button>
+                                <Button
+                                x:Name="butSupprimerP"
+                                Width="65"
+                                Height="65"
+                                Margin="10,0,0,0"
+                                ToolTip="Supprimer le produit selectionné" Click="butSupprimerProduit_Click">
+                                    <Image Source="rsc\supprimer.png" />
+                                </Button>
+                                <Button
+                                x:Name="butAjouterP"
+                                Width="65"
+                                Height="65"
+                                Margin="10,0,0,0"
+                                ToolTip="Ajouter un nouveau produit" Click="AjouterCommandeProduit_Click">
+                                    <Image Source="rsc\ajouter.png" />
+                                </Button>
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
                 </StackPanel>
-
             </TabItem>
         </TabControl>
     </Grid>
