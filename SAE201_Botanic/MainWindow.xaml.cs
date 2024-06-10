@@ -4,8 +4,6 @@ using System.Data;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Input;
-using System.Windows.Media;
 
 namespace SAE201_Botanic
 {
@@ -17,11 +15,12 @@ namespace SAE201_Botanic
         public ApplicationData data;
         public ObservableCollection<CommandeAchat> LesCommandes { get; set; }
         public ObservableCollection<Produit> LesProduits { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
             dgrechercherproduit.Items.Filter = ContientMotClefProduit;
-         
+
 
             LesCommandes = new ObservableCollection<CommandeAchat>();
             DataContext = this;
@@ -56,7 +55,7 @@ namespace SAE201_Botanic
                         DateTime.Parse(uneCommande["datelivraison"].ToString()),
                         uneCommande["modelivraison"].ToString());
 
-                    LesCommandes.Add(commande); 
+                    LesCommandes.Add(commande);
                 }
                 catch (Exception ex)
                 {
@@ -82,30 +81,24 @@ namespace SAE201_Botanic
                     TypeProduit typeProduit = new TypeProduit(int.Parse(unProduit["numType"].ToString()), unProduit["nomType"].ToString());
                     Categorie categorie = new Categorie(int.Parse(unProduit["numCategorie"].ToString()), typeProduit, unProduit["libelleCategorie"].ToString());
                     if (unProduit["codelocal"].ToString() == "True")
-                         codeLocal = true;
+                        codeLocal = true;
                     else
                         codeLocal = false;
                     Fournisseur fournisseur = new Fournisseur(int.Parse(unProduit["numFournisseur"].ToString()), unProduit["nomFournisseur"].ToString(), codeLocal);
-;                   Produit produit = new Produit(
-                        int.Parse(unProduit["numProduit"].ToString()), couleur, categorie, fournisseur, unProduit["nomProduit"].ToString(), unProduit["tailleProduit"].ToString(), unProduit["descriptionProduit"].ToString(), double.Parse(unProduit["prixVente"].ToString()), double.Parse(unProduit["prixAchat"].ToString()));
+                    ; Produit produit = new Produit(
+                                            int.Parse(unProduit["numProduit"].ToString()), couleur, categorie, fournisseur, unProduit["nomProduit"].ToString(), unProduit["tailleProduit"].ToString(), unProduit["descriptionProduit"].ToString(), double.Parse(unProduit["prixVente"].ToString()), double.Parse(unProduit["prixAchat"].ToString()));
                     LesProduits.Add(produit);
 
                     //Console.WriteLine("Chargement de la couleur : " + unProduit["nomCouleur"].ToString());
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erreur : " + ex.Message  +" "+ sql, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Erreur : " + ex.Message + " " + sql, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
 
         }
 
-        //private void textMotClef_TextChanged(object sender, TextChangedEventArgs e)
-        //{
-        //    CollectionViewSource.GetDefaultView(dgCommandes.ItemsSource).Refresh();
-
-        //    CollectionViewSource.GetDefaultView(dgrechercherproduit.ItemsSource).Refresh();
-        //}
         private void Deconnexion(object sender, RoutedEventArgs e)
         {
             if (MessageBox.Show("Vous allez être déconnecté", "Déconnexion", MessageBoxButton.OKCancel, MessageBoxImage.Information) is MessageBoxResult.OK)
@@ -130,14 +123,18 @@ namespace SAE201_Botanic
 
         private void OuvrirValiderCommande(object sender, RoutedEventArgs e)
         {
-            SelectionnerProduit selectProduitWin = new SelectionnerProduit();
-            //selectProduitWin.CommandeSelect = dgCommandes;
-            selectProduitWin.ShowDialog();
+            if (dgCommandes.SelectedItem != null)
+            {
+                SelectionnerProduit selectProduitWin = new SelectionnerProduit();
+                //selectProduitWin.CommandeSelect = dgCommandes;
+                selectProduitWin.ShowDialog();
+            }
+            else MessageBox.Show(this, "Veuillez selectionner une commande", "Attention", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void tbRechercheProduit_TextChanged(object sender, TextChangedEventArgs e)
         {
-            CollectionViewSource.GetDefaultView(dgrechercherproduit.ItemsSource).Refresh(); 
+            CollectionViewSource.GetDefaultView(dgrechercherproduit.ItemsSource).Refresh();
         }
 
         private bool ContientMotClefProduit(object obj)

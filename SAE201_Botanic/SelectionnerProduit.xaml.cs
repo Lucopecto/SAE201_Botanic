@@ -73,7 +73,6 @@ namespace SAE201_Botanic
             private bool estChoisi;
             public string Produit { get; set; }
             public int Quantity { get; set; }
-
             public bool EstChoisi
             {
                 get { return estChoisi; }

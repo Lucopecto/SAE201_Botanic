@@ -6,7 +6,7 @@
     xmlns:local="clr-namespace:SAE201_Botanic"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="Valider la commande"
-    Width="600"
+    Width="650"
     Height="500"
     Icon="rsc/icon_botanic.ico"
     ResizeMode="NoResize"
@@ -43,6 +43,10 @@
             ItemsSource="{Binding LesProduits}">
 
             <DataGrid.Columns>
+                <DataGridTextColumn
+                    Width="*"
+                    Binding="{Binding NumProduit}"
+                    Header="Numéro" />
                 <DataGridTextColumn
                     Width="*"
                     Binding="{Binding NomProduit}"
